@@ -7,9 +7,9 @@ import {
 	MenuItem,
 	MenuItems
 } from "@headlessui/react"
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline"
+import { Bars3Icon, BellIcon, XMarkIcon, MoonIcon, SunIcon } from "@heroicons/react/24/outline"
 import { Link } from "@tanstack/react-router"
-import { type FC } from "react"
+import { type FC, useEffect, useState } from "react"
 import { twx } from "src/shared/lib"
 
 const user = {
@@ -20,11 +20,9 @@ const user = {
 }
 
 const navigation = [
-	{ name: "Dashboard", href: "/", current: true },
-	{ name: "Team", href: "#", current: false },
-	{ name: "Projects", href: "#", current: false },
-	{ name: "Calendar", href: "#", current: false },
-	{ name: "Reports", href: "#", current: false }
+	{ name: "Components", href: "/", current: true },
+	{ name: "Templates", href: "/templates", current: false },
+	{ name: "Login", href: "/login", current: false }
 ]
 
 const userNavigation = [
@@ -34,9 +32,15 @@ const userNavigation = [
 ]
 
 const Navbar: FC = () => {
+	const [isDark, setIsDark] = useState(true)
+	
+	useEffect(() => {
+		document.body.classList.remove("light", "dark")
+		document.body.classList.add(isDark ? "dark" : "light")
+	}, [isDark])
 	return (
 		<>
-			<Disclosure as={"nav"} className={"bg-gray-800"}>
+			<Disclosure as={"nav"} className={"bg-gray-800 dark:bg-background border-b"}>
 				<div className={"mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"}>
 					<div className={"flex h-16 items-center justify-between"}>
 						<div className={"flex items-center"}>
@@ -56,7 +60,7 @@ const Navbar: FC = () => {
 											aria-current={item.current ? "page" : undefined}
 											className={twx(
 												item.current
-													? "bg-gray-900 text-white"
+													? "bg-gray-900 dark:bg-gray-800 text-white"
 													: "text-gray-300 hover:bg-gray-700 hover:text-white",
 												"rounded-md px-3 py-2 text-sm font-medium"
 											)}
@@ -79,7 +83,24 @@ const Navbar: FC = () => {
 									<span className={"sr-only"}>View notifications</span>
 									<BellIcon aria-hidden={"true"} className={"size-6"} />
 								</button>
-
+								
+								<button
+									type={"button"}
+									className={
+										"relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-3"
+									}
+									onClick={() => setIsDark(prev => !prev)}
+								>
+									<span className={"absolute -inset-1.5"} />
+									<span className={"sr-only"}>View notifications</span>
+									<MoonIcon aria-hidden={"true"} className={twx("size-6", {
+										"hidden": !isDark
+									})} />
+									<SunIcon aria-hidden={"true"} className={twx("size-6", {
+										"hidden": isDark
+									})} />
+								</button>
+								
 								{/* Profile dropdown */}
 								<Menu as={"div"} className={"relative ml-3"}>
 									<div>
@@ -140,7 +161,7 @@ const Navbar: FC = () => {
 						</div>
 					</div>
 				</div>
-
+				
 				<DisclosurePanel className={"md:hidden"}>
 					<div className={"space-y-1 px-2 pb-3 pt-2 sm:px-3"}>
 						{navigation.map((item) => (
