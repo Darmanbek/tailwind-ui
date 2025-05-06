@@ -4,7 +4,7 @@ import {
 	type ButtonHTMLAttributes,
 	type DetailedHTMLProps,
 	forwardRef,
-	ReactNode
+	type ReactNode
 } from "react"
 import { twx } from "src/shared/lib"
 
