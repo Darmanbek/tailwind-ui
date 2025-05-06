@@ -1,3 +1,4 @@
+import { ArrowPathIcon } from "@heroicons/react/24/outline"
 import { cva, type VariantProps } from "class-variance-authority"
 import {
 	type ButtonHTMLAttributes,
@@ -9,7 +10,7 @@ import { twx } from "src/shared/lib"
 
 // language=tailwindcss
 const buttonVariants = cva(
-	"flex justify-center font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+	"inline-flex justify-center items-center gap-1.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
 	{
 		variants: {
 			variant: {
@@ -20,15 +21,15 @@ const buttonVariants = cva(
 				soft: "bg-soft text-soft-foreground hover:bg-soft-hover focus-visible:outline-primary"
 			},
 			size: {
-				xs: "px-2 py-1 rounded text-xs",
-				sm: "px-2 py-1 rounded text-sm",
-				md: "px-3 py-1.5 rounded-md text-sm",
-				lg: "px-3 py-2 rounded-md text-sm",
-				xl: "px-3.5 py-2.5 rounded-md text-sm"
+				xs: "px-2 py-1 rounded text-xs [&_svg]:size-3",
+				sm: "px-2 py-1 rounded text-sm [&_svg]:size-4",
+				md: "px-3 py-1.5 rounded-md text-sm [&_svg]:size-4",
+				lg: "px-3 py-2 rounded-md text-sm [&_svg]:size-5",
+				xl: "px-3.5 py-2.5 rounded-md text-sm [&_svg]:size-5"
 			},
 			shape: {
 				default: "",
-				circle: "founded-[100%]",
+				circle: "rounded-[100%]",
 				rounded: "rounded-full"
 			}
 			// color: {
@@ -67,10 +68,24 @@ export interface ButtonProps
 		VariantProps<typeof buttonVariants> {
 	leadingIcon?: ReactNode
 	trailingIcon?: ReactNode
+	loading?: boolean
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, variant, size, shape, ...props }, ref) => {
+	(
+		{
+			className,
+			variant,
+			size,
+			shape,
+			children,
+			trailingIcon,
+			leadingIcon,
+			loading,
+			...props
+		},
+		ref
+	) => {
 		return (
 			<button
 				ref={ref}
@@ -83,7 +98,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 					})
 				)}
 				{...props}
-			/>
+			>
+				{trailingIcon}
+				{children}
+				{loading ? <ArrowPathIcon className={"animate-spin"} /> : leadingIcon}
+			</button>
 		)
 	}
 )

@@ -1,3 +1,4 @@
+import { CheckCircleIcon } from "@heroicons/react/24/solid"
 import { type FC } from "react"
 import { Button } from "src/shared/ui"
 
@@ -39,6 +40,23 @@ const Buttons: FC = () => {
 				</Button>
 			</div>
 			<div className={"flex gap-4 justify-center items-center"}>
+				<Button size={"xs"} variant={"secondary"} shape={"rounded"}>
+					Button XS
+				</Button>
+				<Button size={"sm"} variant={"secondary"} shape={"rounded"}>
+					Button SM
+				</Button>
+				<Button size={"md"} variant={"secondary"} shape={"rounded"}>
+					Button MD
+				</Button>
+				<Button size={"lg"} variant={"secondary"} shape={"rounded"}>
+					Button LG
+				</Button>
+				<Button size={"xl"} variant={"secondary"} shape={"rounded"}>
+					Button XL
+				</Button>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
 				<Button size={"xs"} variant={"secondary"}>
 					Button
 				</Button>
@@ -71,6 +89,64 @@ const Buttons: FC = () => {
 				<Button size={"xl"} variant={"soft"}>
 					Button
 				</Button>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button size={"xs"} trailingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"sm"} trailingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"md"} trailingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"lg"} trailingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"xl"} trailingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button size={"xs"} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"sm"} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"md"} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"lg"} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"xl"} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button size={"xs"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"sm"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"md"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"lg"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+				<Button size={"xl"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					Button
+				</Button>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button size={"xs"} leadingIcon={<CheckCircleIcon />} />
+				<Button size={"sm"} leadingIcon={<CheckCircleIcon />} />
+				<Button size={"md"} leadingIcon={<CheckCircleIcon />} />
+				<Button size={"lg"} leadingIcon={<CheckCircleIcon />} />
+				<Button size={"xl"} leadingIcon={<CheckCircleIcon />} />
 			</div>
 		</>
 	)

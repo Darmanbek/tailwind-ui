@@ -14,6 +14,7 @@ import { Route as rootRoute } from "./routes/__root"
 import { Route as LoginImport } from "./routes/login"
 import { Route as LayoutImport } from "./routes/_layout"
 import { Route as LayoutIndexImport } from "./routes/_layout/index"
+import { Route as LayoutTemplatesImport } from "./routes/_layout/templates"
 import { Route as LayoutProfileImport } from "./routes/_layout/profile"
 
 // Create/Update Routes
@@ -32,6 +33,12 @@ const LayoutRoute = LayoutImport.update({
 const LayoutIndexRoute = LayoutIndexImport.update({
   id: "/",
   path: "/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTemplatesRoute = LayoutTemplatesImport.update({
+  id: "/templates",
+  path: "/templates",
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -66,6 +73,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutProfileImport
       parentRoute: typeof LayoutImport
     }
+    "/_layout/templates": {
+      id: "/_layout/templates"
+      path: "/templates"
+      fullPath: "/templates"
+      preLoaderRoute: typeof LayoutTemplatesImport
+      parentRoute: typeof LayoutImport
+    }
     "/_layout/": {
       id: "/_layout/"
       path: "/"
@@ -80,11 +94,13 @@ declare module "@tanstack/react-router" {
 
 interface LayoutRouteChildren {
   LayoutProfileRoute: typeof LayoutProfileRoute
+  LayoutTemplatesRoute: typeof LayoutTemplatesRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutProfileRoute: LayoutProfileRoute,
+  LayoutTemplatesRoute: LayoutTemplatesRoute,
   LayoutIndexRoute: LayoutIndexRoute,
 }
 
@@ -95,12 +111,14 @@ export interface FileRoutesByFullPath {
   "": typeof LayoutRouteWithChildren
   "/login": typeof LoginRoute
   "/profile": typeof LayoutProfileRoute
+  "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
 }
 
 export interface FileRoutesByTo {
   "/login": typeof LoginRoute
   "/profile": typeof LayoutProfileRoute
+  "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
 }
 
@@ -109,15 +127,22 @@ export interface FileRoutesById {
   "/_layout": typeof LayoutRouteWithChildren
   "/login": typeof LoginRoute
   "/_layout/profile": typeof LayoutProfileRoute
+  "/_layout/templates": typeof LayoutTemplatesRoute
   "/_layout/": typeof LayoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "" | "/login" | "/profile" | "/"
+  fullPaths: "" | "/login" | "/profile" | "/templates" | "/"
   fileRoutesByTo: FileRoutesByTo
-  to: "/login" | "/profile" | "/"
-  id: "__root__" | "/_layout" | "/login" | "/_layout/profile" | "/_layout/"
+  to: "/login" | "/profile" | "/templates" | "/"
+  id:
+    | "__root__"
+    | "/_layout"
+    | "/login"
+    | "/_layout/profile"
+    | "/_layout/templates"
+    | "/_layout/"
   fileRoutesById: FileRoutesById
 }
 
@@ -149,6 +174,7 @@ export const routeTree = rootRoute
       "filePath": "_layout.tsx",
       "children": [
         "/_layout/profile",
+        "/_layout/templates",
         "/_layout/"
       ]
     },
@@ -157,6 +183,10 @@ export const routeTree = rootRoute
     },
     "/_layout/profile": {
       "filePath": "_layout/profile.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/templates": {
+      "filePath": "_layout/templates.tsx",
       "parent": "/_layout"
     },
     "/_layout/": {
