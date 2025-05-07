@@ -21,11 +21,11 @@ const buttonVariants = cva(
 				soft: "bg-soft text-soft-foreground hover:bg-soft-hover focus-visible:outline-primary"
 			},
 			size: {
-				xs: "px-2 py-1 rounded text-xs [&_svg]:size-3",
-				sm: "px-2 py-1 rounded text-sm [&_svg]:size-4",
-				md: "px-3 py-1.5 rounded-md text-sm [&_svg]:size-4",
-				lg: "px-3 py-2 rounded-md text-sm [&_svg]:size-5",
-				xl: "px-3.5 py-2.5 rounded-md text-sm [&_svg]:size-5"
+				xs: "px-2 [&.square]:px-1 py-1 rounded text-xs [&_svg]:size-3",
+				sm: "px-2 [&.square]:px-1 py-1 rounded text-sm [&_svg]:size-4",
+				md: "px-3 [&.square]:px-1.5 py-1.5 rounded-md text-sm [&_svg]:size-4",
+				lg: "px-3 [&.square]:px-2 py-2 rounded-md text-sm [&_svg]:size-5",
+				xl: "px-3.5 [&.square]:px-2.5 py-2.5 rounded-md text-sm [&_svg]:size-5"
 			},
 			shape: {
 				default: "",
@@ -69,7 +69,10 @@ export interface ButtonProps
 	leadingIcon?: ReactNode
 	trailingIcon?: ReactNode
 	loading?: boolean
+	color?: string
 }
+
+const loadingSpin = <ArrowPathIcon className={"animate-spin"} />
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 	(
@@ -95,13 +98,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						size,
 						shape,
 						className
-					})
+					}),
+					{
+						square: !children
+					}
 				)}
 				{...props}
 			>
-				{trailingIcon}
+				{loading && trailingIcon ? loadingSpin : trailingIcon}
 				{children}
-				{loading ? <ArrowPathIcon className={"animate-spin"} /> : leadingIcon}
+				{loading && !trailingIcon ? loadingSpin : leadingIcon}
 			</button>
 		)
 	}

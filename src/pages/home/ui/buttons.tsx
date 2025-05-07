@@ -148,6 +148,65 @@ const Buttons: FC = () => {
 				<Button size={"lg"} leadingIcon={<CheckCircleIcon />} />
 				<Button size={"xl"} leadingIcon={<CheckCircleIcon />} />
 			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button
+					size={"xs"}
+					shape={"circle"}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"sm"}
+					shape={"circle"}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"md"}
+					shape={"circle"}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"lg"}
+					shape={"circle"}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"xl"}
+					shape={"circle"}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+			</div>
+			<div className={"flex gap-4 justify-center items-center"}>
+				<Button
+					size={"xs"}
+					shape={"circle"}
+					loading={true}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"sm"}
+					shape={"circle"}
+					loading={true}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"md"}
+					shape={"circle"}
+					loading={true}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"lg"}
+					shape={"circle"}
+					loading={true}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+				<Button
+					size={"xl"}
+					shape={"circle"}
+					loading={true}
+					leadingIcon={<CheckCircleIcon />}
+				/>
+			</div>
 		</>
 	)
 }
