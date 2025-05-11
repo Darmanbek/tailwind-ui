@@ -1,6 +1,7 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router"
-import { MainContent, MainLayout, Navbar } from "src/shared/layout"
+import { MainContent, MainLayout, Navbar, Sidebar } from "src/shared/layout"
 import { Header } from "src/shared/layout/header.tsx"
+import { Container } from "src/shared/ui"
 
 export const Route = createFileRoute("/_layout")({
 	component: RouteComponent
@@ -12,9 +13,12 @@ function RouteComponent() {
 			<MainLayout>
 				<Navbar />
 				<Header />
-				<MainContent>
-					<Outlet />
-				</MainContent>
+				<Container className={"flex w-full"}>
+					<Sidebar />
+					<MainContent className={"flex-grow"}>
+						<Outlet />
+					</MainContent>
+				</Container>
 			</MainLayout>
 		</>
 	)

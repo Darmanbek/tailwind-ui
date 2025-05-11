@@ -11,15 +11,13 @@ const MainContent: FC<PropsWithChildren<MainContentProps>> = ({
 }) => {
 	return (
 		<>
-			<main>
-				<div
-					className={twx(
-						"mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8",
-						className
-					)}
-				>
-					{children}
-				</div>
+			<main
+				className={twx(
+					"mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8",
+					className
+				)}
+			>
+				{children}
 			</main>
 		</>
 	)
