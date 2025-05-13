@@ -9,7 +9,11 @@ const MainLayout: FC<PropsWithChildren<MainLayoutProps>> = ({
 	className,
 	children
 }) => {
-	return <div className={twx("min-h-full", className)}>{children}</div>
+	return (
+		<div className={twx("min-h-screen flex flex-col", className)}>
+			{children}
+		</div>
+	)
 }
 
 export { MainLayout }

@@ -1,0 +1,24 @@
+@tailwind base;
+
+@layer base {
+	.dark {
+		--background: theme("colors.gray.900");
+		--foreground: theme("colors.white");
+		--border: theme("colors.gray.600");
+		--border-hover: theme("colors.gray.500");
+
+		--primary: theme("colors.indigo.600");
+		--primary-hover: theme("colors.indigo.500");
+		--primary-foreground: theme("colors.white");
+
+		--secondary: theme("colors.gray.800");
+		--secondary-hover: theme("colors.gray.700");
+		--secondary-foreground: theme("colors.gray.300");
+
+		--soft: theme("colors.indigo.950");
+		--soft-hover: theme("colors.indigo.900");
+		--soft-foreground: theme("colors.indigo.600");
+
+		--placeholder: theme("colors.gray.600")
+	}
+}

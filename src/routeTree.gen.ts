@@ -16,6 +16,9 @@ import { Route as LayoutImport } from "./routes/_layout"
 import { Route as LayoutIndexImport } from "./routes/_layout/index"
 import { Route as LayoutTemplatesImport } from "./routes/_layout/templates"
 import { Route as LayoutProfileImport } from "./routes/_layout/profile"
+import { Route as LayoutComponentsIndexImport } from "./routes/_layout/components/index"
+import { Route as LayoutComponentsButtonsImport } from "./routes/_layout/components/buttons"
+import { Route as LayoutComponentsBadgesImport } from "./routes/_layout/components/badges"
 
 // Create/Update Routes
 
@@ -45,6 +48,24 @@ const LayoutTemplatesRoute = LayoutTemplatesImport.update({
 const LayoutProfileRoute = LayoutProfileImport.update({
   id: "/profile",
   path: "/profile",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsIndexRoute = LayoutComponentsIndexImport.update({
+  id: "/components/",
+  path: "/components/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsButtonsRoute = LayoutComponentsButtonsImport.update({
+  id: "/components/buttons",
+  path: "/components/buttons",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsBadgesRoute = LayoutComponentsBadgesImport.update({
+  id: "/components/badges",
+  path: "/components/badges",
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -87,6 +108,27 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
+    "/_layout/components/badges": {
+      id: "/_layout/components/badges"
+      path: "/components/badges"
+      fullPath: "/components/badges"
+      preLoaderRoute: typeof LayoutComponentsBadgesImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/buttons": {
+      id: "/_layout/components/buttons"
+      path: "/components/buttons"
+      fullPath: "/components/buttons"
+      preLoaderRoute: typeof LayoutComponentsButtonsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/": {
+      id: "/_layout/components/"
+      path: "/components"
+      fullPath: "/components"
+      preLoaderRoute: typeof LayoutComponentsIndexImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -96,12 +138,18 @@ interface LayoutRouteChildren {
   LayoutProfileRoute: typeof LayoutProfileRoute
   LayoutTemplatesRoute: typeof LayoutTemplatesRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutComponentsBadgesRoute: typeof LayoutComponentsBadgesRoute
+  LayoutComponentsButtonsRoute: typeof LayoutComponentsButtonsRoute
+  LayoutComponentsIndexRoute: typeof LayoutComponentsIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutProfileRoute: LayoutProfileRoute,
   LayoutTemplatesRoute: LayoutTemplatesRoute,
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutComponentsBadgesRoute: LayoutComponentsBadgesRoute,
+  LayoutComponentsButtonsRoute: LayoutComponentsButtonsRoute,
+  LayoutComponentsIndexRoute: LayoutComponentsIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -113,6 +161,9 @@ export interface FileRoutesByFullPath {
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
+  "/components/badges": typeof LayoutComponentsBadgesRoute
+  "/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/components": typeof LayoutComponentsIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -120,6 +171,9 @@ export interface FileRoutesByTo {
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
+  "/components/badges": typeof LayoutComponentsBadgesRoute
+  "/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/components": typeof LayoutComponentsIndexRoute
 }
 
 export interface FileRoutesById {
@@ -129,13 +183,31 @@ export interface FileRoutesById {
   "/_layout/profile": typeof LayoutProfileRoute
   "/_layout/templates": typeof LayoutTemplatesRoute
   "/_layout/": typeof LayoutIndexRoute
+  "/_layout/components/badges": typeof LayoutComponentsBadgesRoute
+  "/_layout/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/_layout/components/": typeof LayoutComponentsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "" | "/login" | "/profile" | "/templates" | "/"
+  fullPaths:
+    | ""
+    | "/login"
+    | "/profile"
+    | "/templates"
+    | "/"
+    | "/components/badges"
+    | "/components/buttons"
+    | "/components"
   fileRoutesByTo: FileRoutesByTo
-  to: "/login" | "/profile" | "/templates" | "/"
+  to:
+    | "/login"
+    | "/profile"
+    | "/templates"
+    | "/"
+    | "/components/badges"
+    | "/components/buttons"
+    | "/components"
   id:
     | "__root__"
     | "/_layout"
@@ -143,6 +215,9 @@ export interface FileRouteTypes {
     | "/_layout/profile"
     | "/_layout/templates"
     | "/_layout/"
+    | "/_layout/components/badges"
+    | "/_layout/components/buttons"
+    | "/_layout/components/"
   fileRoutesById: FileRoutesById
 }
 
@@ -175,7 +250,10 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/profile",
         "/_layout/templates",
-        "/_layout/"
+        "/_layout/",
+        "/_layout/components/badges",
+        "/_layout/components/buttons",
+        "/_layout/components/"
       ]
     },
     "/login": {
@@ -191,6 +269,18 @@ export const routeTree = rootRoute
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/badges": {
+      "filePath": "_layout/components/badges.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/buttons": {
+      "filePath": "_layout/components/buttons.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/": {
+      "filePath": "_layout/components/index.tsx",
       "parent": "/_layout"
     }
   }

@@ -5,9 +5,13 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				inter: "var(--font-inter)"
+				inter: "var(--font-inter)",
+				sans: [
+					"InterVariable",
+					...require("tailwindcss/defaultTheme").fontFamily.sans
+				]
 			},
-			colors: () => ({
+			colors: {
 				background: "var(--background)",
 				foreground: "var(--foreground)",
 				primary: {
@@ -30,7 +34,7 @@ export default {
 					hover: "var(--border-hover)"
 				},
 				placeholder: "var(--placeholder)"
-			})
+			}
 		}
 	},
 	plugins: []

@@ -14,8 +14,10 @@ import {
 	SunIcon,
 	XMarkIcon
 } from "@heroicons/react/24/outline"
-import { Link } from "@tanstack/react-router"
-import { type FC, useEffect, useState } from "react"
+import { Link, useLocation } from "@tanstack/react-router"
+import { type FC } from "react"
+import { menuData } from "src/shared/data"
+import { useToggleTheme } from "src/shared/hooks"
 import { twx } from "src/shared/lib"
 import { Container } from "src/shared/ui"
 
@@ -26,12 +28,6 @@ const user = {
 		"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
 }
 
-const navigation = [
-	{ name: "Components", href: "/", current: true },
-	{ name: "Templates", href: "/templates", current: false },
-	{ name: "Login", href: "/login", current: false }
-]
-
 const userNavigation = [
 	{ name: "Your Profile", href: "/profile" },
 	{ name: "Settings", href: "#" },
@@ -39,12 +35,9 @@ const userNavigation = [
 ]
 
 const Navbar: FC = () => {
-	const [isDark, setIsDark] = useState(true)
+	const { pathname } = useLocation()
+	const { isDark, toggleIsDark } = useToggleTheme()
 
-	useEffect(() => {
-		document.body.classList.remove("light", "dark")
-		document.body.classList.add(isDark ? "dark" : "light")
-	}, [isDark])
 	return (
 		<>
 			<Disclosure
@@ -63,13 +56,13 @@ const Navbar: FC = () => {
 							</div>
 							<div className={"hidden md:block"}>
 								<div className={"ml-10 flex items-baseline space-x-4"}>
-									{navigation.map((item) => (
+									{menuData.map((item) => (
 										<Link
 											key={item.name}
 											to={item.href}
-											aria-current={item.current ? "page" : undefined}
+											aria-current={pathname === item.href ? "page" : undefined}
 											className={twx(
-												item.current
+												pathname === item.href
 													? "bg-gray-900 dark:bg-gray-800 text-white"
 													: "text-gray-300 hover:bg-gray-700 hover:text-white",
 												"rounded-md px-3 py-2 text-sm font-medium"
@@ -99,7 +92,7 @@ const Navbar: FC = () => {
 									className={
 										"relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 ml-3"
 									}
-									onClick={() => setIsDark((prev) => !prev)}
+									onClick={toggleIsDark}
 								>
 									<span className={"absolute -inset-1.5"} />
 									<span className={"sr-only"}>Theme</span>
@@ -180,14 +173,14 @@ const Navbar: FC = () => {
 
 				<DisclosurePanel className={"md:hidden"}>
 					<div className={"space-y-1 px-2 pb-3 pt-2 sm:px-3"}>
-						{navigation.map((item) => (
+						{menuData.map((item) => (
 							<DisclosureButton
 								key={item.name}
 								as={"a"}
 								href={item.href}
-								aria-current={item.current ? "page" : undefined}
+								aria-current={pathname === item.href ? "page" : undefined}
 								className={twx(
-									item.current
+									pathname === item.href
 										? "bg-gray-900 dark:bg-gray-800 text-white"
 										: "text-gray-300 hover:bg-gray-700 hover:text-white",
 									"block rounded-md px-3 py-2 text-base font-medium"

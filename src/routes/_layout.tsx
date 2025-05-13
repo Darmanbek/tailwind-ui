@@ -13,9 +13,9 @@ function RouteComponent() {
 			<MainLayout>
 				<Navbar />
 				<Header />
-				<Container className={"flex w-full"}>
+				<Container className={"flex w-full flex-grow"}>
 					<Sidebar />
-					<MainContent className={"flex-grow"}>
+					<MainContent className={"flex-grow flex flex-col gap-6"}>
 						<Outlet />
 					</MainContent>
 				</Container>
