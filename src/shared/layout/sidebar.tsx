@@ -6,16 +6,17 @@ import { twx } from "src/shared/lib"
 const Sidebar: FC = () => {
 	const { pathname } = useLocation()
 
-	const menuItems = useMemo(() => {
-		const currentPathname = pathname.split("/").slice(0, 2).join("/")
-		return (
-			menuData.find((item) => item.href === currentPathname)?.children || []
-		)
-	}, [pathname])
+	const menuItems = useMemo(
+		() =>
+			menuData.find((item) => pathname.startsWith(item.href))?.children || [],
+		[pathname]
+	)
+
+	if (!menuItems.length) return null
 
 	return (
 		<>
-			<nav className={"border-l w-64 border-r p-6 min-h-full"}>
+			<nav className={"hidden md:block w-64 border-r p-6 min-h-full"}>
 				<div className={"flex flex-col space-y-1 w-full"}>
 					{menuItems.map((item) => (
 						<Link
