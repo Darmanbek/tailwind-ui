@@ -1,1 +1,1 @@
-export * from "./menu.data.ts"
+export * from "./menu.data.tsx"
