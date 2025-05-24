@@ -44,8 +44,39 @@ export const menuData: MenuGroupItem[] = [
 			{
 				name: "Button Groups",
 				Icon: Squares2X2Icon,
-				href: "/components/buttons-groups",
+				href: "/components/button-groups",
 				extra: "5"
+			},
+			{
+				name: "Inputs",
+				Icon: Squares2X2Icon,
+				href: "/components/inputs",
+				extra: "5"
+			},
+			{
+				name: "TextAreas",
+				Icon: Squares2X2Icon,
+				href: "/components/textareas",
+				extra: "1"
+			},
+			{
+				name: "Selects",
+				Icon: Squares2X2Icon,
+				href: "/components/selects",
+				extra: "1"
+			},
+			{
+				name: "List Box",
+				Icon: Squares2X2Icon,
+				href: "/components/list-box",
+				extra: "1"
+			},
+
+			{
+				name: "Switchs",
+				Icon: Squares2X2Icon,
+				href: "/components/switchs",
+				extra: "1"
 			}
 		]
 	},

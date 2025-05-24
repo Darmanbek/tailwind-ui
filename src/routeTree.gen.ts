@@ -17,7 +17,10 @@ import { Route as LayoutIndexImport } from "./routes/_layout/index"
 import { Route as LayoutTemplatesImport } from "./routes/_layout/templates"
 import { Route as LayoutProfileImport } from "./routes/_layout/profile"
 import { Route as LayoutComponentsIndexImport } from "./routes/_layout/components/index"
+import { Route as LayoutComponentsInputsImport } from "./routes/_layout/components/inputs"
+import { Route as LayoutComponentsDropdownsImport } from "./routes/_layout/components/dropdowns"
 import { Route as LayoutComponentsButtonsImport } from "./routes/_layout/components/buttons"
+import { Route as LayoutComponentsButtonGroupsImport } from "./routes/_layout/components/button-groups"
 import { Route as LayoutComponentsBadgesImport } from "./routes/_layout/components/badges"
 import { Route as LayoutComponentsAvatarsImport } from "./routes/_layout/components/avatars"
 
@@ -58,11 +61,30 @@ const LayoutComponentsIndexRoute = LayoutComponentsIndexImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutComponentsInputsRoute = LayoutComponentsInputsImport.update({
+  id: "/components/inputs",
+  path: "/components/inputs",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsDropdownsRoute = LayoutComponentsDropdownsImport.update({
+  id: "/components/dropdowns",
+  path: "/components/dropdowns",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutComponentsButtonsRoute = LayoutComponentsButtonsImport.update({
   id: "/components/buttons",
   path: "/components/buttons",
   getParentRoute: () => LayoutRoute,
 } as any)
+
+const LayoutComponentsButtonGroupsRoute =
+  LayoutComponentsButtonGroupsImport.update({
+    id: "/components/button-groups",
+    path: "/components/button-groups",
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutComponentsBadgesRoute = LayoutComponentsBadgesImport.update({
   id: "/components/badges",
@@ -129,11 +151,32 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutComponentsBadgesImport
       parentRoute: typeof LayoutImport
     }
+    "/_layout/components/button-groups": {
+      id: "/_layout/components/button-groups"
+      path: "/components/button-groups"
+      fullPath: "/components/button-groups"
+      preLoaderRoute: typeof LayoutComponentsButtonGroupsImport
+      parentRoute: typeof LayoutImport
+    }
     "/_layout/components/buttons": {
       id: "/_layout/components/buttons"
       path: "/components/buttons"
       fullPath: "/components/buttons"
       preLoaderRoute: typeof LayoutComponentsButtonsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/dropdowns": {
+      id: "/_layout/components/dropdowns"
+      path: "/components/dropdowns"
+      fullPath: "/components/dropdowns"
+      preLoaderRoute: typeof LayoutComponentsDropdownsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/inputs": {
+      id: "/_layout/components/inputs"
+      path: "/components/inputs"
+      fullPath: "/components/inputs"
+      preLoaderRoute: typeof LayoutComponentsInputsImport
       parentRoute: typeof LayoutImport
     }
     "/_layout/components/": {
@@ -154,7 +197,10 @@ interface LayoutRouteChildren {
   LayoutIndexRoute: typeof LayoutIndexRoute
   LayoutComponentsAvatarsRoute: typeof LayoutComponentsAvatarsRoute
   LayoutComponentsBadgesRoute: typeof LayoutComponentsBadgesRoute
+  LayoutComponentsButtonGroupsRoute: typeof LayoutComponentsButtonGroupsRoute
   LayoutComponentsButtonsRoute: typeof LayoutComponentsButtonsRoute
+  LayoutComponentsDropdownsRoute: typeof LayoutComponentsDropdownsRoute
+  LayoutComponentsInputsRoute: typeof LayoutComponentsInputsRoute
   LayoutComponentsIndexRoute: typeof LayoutComponentsIndexRoute
 }
 
@@ -164,7 +210,10 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIndexRoute: LayoutIndexRoute,
   LayoutComponentsAvatarsRoute: LayoutComponentsAvatarsRoute,
   LayoutComponentsBadgesRoute: LayoutComponentsBadgesRoute,
+  LayoutComponentsButtonGroupsRoute: LayoutComponentsButtonGroupsRoute,
   LayoutComponentsButtonsRoute: LayoutComponentsButtonsRoute,
+  LayoutComponentsDropdownsRoute: LayoutComponentsDropdownsRoute,
+  LayoutComponentsInputsRoute: LayoutComponentsInputsRoute,
   LayoutComponentsIndexRoute: LayoutComponentsIndexRoute,
 }
 
@@ -179,7 +228,10 @@ export interface FileRoutesByFullPath {
   "/": typeof LayoutIndexRoute
   "/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/components/badges": typeof LayoutComponentsBadgesRoute
+  "/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
   "/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
+  "/components/inputs": typeof LayoutComponentsInputsRoute
   "/components": typeof LayoutComponentsIndexRoute
 }
 
@@ -190,7 +242,10 @@ export interface FileRoutesByTo {
   "/": typeof LayoutIndexRoute
   "/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/components/badges": typeof LayoutComponentsBadgesRoute
+  "/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
   "/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
+  "/components/inputs": typeof LayoutComponentsInputsRoute
   "/components": typeof LayoutComponentsIndexRoute
 }
 
@@ -203,7 +258,10 @@ export interface FileRoutesById {
   "/_layout/": typeof LayoutIndexRoute
   "/_layout/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/_layout/components/badges": typeof LayoutComponentsBadgesRoute
+  "/_layout/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
   "/_layout/components/buttons": typeof LayoutComponentsButtonsRoute
+  "/_layout/components/dropdowns": typeof LayoutComponentsDropdownsRoute
+  "/_layout/components/inputs": typeof LayoutComponentsInputsRoute
   "/_layout/components/": typeof LayoutComponentsIndexRoute
 }
 
@@ -217,7 +275,10 @@ export interface FileRouteTypes {
     | "/"
     | "/components/avatars"
     | "/components/badges"
+    | "/components/button-groups"
     | "/components/buttons"
+    | "/components/dropdowns"
+    | "/components/inputs"
     | "/components"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -227,7 +288,10 @@ export interface FileRouteTypes {
     | "/"
     | "/components/avatars"
     | "/components/badges"
+    | "/components/button-groups"
     | "/components/buttons"
+    | "/components/dropdowns"
+    | "/components/inputs"
     | "/components"
   id:
     | "__root__"
@@ -238,7 +302,10 @@ export interface FileRouteTypes {
     | "/_layout/"
     | "/_layout/components/avatars"
     | "/_layout/components/badges"
+    | "/_layout/components/button-groups"
     | "/_layout/components/buttons"
+    | "/_layout/components/dropdowns"
+    | "/_layout/components/inputs"
     | "/_layout/components/"
   fileRoutesById: FileRoutesById
 }
@@ -275,7 +342,10 @@ export const routeTree = rootRoute
         "/_layout/",
         "/_layout/components/avatars",
         "/_layout/components/badges",
+        "/_layout/components/button-groups",
         "/_layout/components/buttons",
+        "/_layout/components/dropdowns",
+        "/_layout/components/inputs",
         "/_layout/components/"
       ]
     },
@@ -302,8 +372,20 @@ export const routeTree = rootRoute
       "filePath": "_layout/components/badges.tsx",
       "parent": "/_layout"
     },
+    "/_layout/components/button-groups": {
+      "filePath": "_layout/components/button-groups.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/components/buttons": {
       "filePath": "_layout/components/buttons.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/dropdowns": {
+      "filePath": "_layout/components/dropdowns.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/inputs": {
+      "filePath": "_layout/components/inputs.tsx",
       "parent": "/_layout"
     },
     "/_layout/components/": {
