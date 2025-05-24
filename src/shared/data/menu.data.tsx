@@ -21,7 +21,7 @@ export const menuData: MenuGroupItem[] = [
 				name: "Avatars",
 				Icon: Squares2X2Icon,
 				href: "/components/avatars",
-				extra: "11"
+				extra: "3"
 			},
 			{
 				name: "Badges",
@@ -45,13 +45,13 @@ export const menuData: MenuGroupItem[] = [
 				name: "Button Groups",
 				Icon: Squares2X2Icon,
 				href: "/components/button-groups",
-				extra: "5"
+				extra: "2"
 			},
 			{
 				name: "Inputs",
 				Icon: Squares2X2Icon,
 				href: "/components/inputs",
-				extra: "5"
+				extra: "1"
 			},
 			{
 				name: "TextAreas",
@@ -66,9 +66,9 @@ export const menuData: MenuGroupItem[] = [
 				extra: "1"
 			},
 			{
-				name: "List Box",
+				name: "Select Menus",
 				Icon: Squares2X2Icon,
-				href: "/components/list-box",
+				href: "/components/select-menus",
 				extra: "1"
 			},
 

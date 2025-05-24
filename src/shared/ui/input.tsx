@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 				className={
 					"outline " +
 					twx(
-						"block w-full max-w-80 rounded-md bg-background px-3 py-1.5 text-base text-foreground  outline-1 -outline-offset-1 outline-border placeholder:text-placeholder hover:outline-border-hover focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6",
+						"block w-full max-w-80 rounded-md bg-background px-3 py-1.5 text-base text-foreground outline-1 -outline-offset-1 outline-border placeholder:text-placeholder hover:outline-border-hover focus:outline-2 focus:-outline-offset-2 focus:outline-primary sm:text-sm/6",
 						className
 					)
 				}

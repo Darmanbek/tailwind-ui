@@ -17,6 +17,10 @@ import { Route as LayoutIndexImport } from "./routes/_layout/index"
 import { Route as LayoutTemplatesImport } from "./routes/_layout/templates"
 import { Route as LayoutProfileImport } from "./routes/_layout/profile"
 import { Route as LayoutComponentsIndexImport } from "./routes/_layout/components/index"
+import { Route as LayoutComponentsTextareasImport } from "./routes/_layout/components/textareas"
+import { Route as LayoutComponentsSwitchsImport } from "./routes/_layout/components/switchs"
+import { Route as LayoutComponentsSelectsImport } from "./routes/_layout/components/selects"
+import { Route as LayoutComponentsSelectMenusImport } from "./routes/_layout/components/select-menus"
 import { Route as LayoutComponentsInputsImport } from "./routes/_layout/components/inputs"
 import { Route as LayoutComponentsDropdownsImport } from "./routes/_layout/components/dropdowns"
 import { Route as LayoutComponentsButtonsImport } from "./routes/_layout/components/buttons"
@@ -60,6 +64,31 @@ const LayoutComponentsIndexRoute = LayoutComponentsIndexImport.update({
   path: "/components/",
   getParentRoute: () => LayoutRoute,
 } as any)
+
+const LayoutComponentsTextareasRoute = LayoutComponentsTextareasImport.update({
+  id: "/components/textareas",
+  path: "/components/textareas",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsSwitchsRoute = LayoutComponentsSwitchsImport.update({
+  id: "/components/switchs",
+  path: "/components/switchs",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsSelectsRoute = LayoutComponentsSelectsImport.update({
+  id: "/components/selects",
+  path: "/components/selects",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutComponentsSelectMenusRoute =
+  LayoutComponentsSelectMenusImport.update({
+    id: "/components/select-menus",
+    path: "/components/select-menus",
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutComponentsInputsRoute = LayoutComponentsInputsImport.update({
   id: "/components/inputs",
@@ -179,6 +208,34 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutComponentsInputsImport
       parentRoute: typeof LayoutImport
     }
+    "/_layout/components/select-menus": {
+      id: "/_layout/components/select-menus"
+      path: "/components/select-menus"
+      fullPath: "/components/select-menus"
+      preLoaderRoute: typeof LayoutComponentsSelectMenusImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/selects": {
+      id: "/_layout/components/selects"
+      path: "/components/selects"
+      fullPath: "/components/selects"
+      preLoaderRoute: typeof LayoutComponentsSelectsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/switchs": {
+      id: "/_layout/components/switchs"
+      path: "/components/switchs"
+      fullPath: "/components/switchs"
+      preLoaderRoute: typeof LayoutComponentsSwitchsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/components/textareas": {
+      id: "/_layout/components/textareas"
+      path: "/components/textareas"
+      fullPath: "/components/textareas"
+      preLoaderRoute: typeof LayoutComponentsTextareasImport
+      parentRoute: typeof LayoutImport
+    }
     "/_layout/components/": {
       id: "/_layout/components/"
       path: "/components"
@@ -201,6 +258,10 @@ interface LayoutRouteChildren {
   LayoutComponentsButtonsRoute: typeof LayoutComponentsButtonsRoute
   LayoutComponentsDropdownsRoute: typeof LayoutComponentsDropdownsRoute
   LayoutComponentsInputsRoute: typeof LayoutComponentsInputsRoute
+  LayoutComponentsSelectMenusRoute: typeof LayoutComponentsSelectMenusRoute
+  LayoutComponentsSelectsRoute: typeof LayoutComponentsSelectsRoute
+  LayoutComponentsSwitchsRoute: typeof LayoutComponentsSwitchsRoute
+  LayoutComponentsTextareasRoute: typeof LayoutComponentsTextareasRoute
   LayoutComponentsIndexRoute: typeof LayoutComponentsIndexRoute
 }
 
@@ -214,6 +275,10 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutComponentsButtonsRoute: LayoutComponentsButtonsRoute,
   LayoutComponentsDropdownsRoute: LayoutComponentsDropdownsRoute,
   LayoutComponentsInputsRoute: LayoutComponentsInputsRoute,
+  LayoutComponentsSelectMenusRoute: LayoutComponentsSelectMenusRoute,
+  LayoutComponentsSelectsRoute: LayoutComponentsSelectsRoute,
+  LayoutComponentsSwitchsRoute: LayoutComponentsSwitchsRoute,
+  LayoutComponentsTextareasRoute: LayoutComponentsTextareasRoute,
   LayoutComponentsIndexRoute: LayoutComponentsIndexRoute,
 }
 
@@ -232,6 +297,10 @@ export interface FileRoutesByFullPath {
   "/components/buttons": typeof LayoutComponentsButtonsRoute
   "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
   "/components/inputs": typeof LayoutComponentsInputsRoute
+  "/components/select-menus": typeof LayoutComponentsSelectMenusRoute
+  "/components/selects": typeof LayoutComponentsSelectsRoute
+  "/components/switchs": typeof LayoutComponentsSwitchsRoute
+  "/components/textareas": typeof LayoutComponentsTextareasRoute
   "/components": typeof LayoutComponentsIndexRoute
 }
 
@@ -246,6 +315,10 @@ export interface FileRoutesByTo {
   "/components/buttons": typeof LayoutComponentsButtonsRoute
   "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
   "/components/inputs": typeof LayoutComponentsInputsRoute
+  "/components/select-menus": typeof LayoutComponentsSelectMenusRoute
+  "/components/selects": typeof LayoutComponentsSelectsRoute
+  "/components/switchs": typeof LayoutComponentsSwitchsRoute
+  "/components/textareas": typeof LayoutComponentsTextareasRoute
   "/components": typeof LayoutComponentsIndexRoute
 }
 
@@ -262,6 +335,10 @@ export interface FileRoutesById {
   "/_layout/components/buttons": typeof LayoutComponentsButtonsRoute
   "/_layout/components/dropdowns": typeof LayoutComponentsDropdownsRoute
   "/_layout/components/inputs": typeof LayoutComponentsInputsRoute
+  "/_layout/components/select-menus": typeof LayoutComponentsSelectMenusRoute
+  "/_layout/components/selects": typeof LayoutComponentsSelectsRoute
+  "/_layout/components/switchs": typeof LayoutComponentsSwitchsRoute
+  "/_layout/components/textareas": typeof LayoutComponentsTextareasRoute
   "/_layout/components/": typeof LayoutComponentsIndexRoute
 }
 
@@ -279,6 +356,10 @@ export interface FileRouteTypes {
     | "/components/buttons"
     | "/components/dropdowns"
     | "/components/inputs"
+    | "/components/select-menus"
+    | "/components/selects"
+    | "/components/switchs"
+    | "/components/textareas"
     | "/components"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -292,6 +373,10 @@ export interface FileRouteTypes {
     | "/components/buttons"
     | "/components/dropdowns"
     | "/components/inputs"
+    | "/components/select-menus"
+    | "/components/selects"
+    | "/components/switchs"
+    | "/components/textareas"
     | "/components"
   id:
     | "__root__"
@@ -306,6 +391,10 @@ export interface FileRouteTypes {
     | "/_layout/components/buttons"
     | "/_layout/components/dropdowns"
     | "/_layout/components/inputs"
+    | "/_layout/components/select-menus"
+    | "/_layout/components/selects"
+    | "/_layout/components/switchs"
+    | "/_layout/components/textareas"
     | "/_layout/components/"
   fileRoutesById: FileRoutesById
 }
@@ -346,6 +435,10 @@ export const routeTree = rootRoute
         "/_layout/components/buttons",
         "/_layout/components/dropdowns",
         "/_layout/components/inputs",
+        "/_layout/components/select-menus",
+        "/_layout/components/selects",
+        "/_layout/components/switchs",
+        "/_layout/components/textareas",
         "/_layout/components/"
       ]
     },
@@ -386,6 +479,22 @@ export const routeTree = rootRoute
     },
     "/_layout/components/inputs": {
       "filePath": "_layout/components/inputs.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/select-menus": {
+      "filePath": "_layout/components/select-menus.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/selects": {
+      "filePath": "_layout/components/selects.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/switchs": {
+      "filePath": "_layout/components/switchs.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/textareas": {
+      "filePath": "_layout/components/textareas.tsx",
       "parent": "/_layout"
     },
     "/_layout/components/": {
