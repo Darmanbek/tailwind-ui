@@ -18,15 +18,34 @@ export const menuData: MenuGroupItem[] = [
 		href: "/components",
 		children: [
 			{
+				name: "Avatars",
+				Icon: Squares2X2Icon,
+				href: "/components/avatars",
+				extra: "11"
+			},
+			{
+				name: "Badges",
+				Icon: Squares2X2Icon,
+				href: "/components/badges",
+				extra: "1"
+			},
+			{
+				name: "Dropdowns",
+				Icon: Squares2X2Icon,
+				href: "/components/dropdowns",
+				extra: "5"
+			},
+			{
 				name: "Buttons",
 				Icon: Squares2X2Icon,
 				href: "/components/buttons",
 				extra: "11"
 			},
 			{
-				name: "Badges",
+				name: "Button Groups",
 				Icon: Squares2X2Icon,
-				href: "/components/badges"
+				href: "/components/buttons-groups",
+				extra: "5"
 			}
 		]
 	},

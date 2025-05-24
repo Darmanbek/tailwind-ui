@@ -19,6 +19,7 @@ import { Route as LayoutProfileImport } from "./routes/_layout/profile"
 import { Route as LayoutComponentsIndexImport } from "./routes/_layout/components/index"
 import { Route as LayoutComponentsButtonsImport } from "./routes/_layout/components/buttons"
 import { Route as LayoutComponentsBadgesImport } from "./routes/_layout/components/badges"
+import { Route as LayoutComponentsAvatarsImport } from "./routes/_layout/components/avatars"
 
 // Create/Update Routes
 
@@ -69,6 +70,12 @@ const LayoutComponentsBadgesRoute = LayoutComponentsBadgesImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutComponentsAvatarsRoute = LayoutComponentsAvatarsImport.update({
+  id: "/components/avatars",
+  path: "/components/avatars",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
@@ -108,6 +115,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
+    "/_layout/components/avatars": {
+      id: "/_layout/components/avatars"
+      path: "/components/avatars"
+      fullPath: "/components/avatars"
+      preLoaderRoute: typeof LayoutComponentsAvatarsImport
+      parentRoute: typeof LayoutImport
+    }
     "/_layout/components/badges": {
       id: "/_layout/components/badges"
       path: "/components/badges"
@@ -138,6 +152,7 @@ interface LayoutRouteChildren {
   LayoutProfileRoute: typeof LayoutProfileRoute
   LayoutTemplatesRoute: typeof LayoutTemplatesRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutComponentsAvatarsRoute: typeof LayoutComponentsAvatarsRoute
   LayoutComponentsBadgesRoute: typeof LayoutComponentsBadgesRoute
   LayoutComponentsButtonsRoute: typeof LayoutComponentsButtonsRoute
   LayoutComponentsIndexRoute: typeof LayoutComponentsIndexRoute
@@ -147,6 +162,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutProfileRoute: LayoutProfileRoute,
   LayoutTemplatesRoute: LayoutTemplatesRoute,
   LayoutIndexRoute: LayoutIndexRoute,
+  LayoutComponentsAvatarsRoute: LayoutComponentsAvatarsRoute,
   LayoutComponentsBadgesRoute: LayoutComponentsBadgesRoute,
   LayoutComponentsButtonsRoute: LayoutComponentsButtonsRoute,
   LayoutComponentsIndexRoute: LayoutComponentsIndexRoute,
@@ -161,6 +177,7 @@ export interface FileRoutesByFullPath {
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
+  "/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/components/badges": typeof LayoutComponentsBadgesRoute
   "/components/buttons": typeof LayoutComponentsButtonsRoute
   "/components": typeof LayoutComponentsIndexRoute
@@ -171,6 +188,7 @@ export interface FileRoutesByTo {
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
+  "/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/components/badges": typeof LayoutComponentsBadgesRoute
   "/components/buttons": typeof LayoutComponentsButtonsRoute
   "/components": typeof LayoutComponentsIndexRoute
@@ -183,6 +201,7 @@ export interface FileRoutesById {
   "/_layout/profile": typeof LayoutProfileRoute
   "/_layout/templates": typeof LayoutTemplatesRoute
   "/_layout/": typeof LayoutIndexRoute
+  "/_layout/components/avatars": typeof LayoutComponentsAvatarsRoute
   "/_layout/components/badges": typeof LayoutComponentsBadgesRoute
   "/_layout/components/buttons": typeof LayoutComponentsButtonsRoute
   "/_layout/components/": typeof LayoutComponentsIndexRoute
@@ -196,6 +215,7 @@ export interface FileRouteTypes {
     | "/profile"
     | "/templates"
     | "/"
+    | "/components/avatars"
     | "/components/badges"
     | "/components/buttons"
     | "/components"
@@ -205,6 +225,7 @@ export interface FileRouteTypes {
     | "/profile"
     | "/templates"
     | "/"
+    | "/components/avatars"
     | "/components/badges"
     | "/components/buttons"
     | "/components"
@@ -215,6 +236,7 @@ export interface FileRouteTypes {
     | "/_layout/profile"
     | "/_layout/templates"
     | "/_layout/"
+    | "/_layout/components/avatars"
     | "/_layout/components/badges"
     | "/_layout/components/buttons"
     | "/_layout/components/"
@@ -251,6 +273,7 @@ export const routeTree = rootRoute
         "/_layout/profile",
         "/_layout/templates",
         "/_layout/",
+        "/_layout/components/avatars",
         "/_layout/components/badges",
         "/_layout/components/buttons",
         "/_layout/components/"
@@ -269,6 +292,10 @@ export const routeTree = rootRoute
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/components/avatars": {
+      "filePath": "_layout/components/avatars.tsx",
       "parent": "/_layout"
     },
     "/_layout/components/badges": {

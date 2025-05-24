@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid"
 import { type FC } from "react"
-import { Button } from "src/shared/ui"
+import { Button, Card, Title } from "src/shared/ui"
 
 const ComponentsButtons: FC = () => {
 	return (
@@ -15,13 +15,21 @@ const ComponentsButtons: FC = () => {
 			{/*	<Button color={"purple"}>Button</Button>*/}
 			{/*	<Button color={"pink"}>Button</Button>*/}
 			{/*</div>*/}
-			<div className={"flex gap-4 justify-center items-center"}>
-				<Button size={"xs"}>Button XS</Button>
-				<Button size={"sm"}>Button SM</Button>
-				<Button size={"md"}>Button MD</Button>
-				<Button size={"lg"}>Button LG</Button>
-				<Button size={"xl"}>Button XL</Button>
-			</div>
+			<Card
+				header={
+					<div className={"flex gap-4 justify-between"}>
+						<Title level={"h4"}>Default Buttons</Title>
+					</div>
+				}
+			>
+				<div className={"flex gap-4 justify-center items-center"}>
+					<Button size={"xs"}>Button XS</Button>
+					<Button size={"sm"}>Button SM</Button>
+					<Button size={"md"}>Button MD</Button>
+					<Button size={"lg"}>Button LG</Button>
+					<Button size={"xl"}>Button XL</Button>
+				</div>
+			</Card>
 			<div className={"flex gap-4 justify-center items-center"}>
 				<Button size={"xs"} shape={"rounded"}>
 					Button XS

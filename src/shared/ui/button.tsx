@@ -10,15 +10,13 @@ import { twx } from "src/shared/lib"
 
 // language=tailwindcss
 const buttonVariants = cva(
-	"inline-flex justify-center items-center gap-1.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+	"inline-flex justify-center items-center gap-1.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
 	{
 		variants: {
 			variant: {
-				default:
-					"bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:outline-primary",
-				secondary:
-					"bg-secondary text-foreground dark:text-secondary-foreground hover:bg-secondary-hover border dark:border-transparent focus-visible:outline-primary",
-				soft: "bg-soft text-soft-foreground hover:bg-soft-hover focus-visible:outline-primary"
+				default: "bg-indigo-600 text-white hover:bg-indigo-500 ",
+				secondary: "bg-gray-50 text-gray-900 hover:bg-gray-100 border",
+				soft: "bg-indigo-50 text-indigo-600 hover:bg-gray-100"
 			},
 			size: {
 				xs: "px-2 [&.square]:px-1 py-1 rounded text-xs [&_svg]:size-3",

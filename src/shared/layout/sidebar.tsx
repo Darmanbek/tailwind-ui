@@ -2,6 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router"
 import { type FC, useMemo } from "react"
 import { menuData } from "src/shared/data"
 import { twx } from "src/shared/lib"
+import { Aside } from "src/shared/ui"
 
 const Sidebar: FC = () => {
 	const { pathname } = useLocation()
@@ -16,7 +17,7 @@ const Sidebar: FC = () => {
 
 	return (
 		<>
-			<nav className={"hidden md:block w-64 border-r p-6 min-h-full"}>
+			<Aside>
 				<div className={"flex flex-col space-y-1 w-full"}>
 					{menuItems.map(({ Icon, ...item }) => (
 						<Link
@@ -24,7 +25,7 @@ const Sidebar: FC = () => {
 							to={item.href}
 							aria-current={pathname === item.href ? "page" : undefined}
 							className={twx(
-								"text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 group flex gap-x-3 rounded-md p-2 text-sm font-semibold",
+								"text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
 								{
 									"px-3": !Icon,
 									"text-indigo-600 bg-indigo-50": pathname === item.href
@@ -42,7 +43,7 @@ const Sidebar: FC = () => {
 							{item.extra && (
 								<span
 									className={
-										"ml-auto w-9 min-w-max rounded-full bg-white px-2.5 py-0.5 text-center text-xs font-medium whitespace-nowrap color-gray-400 shadow oyv oyw"
+										"ml-auto w-9 min-w-max rounded-full bg-white px-2.5 py-0.5 text-center text-xs leading-5 font-medium whitespace-nowrap text-gray-600 ring-1 ring-gray-200 ring-inset"
 									}
 								>
 									{item.extra}
@@ -51,7 +52,7 @@ const Sidebar: FC = () => {
 						</Link>
 					))}
 				</div>
-			</nav>
+			</Aside>
 		</>
 	)
 }
