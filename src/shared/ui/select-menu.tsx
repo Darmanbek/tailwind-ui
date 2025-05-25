@@ -8,10 +8,18 @@ import {
 } from "@headlessui/react"
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid"
 import { CheckIcon } from "@heroicons/react/20/solid"
-import { forwardRef } from "react"
+import { type ElementType, forwardRef, useMemo } from "react"
 import { twx } from "src/shared/lib"
 
-export interface SelectMenuProps extends ListboxProps {
+export interface SelectMenuProps
+	extends ListboxProps<
+		ElementType,
+		{
+			value: string
+			avatar?: string
+			label: string
+		}
+	> {
 	label?: string
 	items?: {
 		value: string
@@ -19,12 +27,16 @@ export interface SelectMenuProps extends ListboxProps {
 		label: string
 	}[]
 	classNames?: {
+		wrapper?: string
 		select?: string
 	}
 }
 
 const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 	({ label, classNames, items, ...props }, ref) => {
+		const selectedItem = useMemo(() => {
+			return items?.find((el) => el.value === props?.value?.value)
+		}, [items, props.value])
 		return (
 			<Listbox ref={ref} {...props}>
 				{label && (
@@ -33,27 +45,38 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 					</Label>
 				)}
 				<div
-					className={twx("relative w-full", {
-						"mt-2": label
-					})}
+					className={twx(
+						"relative w-full",
+						{
+							"mt-2": label
+						},
+						classNames?.wrapper
+					)}
 				>
 					<ListboxButton
 						className={
 							"outline " +
 							twx(
-								"grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+								"grid w-full min-h-9 cursor-default grid-cols-1 rounded-md bg-white py-1.5 pr-2 pl-3 text-left text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6",
+								classNames?.select
 							)
 						}
 					>
 						<span
 							className={"col-start-1 row-start-1 flex items-center gap-3 pr-6"}
 						>
-							{/*<img*/}
-							{/*	alt={""}*/}
-							{/*	src={selected.avatar}*/}
-							{/*	className={"size-5 shrink-0 rounded-full"}*/}
-							{/*/>*/}
-							<span className={"block truncate"}>{props.value}</span>
+							{selectedItem ? (
+								<>
+									<img
+										alt={""}
+										src={selectedItem?.avatar}
+										className={"size-5 shrink-0 rounded-full"}
+									/>
+									<span className={"block truncate"}>
+										{selectedItem?.label}
+									</span>
+								</>
+							) : null}
 						</span>
 						<ChevronUpDownIcon
 							aria-hidden={"true"}
