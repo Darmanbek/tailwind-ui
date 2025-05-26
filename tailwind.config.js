@@ -34,6 +34,28 @@ export default {
 					hover: "var(--border-hover)"
 				},
 				placeholder: "var(--placeholder)"
+			},
+			keyframes: {
+				enter: {
+					from: {
+						transform: "translateX(150%)"
+					},
+					to: {
+						transform: "translateX(0)"
+					}
+				},
+				leave: {
+					from: {
+						transform: "translateX(0)"
+					},
+					to: {
+						transform: "translateX(150%)"
+					}
+				}
+			},
+			animation: {
+				enter: "enter 0.2s ease-out",
+				leave: "leave 0.15s ease-in forwards"
 			}
 		}
 	},

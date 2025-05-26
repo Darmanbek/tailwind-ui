@@ -24,7 +24,7 @@ const HeaderRight: FC = () => {
 					<button
 						type={"button"}
 						className={
-							"relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+							"relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white"
 						}
 					>
 						<span className={"absolute -inset-1.5"} />
@@ -34,21 +34,19 @@ const HeaderRight: FC = () => {
 
 					{/* Profile dropdown */}
 					<Menu as={"div"} className={"relative ml-3"}>
-						<div>
-							<MenuButton
-								className={
-									"relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-								}
-							>
-								<span className={"absolute -inset-1.5"} />
-								<span className={"sr-only"}>Open user menu</span>
-								<img
-									alt={""}
-									src={user.imageUrl}
-									className={"size-8 rounded-full"}
-								/>
-							</MenuButton>
-						</div>
+						<MenuButton
+							className={
+								"relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white"
+							}
+						>
+							<span className={"absolute -inset-1.5"} />
+							<span className={"sr-only"}>Open user menu</span>
+							<img
+								alt={""}
+								src={user.imageUrl}
+								className={"size-8 rounded-full"}
+							/>
+						</MenuButton>
 						<MenuItems
 							transition={true}
 							className={

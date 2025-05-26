@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Card, SelectMenu } from "src/shared/ui"
 import { Stack } from "src/widgets/stack"
 
-export const Route = createFileRoute("/_layout/components/select-menus")({
+export const Route = createFileRoute("/_layout/elements/select-menus")({
 	component: RouteComponent
 })
 

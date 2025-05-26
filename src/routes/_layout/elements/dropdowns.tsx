@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Card, Dropdown } from "src/shared/ui"
 import { Stack } from "src/widgets/stack"
 
-export const Route = createFileRoute("/_layout/components/dropdowns")({
+export const Route = createFileRoute("/_layout/elements/dropdowns")({
 	component: RouteComponent
 })
 

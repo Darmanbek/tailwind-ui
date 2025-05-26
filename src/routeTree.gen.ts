@@ -11,30 +11,40 @@
 // Import Routes
 
 import { Route as rootRoute } from "./routes/__root"
-import { Route as LoginImport } from "./routes/login"
 import { Route as LayoutImport } from "./routes/_layout"
 import { Route as LayoutIndexImport } from "./routes/_layout/index"
 import { Route as LayoutTemplatesImport } from "./routes/_layout/templates"
 import { Route as LayoutProfileImport } from "./routes/_layout/profile"
-import { Route as LayoutComponentsIndexImport } from "./routes/_layout/components/index"
-import { Route as LayoutComponentsTextareasImport } from "./routes/_layout/components/textareas"
-import { Route as LayoutComponentsSwitchsImport } from "./routes/_layout/components/switchs"
-import { Route as LayoutComponentsSelectsImport } from "./routes/_layout/components/selects"
-import { Route as LayoutComponentsSelectMenusImport } from "./routes/_layout/components/select-menus"
-import { Route as LayoutComponentsInputsImport } from "./routes/_layout/components/inputs"
-import { Route as LayoutComponentsDropdownsImport } from "./routes/_layout/components/dropdowns"
-import { Route as LayoutComponentsButtonsImport } from "./routes/_layout/components/buttons"
-import { Route as LayoutComponentsButtonGroupsImport } from "./routes/_layout/components/button-groups"
-import { Route as LayoutComponentsBadgesImport } from "./routes/_layout/components/badges"
-import { Route as LayoutComponentsAvatarsImport } from "./routes/_layout/components/avatars"
+import { Route as pageExamplesLoginImport } from "./routes/(page-examples)/login"
+import { Route as LayoutPageExamplesIndexImport } from "./routes/_layout/page-examples/index"
+import { Route as LayoutOverlaysIndexImport } from "./routes/_layout/overlays/index"
+import { Route as LayoutNavigationIndexImport } from "./routes/_layout/navigation/index"
+import { Route as LayoutListsIndexImport } from "./routes/_layout/lists/index"
+import { Route as LayoutLayoutIndexImport } from "./routes/_layout/layout/index"
+import { Route as LayoutHeadingsIndexImport } from "./routes/_layout/headings/index"
+import { Route as LayoutFormsIndexImport } from "./routes/_layout/forms/index"
+import { Route as LayoutFeedbackIndexImport } from "./routes/_layout/feedback/index"
+import { Route as LayoutElementsIndexImport } from "./routes/_layout/elements/index"
+import { Route as LayoutDataDisplayIndexImport } from "./routes/_layout/data-display/index"
+import { Route as LayoutApplicationShellsIndexImport } from "./routes/_layout/application-shells/index"
+import { Route as LayoutOverlaysNotificationsImport } from "./routes/_layout/overlays/notifications"
+import { Route as LayoutOverlaysModalDialogsImport } from "./routes/_layout/overlays/modal-dialogs"
+import { Route as LayoutOverlaysDrawersImport } from "./routes/_layout/overlays/drawers"
+import { Route as LayoutLayoutDividersImport } from "./routes/_layout/layout/dividers"
+import { Route as LayoutFeedbackEmptyStatesImport } from "./routes/_layout/feedback/empty-states"
+import { Route as LayoutFeedbackAlertsImport } from "./routes/_layout/feedback/alerts"
+import { Route as LayoutElementsTextareasImport } from "./routes/_layout/elements/textareas"
+import { Route as LayoutElementsSwitchsImport } from "./routes/_layout/elements/switchs"
+import { Route as LayoutElementsSelectsImport } from "./routes/_layout/elements/selects"
+import { Route as LayoutElementsSelectMenusImport } from "./routes/_layout/elements/select-menus"
+import { Route as LayoutElementsInputsImport } from "./routes/_layout/elements/inputs"
+import { Route as LayoutElementsDropdownsImport } from "./routes/_layout/elements/dropdowns"
+import { Route as LayoutElementsButtonsImport } from "./routes/_layout/elements/buttons"
+import { Route as LayoutElementsButtonGroupsImport } from "./routes/_layout/elements/button-groups"
+import { Route as LayoutElementsBadgesImport } from "./routes/_layout/elements/badges"
+import { Route as LayoutElementsAvatarsImport } from "./routes/_layout/elements/avatars"
 
 // Create/Update Routes
-
-const LoginRoute = LoginImport.update({
-  id: "/login",
-  path: "/login",
-  getParentRoute: () => rootRoute,
-} as any)
 
 const LayoutRoute = LayoutImport.update({
   id: "/_layout",
@@ -59,71 +69,177 @@ const LayoutProfileRoute = LayoutProfileImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsIndexRoute = LayoutComponentsIndexImport.update({
-  id: "/components/",
-  path: "/components/",
+const pageExamplesLoginRoute = pageExamplesLoginImport.update({
+  id: "/(page-examples)/login",
+  path: "/login",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LayoutPageExamplesIndexRoute = LayoutPageExamplesIndexImport.update({
+  id: "/page-examples/",
+  path: "/page-examples/",
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsTextareasRoute = LayoutComponentsTextareasImport.update({
-  id: "/components/textareas",
-  path: "/components/textareas",
+const LayoutOverlaysIndexRoute = LayoutOverlaysIndexImport.update({
+  id: "/overlays/",
+  path: "/overlays/",
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsSwitchsRoute = LayoutComponentsSwitchsImport.update({
-  id: "/components/switchs",
-  path: "/components/switchs",
+const LayoutNavigationIndexRoute = LayoutNavigationIndexImport.update({
+  id: "/navigation/",
+  path: "/navigation/",
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsSelectsRoute = LayoutComponentsSelectsImport.update({
-  id: "/components/selects",
-  path: "/components/selects",
+const LayoutListsIndexRoute = LayoutListsIndexImport.update({
+  id: "/lists/",
+  path: "/lists/",
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsSelectMenusRoute =
-  LayoutComponentsSelectMenusImport.update({
-    id: "/components/select-menus",
-    path: "/components/select-menus",
+const LayoutLayoutIndexRoute = LayoutLayoutIndexImport.update({
+  id: "/layout/",
+  path: "/layout/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutHeadingsIndexRoute = LayoutHeadingsIndexImport.update({
+  id: "/headings/",
+  path: "/headings/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormsIndexRoute = LayoutFormsIndexImport.update({
+  id: "/forms/",
+  path: "/forms/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFeedbackIndexRoute = LayoutFeedbackIndexImport.update({
+  id: "/feedback/",
+  path: "/feedback/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsIndexRoute = LayoutElementsIndexImport.update({
+  id: "/elements/",
+  path: "/elements/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDataDisplayIndexRoute = LayoutDataDisplayIndexImport.update({
+  id: "/data-display/",
+  path: "/data-display/",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutApplicationShellsIndexRoute =
+  LayoutApplicationShellsIndexImport.update({
+    id: "/application-shells/",
+    path: "/application-shells/",
     getParentRoute: () => LayoutRoute,
   } as any)
 
-const LayoutComponentsInputsRoute = LayoutComponentsInputsImport.update({
-  id: "/components/inputs",
-  path: "/components/inputs",
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutComponentsDropdownsRoute = LayoutComponentsDropdownsImport.update({
-  id: "/components/dropdowns",
-  path: "/components/dropdowns",
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutComponentsButtonsRoute = LayoutComponentsButtonsImport.update({
-  id: "/components/buttons",
-  path: "/components/buttons",
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutComponentsButtonGroupsRoute =
-  LayoutComponentsButtonGroupsImport.update({
-    id: "/components/button-groups",
-    path: "/components/button-groups",
+const LayoutOverlaysNotificationsRoute =
+  LayoutOverlaysNotificationsImport.update({
+    id: "/overlays/notifications",
+    path: "/overlays/notifications",
     getParentRoute: () => LayoutRoute,
   } as any)
 
-const LayoutComponentsBadgesRoute = LayoutComponentsBadgesImport.update({
-  id: "/components/badges",
-  path: "/components/badges",
+const LayoutOverlaysModalDialogsRoute = LayoutOverlaysModalDialogsImport.update(
+  {
+    id: "/overlays/modal-dialogs",
+    path: "/overlays/modal-dialogs",
+    getParentRoute: () => LayoutRoute,
+  } as any,
+)
+
+const LayoutOverlaysDrawersRoute = LayoutOverlaysDrawersImport.update({
+  id: "/overlays/drawers",
+  path: "/overlays/drawers",
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutComponentsAvatarsRoute = LayoutComponentsAvatarsImport.update({
-  id: "/components/avatars",
-  path: "/components/avatars",
+const LayoutLayoutDividersRoute = LayoutLayoutDividersImport.update({
+  id: "/layout/dividers",
+  path: "/layout/dividers",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFeedbackEmptyStatesRoute = LayoutFeedbackEmptyStatesImport.update({
+  id: "/feedback/empty-states",
+  path: "/feedback/empty-states",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFeedbackAlertsRoute = LayoutFeedbackAlertsImport.update({
+  id: "/feedback/alerts",
+  path: "/feedback/alerts",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsTextareasRoute = LayoutElementsTextareasImport.update({
+  id: "/elements/textareas",
+  path: "/elements/textareas",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsSwitchsRoute = LayoutElementsSwitchsImport.update({
+  id: "/elements/switchs",
+  path: "/elements/switchs",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsSelectsRoute = LayoutElementsSelectsImport.update({
+  id: "/elements/selects",
+  path: "/elements/selects",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsSelectMenusRoute = LayoutElementsSelectMenusImport.update({
+  id: "/elements/select-menus",
+  path: "/elements/select-menus",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsInputsRoute = LayoutElementsInputsImport.update({
+  id: "/elements/inputs",
+  path: "/elements/inputs",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsDropdownsRoute = LayoutElementsDropdownsImport.update({
+  id: "/elements/dropdowns",
+  path: "/elements/dropdowns",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsButtonsRoute = LayoutElementsButtonsImport.update({
+  id: "/elements/buttons",
+  path: "/elements/buttons",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsButtonGroupsRoute = LayoutElementsButtonGroupsImport.update(
+  {
+    id: "/elements/button-groups",
+    path: "/elements/button-groups",
+    getParentRoute: () => LayoutRoute,
+  } as any,
+)
+
+const LayoutElementsBadgesRoute = LayoutElementsBadgesImport.update({
+  id: "/elements/badges",
+  path: "/elements/badges",
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutElementsAvatarsRoute = LayoutElementsAvatarsImport.update({
+  id: "/elements/avatars",
+  path: "/elements/avatars",
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -138,11 +254,11 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
-    "/login": {
-      id: "/login"
+    "/(page-examples)/login": {
+      id: "/(page-examples)/login"
       path: "/login"
       fullPath: "/login"
-      preLoaderRoute: typeof LoginImport
+      preLoaderRoute: typeof pageExamplesLoginImport
       parentRoute: typeof rootRoute
     }
     "/_layout/profile": {
@@ -166,81 +282,193 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/avatars": {
-      id: "/_layout/components/avatars"
-      path: "/components/avatars"
-      fullPath: "/components/avatars"
-      preLoaderRoute: typeof LayoutComponentsAvatarsImport
+    "/_layout/elements/avatars": {
+      id: "/_layout/elements/avatars"
+      path: "/elements/avatars"
+      fullPath: "/elements/avatars"
+      preLoaderRoute: typeof LayoutElementsAvatarsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/badges": {
-      id: "/_layout/components/badges"
-      path: "/components/badges"
-      fullPath: "/components/badges"
-      preLoaderRoute: typeof LayoutComponentsBadgesImport
+    "/_layout/elements/badges": {
+      id: "/_layout/elements/badges"
+      path: "/elements/badges"
+      fullPath: "/elements/badges"
+      preLoaderRoute: typeof LayoutElementsBadgesImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/button-groups": {
-      id: "/_layout/components/button-groups"
-      path: "/components/button-groups"
-      fullPath: "/components/button-groups"
-      preLoaderRoute: typeof LayoutComponentsButtonGroupsImport
+    "/_layout/elements/button-groups": {
+      id: "/_layout/elements/button-groups"
+      path: "/elements/button-groups"
+      fullPath: "/elements/button-groups"
+      preLoaderRoute: typeof LayoutElementsButtonGroupsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/buttons": {
-      id: "/_layout/components/buttons"
-      path: "/components/buttons"
-      fullPath: "/components/buttons"
-      preLoaderRoute: typeof LayoutComponentsButtonsImport
+    "/_layout/elements/buttons": {
+      id: "/_layout/elements/buttons"
+      path: "/elements/buttons"
+      fullPath: "/elements/buttons"
+      preLoaderRoute: typeof LayoutElementsButtonsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/dropdowns": {
-      id: "/_layout/components/dropdowns"
-      path: "/components/dropdowns"
-      fullPath: "/components/dropdowns"
-      preLoaderRoute: typeof LayoutComponentsDropdownsImport
+    "/_layout/elements/dropdowns": {
+      id: "/_layout/elements/dropdowns"
+      path: "/elements/dropdowns"
+      fullPath: "/elements/dropdowns"
+      preLoaderRoute: typeof LayoutElementsDropdownsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/inputs": {
-      id: "/_layout/components/inputs"
-      path: "/components/inputs"
-      fullPath: "/components/inputs"
-      preLoaderRoute: typeof LayoutComponentsInputsImport
+    "/_layout/elements/inputs": {
+      id: "/_layout/elements/inputs"
+      path: "/elements/inputs"
+      fullPath: "/elements/inputs"
+      preLoaderRoute: typeof LayoutElementsInputsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/select-menus": {
-      id: "/_layout/components/select-menus"
-      path: "/components/select-menus"
-      fullPath: "/components/select-menus"
-      preLoaderRoute: typeof LayoutComponentsSelectMenusImport
+    "/_layout/elements/select-menus": {
+      id: "/_layout/elements/select-menus"
+      path: "/elements/select-menus"
+      fullPath: "/elements/select-menus"
+      preLoaderRoute: typeof LayoutElementsSelectMenusImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/selects": {
-      id: "/_layout/components/selects"
-      path: "/components/selects"
-      fullPath: "/components/selects"
-      preLoaderRoute: typeof LayoutComponentsSelectsImport
+    "/_layout/elements/selects": {
+      id: "/_layout/elements/selects"
+      path: "/elements/selects"
+      fullPath: "/elements/selects"
+      preLoaderRoute: typeof LayoutElementsSelectsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/switchs": {
-      id: "/_layout/components/switchs"
-      path: "/components/switchs"
-      fullPath: "/components/switchs"
-      preLoaderRoute: typeof LayoutComponentsSwitchsImport
+    "/_layout/elements/switchs": {
+      id: "/_layout/elements/switchs"
+      path: "/elements/switchs"
+      fullPath: "/elements/switchs"
+      preLoaderRoute: typeof LayoutElementsSwitchsImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/textareas": {
-      id: "/_layout/components/textareas"
-      path: "/components/textareas"
-      fullPath: "/components/textareas"
-      preLoaderRoute: typeof LayoutComponentsTextareasImport
+    "/_layout/elements/textareas": {
+      id: "/_layout/elements/textareas"
+      path: "/elements/textareas"
+      fullPath: "/elements/textareas"
+      preLoaderRoute: typeof LayoutElementsTextareasImport
       parentRoute: typeof LayoutImport
     }
-    "/_layout/components/": {
-      id: "/_layout/components/"
-      path: "/components"
-      fullPath: "/components"
-      preLoaderRoute: typeof LayoutComponentsIndexImport
+    "/_layout/feedback/alerts": {
+      id: "/_layout/feedback/alerts"
+      path: "/feedback/alerts"
+      fullPath: "/feedback/alerts"
+      preLoaderRoute: typeof LayoutFeedbackAlertsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/feedback/empty-states": {
+      id: "/_layout/feedback/empty-states"
+      path: "/feedback/empty-states"
+      fullPath: "/feedback/empty-states"
+      preLoaderRoute: typeof LayoutFeedbackEmptyStatesImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/layout/dividers": {
+      id: "/_layout/layout/dividers"
+      path: "/layout/dividers"
+      fullPath: "/layout/dividers"
+      preLoaderRoute: typeof LayoutLayoutDividersImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/overlays/drawers": {
+      id: "/_layout/overlays/drawers"
+      path: "/overlays/drawers"
+      fullPath: "/overlays/drawers"
+      preLoaderRoute: typeof LayoutOverlaysDrawersImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/overlays/modal-dialogs": {
+      id: "/_layout/overlays/modal-dialogs"
+      path: "/overlays/modal-dialogs"
+      fullPath: "/overlays/modal-dialogs"
+      preLoaderRoute: typeof LayoutOverlaysModalDialogsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/overlays/notifications": {
+      id: "/_layout/overlays/notifications"
+      path: "/overlays/notifications"
+      fullPath: "/overlays/notifications"
+      preLoaderRoute: typeof LayoutOverlaysNotificationsImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/application-shells/": {
+      id: "/_layout/application-shells/"
+      path: "/application-shells"
+      fullPath: "/application-shells"
+      preLoaderRoute: typeof LayoutApplicationShellsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/data-display/": {
+      id: "/_layout/data-display/"
+      path: "/data-display"
+      fullPath: "/data-display"
+      preLoaderRoute: typeof LayoutDataDisplayIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/elements/": {
+      id: "/_layout/elements/"
+      path: "/elements"
+      fullPath: "/elements"
+      preLoaderRoute: typeof LayoutElementsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/feedback/": {
+      id: "/_layout/feedback/"
+      path: "/feedback"
+      fullPath: "/feedback"
+      preLoaderRoute: typeof LayoutFeedbackIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/forms/": {
+      id: "/_layout/forms/"
+      path: "/forms"
+      fullPath: "/forms"
+      preLoaderRoute: typeof LayoutFormsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/headings/": {
+      id: "/_layout/headings/"
+      path: "/headings"
+      fullPath: "/headings"
+      preLoaderRoute: typeof LayoutHeadingsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/layout/": {
+      id: "/_layout/layout/"
+      path: "/layout"
+      fullPath: "/layout"
+      preLoaderRoute: typeof LayoutLayoutIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/lists/": {
+      id: "/_layout/lists/"
+      path: "/lists"
+      fullPath: "/lists"
+      preLoaderRoute: typeof LayoutListsIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/navigation/": {
+      id: "/_layout/navigation/"
+      path: "/navigation"
+      fullPath: "/navigation"
+      preLoaderRoute: typeof LayoutNavigationIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/overlays/": {
+      id: "/_layout/overlays/"
+      path: "/overlays"
+      fullPath: "/overlays"
+      preLoaderRoute: typeof LayoutOverlaysIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    "/_layout/page-examples/": {
+      id: "/_layout/page-examples/"
+      path: "/page-examples"
+      fullPath: "/page-examples"
+      preLoaderRoute: typeof LayoutPageExamplesIndexImport
       parentRoute: typeof LayoutImport
     }
   }
@@ -252,34 +480,66 @@ interface LayoutRouteChildren {
   LayoutProfileRoute: typeof LayoutProfileRoute
   LayoutTemplatesRoute: typeof LayoutTemplatesRoute
   LayoutIndexRoute: typeof LayoutIndexRoute
-  LayoutComponentsAvatarsRoute: typeof LayoutComponentsAvatarsRoute
-  LayoutComponentsBadgesRoute: typeof LayoutComponentsBadgesRoute
-  LayoutComponentsButtonGroupsRoute: typeof LayoutComponentsButtonGroupsRoute
-  LayoutComponentsButtonsRoute: typeof LayoutComponentsButtonsRoute
-  LayoutComponentsDropdownsRoute: typeof LayoutComponentsDropdownsRoute
-  LayoutComponentsInputsRoute: typeof LayoutComponentsInputsRoute
-  LayoutComponentsSelectMenusRoute: typeof LayoutComponentsSelectMenusRoute
-  LayoutComponentsSelectsRoute: typeof LayoutComponentsSelectsRoute
-  LayoutComponentsSwitchsRoute: typeof LayoutComponentsSwitchsRoute
-  LayoutComponentsTextareasRoute: typeof LayoutComponentsTextareasRoute
-  LayoutComponentsIndexRoute: typeof LayoutComponentsIndexRoute
+  LayoutElementsAvatarsRoute: typeof LayoutElementsAvatarsRoute
+  LayoutElementsBadgesRoute: typeof LayoutElementsBadgesRoute
+  LayoutElementsButtonGroupsRoute: typeof LayoutElementsButtonGroupsRoute
+  LayoutElementsButtonsRoute: typeof LayoutElementsButtonsRoute
+  LayoutElementsDropdownsRoute: typeof LayoutElementsDropdownsRoute
+  LayoutElementsInputsRoute: typeof LayoutElementsInputsRoute
+  LayoutElementsSelectMenusRoute: typeof LayoutElementsSelectMenusRoute
+  LayoutElementsSelectsRoute: typeof LayoutElementsSelectsRoute
+  LayoutElementsSwitchsRoute: typeof LayoutElementsSwitchsRoute
+  LayoutElementsTextareasRoute: typeof LayoutElementsTextareasRoute
+  LayoutFeedbackAlertsRoute: typeof LayoutFeedbackAlertsRoute
+  LayoutFeedbackEmptyStatesRoute: typeof LayoutFeedbackEmptyStatesRoute
+  LayoutLayoutDividersRoute: typeof LayoutLayoutDividersRoute
+  LayoutOverlaysDrawersRoute: typeof LayoutOverlaysDrawersRoute
+  LayoutOverlaysModalDialogsRoute: typeof LayoutOverlaysModalDialogsRoute
+  LayoutOverlaysNotificationsRoute: typeof LayoutOverlaysNotificationsRoute
+  LayoutApplicationShellsIndexRoute: typeof LayoutApplicationShellsIndexRoute
+  LayoutDataDisplayIndexRoute: typeof LayoutDataDisplayIndexRoute
+  LayoutElementsIndexRoute: typeof LayoutElementsIndexRoute
+  LayoutFeedbackIndexRoute: typeof LayoutFeedbackIndexRoute
+  LayoutFormsIndexRoute: typeof LayoutFormsIndexRoute
+  LayoutHeadingsIndexRoute: typeof LayoutHeadingsIndexRoute
+  LayoutLayoutIndexRoute: typeof LayoutLayoutIndexRoute
+  LayoutListsIndexRoute: typeof LayoutListsIndexRoute
+  LayoutNavigationIndexRoute: typeof LayoutNavigationIndexRoute
+  LayoutOverlaysIndexRoute: typeof LayoutOverlaysIndexRoute
+  LayoutPageExamplesIndexRoute: typeof LayoutPageExamplesIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutProfileRoute: LayoutProfileRoute,
   LayoutTemplatesRoute: LayoutTemplatesRoute,
   LayoutIndexRoute: LayoutIndexRoute,
-  LayoutComponentsAvatarsRoute: LayoutComponentsAvatarsRoute,
-  LayoutComponentsBadgesRoute: LayoutComponentsBadgesRoute,
-  LayoutComponentsButtonGroupsRoute: LayoutComponentsButtonGroupsRoute,
-  LayoutComponentsButtonsRoute: LayoutComponentsButtonsRoute,
-  LayoutComponentsDropdownsRoute: LayoutComponentsDropdownsRoute,
-  LayoutComponentsInputsRoute: LayoutComponentsInputsRoute,
-  LayoutComponentsSelectMenusRoute: LayoutComponentsSelectMenusRoute,
-  LayoutComponentsSelectsRoute: LayoutComponentsSelectsRoute,
-  LayoutComponentsSwitchsRoute: LayoutComponentsSwitchsRoute,
-  LayoutComponentsTextareasRoute: LayoutComponentsTextareasRoute,
-  LayoutComponentsIndexRoute: LayoutComponentsIndexRoute,
+  LayoutElementsAvatarsRoute: LayoutElementsAvatarsRoute,
+  LayoutElementsBadgesRoute: LayoutElementsBadgesRoute,
+  LayoutElementsButtonGroupsRoute: LayoutElementsButtonGroupsRoute,
+  LayoutElementsButtonsRoute: LayoutElementsButtonsRoute,
+  LayoutElementsDropdownsRoute: LayoutElementsDropdownsRoute,
+  LayoutElementsInputsRoute: LayoutElementsInputsRoute,
+  LayoutElementsSelectMenusRoute: LayoutElementsSelectMenusRoute,
+  LayoutElementsSelectsRoute: LayoutElementsSelectsRoute,
+  LayoutElementsSwitchsRoute: LayoutElementsSwitchsRoute,
+  LayoutElementsTextareasRoute: LayoutElementsTextareasRoute,
+  LayoutFeedbackAlertsRoute: LayoutFeedbackAlertsRoute,
+  LayoutFeedbackEmptyStatesRoute: LayoutFeedbackEmptyStatesRoute,
+  LayoutLayoutDividersRoute: LayoutLayoutDividersRoute,
+  LayoutOverlaysDrawersRoute: LayoutOverlaysDrawersRoute,
+  LayoutOverlaysModalDialogsRoute: LayoutOverlaysModalDialogsRoute,
+  LayoutOverlaysNotificationsRoute: LayoutOverlaysNotificationsRoute,
+  LayoutApplicationShellsIndexRoute: LayoutApplicationShellsIndexRoute,
+  LayoutDataDisplayIndexRoute: LayoutDataDisplayIndexRoute,
+  LayoutElementsIndexRoute: LayoutElementsIndexRoute,
+  LayoutFeedbackIndexRoute: LayoutFeedbackIndexRoute,
+  LayoutFormsIndexRoute: LayoutFormsIndexRoute,
+  LayoutHeadingsIndexRoute: LayoutHeadingsIndexRoute,
+  LayoutLayoutIndexRoute: LayoutLayoutIndexRoute,
+  LayoutListsIndexRoute: LayoutListsIndexRoute,
+  LayoutNavigationIndexRoute: LayoutNavigationIndexRoute,
+  LayoutOverlaysIndexRoute: LayoutOverlaysIndexRoute,
+  LayoutPageExamplesIndexRoute: LayoutPageExamplesIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -287,59 +547,107 @@ const LayoutRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   "": typeof LayoutRouteWithChildren
-  "/login": typeof LoginRoute
+  "/login": typeof pageExamplesLoginRoute
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
-  "/components/avatars": typeof LayoutComponentsAvatarsRoute
-  "/components/badges": typeof LayoutComponentsBadgesRoute
-  "/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
-  "/components/buttons": typeof LayoutComponentsButtonsRoute
-  "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
-  "/components/inputs": typeof LayoutComponentsInputsRoute
-  "/components/select-menus": typeof LayoutComponentsSelectMenusRoute
-  "/components/selects": typeof LayoutComponentsSelectsRoute
-  "/components/switchs": typeof LayoutComponentsSwitchsRoute
-  "/components/textareas": typeof LayoutComponentsTextareasRoute
-  "/components": typeof LayoutComponentsIndexRoute
+  "/elements/avatars": typeof LayoutElementsAvatarsRoute
+  "/elements/badges": typeof LayoutElementsBadgesRoute
+  "/elements/button-groups": typeof LayoutElementsButtonGroupsRoute
+  "/elements/buttons": typeof LayoutElementsButtonsRoute
+  "/elements/dropdowns": typeof LayoutElementsDropdownsRoute
+  "/elements/inputs": typeof LayoutElementsInputsRoute
+  "/elements/select-menus": typeof LayoutElementsSelectMenusRoute
+  "/elements/selects": typeof LayoutElementsSelectsRoute
+  "/elements/switchs": typeof LayoutElementsSwitchsRoute
+  "/elements/textareas": typeof LayoutElementsTextareasRoute
+  "/feedback/alerts": typeof LayoutFeedbackAlertsRoute
+  "/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
+  "/layout/dividers": typeof LayoutLayoutDividersRoute
+  "/overlays/drawers": typeof LayoutOverlaysDrawersRoute
+  "/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
+  "/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
+  "/application-shells": typeof LayoutApplicationShellsIndexRoute
+  "/data-display": typeof LayoutDataDisplayIndexRoute
+  "/elements": typeof LayoutElementsIndexRoute
+  "/feedback": typeof LayoutFeedbackIndexRoute
+  "/forms": typeof LayoutFormsIndexRoute
+  "/headings": typeof LayoutHeadingsIndexRoute
+  "/layout": typeof LayoutLayoutIndexRoute
+  "/lists": typeof LayoutListsIndexRoute
+  "/navigation": typeof LayoutNavigationIndexRoute
+  "/overlays": typeof LayoutOverlaysIndexRoute
+  "/page-examples": typeof LayoutPageExamplesIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/login": typeof LoginRoute
+  "/login": typeof pageExamplesLoginRoute
   "/profile": typeof LayoutProfileRoute
   "/templates": typeof LayoutTemplatesRoute
   "/": typeof LayoutIndexRoute
-  "/components/avatars": typeof LayoutComponentsAvatarsRoute
-  "/components/badges": typeof LayoutComponentsBadgesRoute
-  "/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
-  "/components/buttons": typeof LayoutComponentsButtonsRoute
-  "/components/dropdowns": typeof LayoutComponentsDropdownsRoute
-  "/components/inputs": typeof LayoutComponentsInputsRoute
-  "/components/select-menus": typeof LayoutComponentsSelectMenusRoute
-  "/components/selects": typeof LayoutComponentsSelectsRoute
-  "/components/switchs": typeof LayoutComponentsSwitchsRoute
-  "/components/textareas": typeof LayoutComponentsTextareasRoute
-  "/components": typeof LayoutComponentsIndexRoute
+  "/elements/avatars": typeof LayoutElementsAvatarsRoute
+  "/elements/badges": typeof LayoutElementsBadgesRoute
+  "/elements/button-groups": typeof LayoutElementsButtonGroupsRoute
+  "/elements/buttons": typeof LayoutElementsButtonsRoute
+  "/elements/dropdowns": typeof LayoutElementsDropdownsRoute
+  "/elements/inputs": typeof LayoutElementsInputsRoute
+  "/elements/select-menus": typeof LayoutElementsSelectMenusRoute
+  "/elements/selects": typeof LayoutElementsSelectsRoute
+  "/elements/switchs": typeof LayoutElementsSwitchsRoute
+  "/elements/textareas": typeof LayoutElementsTextareasRoute
+  "/feedback/alerts": typeof LayoutFeedbackAlertsRoute
+  "/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
+  "/layout/dividers": typeof LayoutLayoutDividersRoute
+  "/overlays/drawers": typeof LayoutOverlaysDrawersRoute
+  "/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
+  "/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
+  "/application-shells": typeof LayoutApplicationShellsIndexRoute
+  "/data-display": typeof LayoutDataDisplayIndexRoute
+  "/elements": typeof LayoutElementsIndexRoute
+  "/feedback": typeof LayoutFeedbackIndexRoute
+  "/forms": typeof LayoutFormsIndexRoute
+  "/headings": typeof LayoutHeadingsIndexRoute
+  "/layout": typeof LayoutLayoutIndexRoute
+  "/lists": typeof LayoutListsIndexRoute
+  "/navigation": typeof LayoutNavigationIndexRoute
+  "/overlays": typeof LayoutOverlaysIndexRoute
+  "/page-examples": typeof LayoutPageExamplesIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   "/_layout": typeof LayoutRouteWithChildren
-  "/login": typeof LoginRoute
+  "/(page-examples)/login": typeof pageExamplesLoginRoute
   "/_layout/profile": typeof LayoutProfileRoute
   "/_layout/templates": typeof LayoutTemplatesRoute
   "/_layout/": typeof LayoutIndexRoute
-  "/_layout/components/avatars": typeof LayoutComponentsAvatarsRoute
-  "/_layout/components/badges": typeof LayoutComponentsBadgesRoute
-  "/_layout/components/button-groups": typeof LayoutComponentsButtonGroupsRoute
-  "/_layout/components/buttons": typeof LayoutComponentsButtonsRoute
-  "/_layout/components/dropdowns": typeof LayoutComponentsDropdownsRoute
-  "/_layout/components/inputs": typeof LayoutComponentsInputsRoute
-  "/_layout/components/select-menus": typeof LayoutComponentsSelectMenusRoute
-  "/_layout/components/selects": typeof LayoutComponentsSelectsRoute
-  "/_layout/components/switchs": typeof LayoutComponentsSwitchsRoute
-  "/_layout/components/textareas": typeof LayoutComponentsTextareasRoute
-  "/_layout/components/": typeof LayoutComponentsIndexRoute
+  "/_layout/elements/avatars": typeof LayoutElementsAvatarsRoute
+  "/_layout/elements/badges": typeof LayoutElementsBadgesRoute
+  "/_layout/elements/button-groups": typeof LayoutElementsButtonGroupsRoute
+  "/_layout/elements/buttons": typeof LayoutElementsButtonsRoute
+  "/_layout/elements/dropdowns": typeof LayoutElementsDropdownsRoute
+  "/_layout/elements/inputs": typeof LayoutElementsInputsRoute
+  "/_layout/elements/select-menus": typeof LayoutElementsSelectMenusRoute
+  "/_layout/elements/selects": typeof LayoutElementsSelectsRoute
+  "/_layout/elements/switchs": typeof LayoutElementsSwitchsRoute
+  "/_layout/elements/textareas": typeof LayoutElementsTextareasRoute
+  "/_layout/feedback/alerts": typeof LayoutFeedbackAlertsRoute
+  "/_layout/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
+  "/_layout/layout/dividers": typeof LayoutLayoutDividersRoute
+  "/_layout/overlays/drawers": typeof LayoutOverlaysDrawersRoute
+  "/_layout/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
+  "/_layout/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
+  "/_layout/application-shells/": typeof LayoutApplicationShellsIndexRoute
+  "/_layout/data-display/": typeof LayoutDataDisplayIndexRoute
+  "/_layout/elements/": typeof LayoutElementsIndexRoute
+  "/_layout/feedback/": typeof LayoutFeedbackIndexRoute
+  "/_layout/forms/": typeof LayoutFormsIndexRoute
+  "/_layout/headings/": typeof LayoutHeadingsIndexRoute
+  "/_layout/layout/": typeof LayoutLayoutIndexRoute
+  "/_layout/lists/": typeof LayoutListsIndexRoute
+  "/_layout/navigation/": typeof LayoutNavigationIndexRoute
+  "/_layout/overlays/": typeof LayoutOverlaysIndexRoute
+  "/_layout/page-examples/": typeof LayoutPageExamplesIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -350,63 +658,111 @@ export interface FileRouteTypes {
     | "/profile"
     | "/templates"
     | "/"
-    | "/components/avatars"
-    | "/components/badges"
-    | "/components/button-groups"
-    | "/components/buttons"
-    | "/components/dropdowns"
-    | "/components/inputs"
-    | "/components/select-menus"
-    | "/components/selects"
-    | "/components/switchs"
-    | "/components/textareas"
-    | "/components"
+    | "/elements/avatars"
+    | "/elements/badges"
+    | "/elements/button-groups"
+    | "/elements/buttons"
+    | "/elements/dropdowns"
+    | "/elements/inputs"
+    | "/elements/select-menus"
+    | "/elements/selects"
+    | "/elements/switchs"
+    | "/elements/textareas"
+    | "/feedback/alerts"
+    | "/feedback/empty-states"
+    | "/layout/dividers"
+    | "/overlays/drawers"
+    | "/overlays/modal-dialogs"
+    | "/overlays/notifications"
+    | "/application-shells"
+    | "/data-display"
+    | "/elements"
+    | "/feedback"
+    | "/forms"
+    | "/headings"
+    | "/layout"
+    | "/lists"
+    | "/navigation"
+    | "/overlays"
+    | "/page-examples"
   fileRoutesByTo: FileRoutesByTo
   to:
     | "/login"
     | "/profile"
     | "/templates"
     | "/"
-    | "/components/avatars"
-    | "/components/badges"
-    | "/components/button-groups"
-    | "/components/buttons"
-    | "/components/dropdowns"
-    | "/components/inputs"
-    | "/components/select-menus"
-    | "/components/selects"
-    | "/components/switchs"
-    | "/components/textareas"
-    | "/components"
+    | "/elements/avatars"
+    | "/elements/badges"
+    | "/elements/button-groups"
+    | "/elements/buttons"
+    | "/elements/dropdowns"
+    | "/elements/inputs"
+    | "/elements/select-menus"
+    | "/elements/selects"
+    | "/elements/switchs"
+    | "/elements/textareas"
+    | "/feedback/alerts"
+    | "/feedback/empty-states"
+    | "/layout/dividers"
+    | "/overlays/drawers"
+    | "/overlays/modal-dialogs"
+    | "/overlays/notifications"
+    | "/application-shells"
+    | "/data-display"
+    | "/elements"
+    | "/feedback"
+    | "/forms"
+    | "/headings"
+    | "/layout"
+    | "/lists"
+    | "/navigation"
+    | "/overlays"
+    | "/page-examples"
   id:
     | "__root__"
     | "/_layout"
-    | "/login"
+    | "/(page-examples)/login"
     | "/_layout/profile"
     | "/_layout/templates"
     | "/_layout/"
-    | "/_layout/components/avatars"
-    | "/_layout/components/badges"
-    | "/_layout/components/button-groups"
-    | "/_layout/components/buttons"
-    | "/_layout/components/dropdowns"
-    | "/_layout/components/inputs"
-    | "/_layout/components/select-menus"
-    | "/_layout/components/selects"
-    | "/_layout/components/switchs"
-    | "/_layout/components/textareas"
-    | "/_layout/components/"
+    | "/_layout/elements/avatars"
+    | "/_layout/elements/badges"
+    | "/_layout/elements/button-groups"
+    | "/_layout/elements/buttons"
+    | "/_layout/elements/dropdowns"
+    | "/_layout/elements/inputs"
+    | "/_layout/elements/select-menus"
+    | "/_layout/elements/selects"
+    | "/_layout/elements/switchs"
+    | "/_layout/elements/textareas"
+    | "/_layout/feedback/alerts"
+    | "/_layout/feedback/empty-states"
+    | "/_layout/layout/dividers"
+    | "/_layout/overlays/drawers"
+    | "/_layout/overlays/modal-dialogs"
+    | "/_layout/overlays/notifications"
+    | "/_layout/application-shells/"
+    | "/_layout/data-display/"
+    | "/_layout/elements/"
+    | "/_layout/feedback/"
+    | "/_layout/forms/"
+    | "/_layout/headings/"
+    | "/_layout/layout/"
+    | "/_layout/lists/"
+    | "/_layout/navigation/"
+    | "/_layout/overlays/"
+    | "/_layout/page-examples/"
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   LayoutRoute: typeof LayoutRouteWithChildren
-  LoginRoute: typeof LoginRoute
+  pageExamplesLoginRoute: typeof pageExamplesLoginRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   LayoutRoute: LayoutRouteWithChildren,
-  LoginRoute: LoginRoute,
+  pageExamplesLoginRoute: pageExamplesLoginRoute,
 }
 
 export const routeTree = rootRoute
@@ -420,7 +776,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/_layout",
-        "/login"
+        "/(page-examples)/login"
       ]
     },
     "/_layout": {
@@ -429,21 +785,37 @@ export const routeTree = rootRoute
         "/_layout/profile",
         "/_layout/templates",
         "/_layout/",
-        "/_layout/components/avatars",
-        "/_layout/components/badges",
-        "/_layout/components/button-groups",
-        "/_layout/components/buttons",
-        "/_layout/components/dropdowns",
-        "/_layout/components/inputs",
-        "/_layout/components/select-menus",
-        "/_layout/components/selects",
-        "/_layout/components/switchs",
-        "/_layout/components/textareas",
-        "/_layout/components/"
+        "/_layout/elements/avatars",
+        "/_layout/elements/badges",
+        "/_layout/elements/button-groups",
+        "/_layout/elements/buttons",
+        "/_layout/elements/dropdowns",
+        "/_layout/elements/inputs",
+        "/_layout/elements/select-menus",
+        "/_layout/elements/selects",
+        "/_layout/elements/switchs",
+        "/_layout/elements/textareas",
+        "/_layout/feedback/alerts",
+        "/_layout/feedback/empty-states",
+        "/_layout/layout/dividers",
+        "/_layout/overlays/drawers",
+        "/_layout/overlays/modal-dialogs",
+        "/_layout/overlays/notifications",
+        "/_layout/application-shells/",
+        "/_layout/data-display/",
+        "/_layout/elements/",
+        "/_layout/feedback/",
+        "/_layout/forms/",
+        "/_layout/headings/",
+        "/_layout/layout/",
+        "/_layout/lists/",
+        "/_layout/navigation/",
+        "/_layout/overlays/",
+        "/_layout/page-examples/"
       ]
     },
-    "/login": {
-      "filePath": "login.tsx"
+    "/(page-examples)/login": {
+      "filePath": "(page-examples)/login.tsx"
     },
     "/_layout/profile": {
       "filePath": "_layout/profile.tsx",
@@ -457,48 +829,112 @@ export const routeTree = rootRoute
       "filePath": "_layout/index.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/avatars": {
-      "filePath": "_layout/components/avatars.tsx",
+    "/_layout/elements/avatars": {
+      "filePath": "_layout/elements/avatars.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/badges": {
-      "filePath": "_layout/components/badges.tsx",
+    "/_layout/elements/badges": {
+      "filePath": "_layout/elements/badges.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/button-groups": {
-      "filePath": "_layout/components/button-groups.tsx",
+    "/_layout/elements/button-groups": {
+      "filePath": "_layout/elements/button-groups.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/buttons": {
-      "filePath": "_layout/components/buttons.tsx",
+    "/_layout/elements/buttons": {
+      "filePath": "_layout/elements/buttons.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/dropdowns": {
-      "filePath": "_layout/components/dropdowns.tsx",
+    "/_layout/elements/dropdowns": {
+      "filePath": "_layout/elements/dropdowns.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/inputs": {
-      "filePath": "_layout/components/inputs.tsx",
+    "/_layout/elements/inputs": {
+      "filePath": "_layout/elements/inputs.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/select-menus": {
-      "filePath": "_layout/components/select-menus.tsx",
+    "/_layout/elements/select-menus": {
+      "filePath": "_layout/elements/select-menus.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/selects": {
-      "filePath": "_layout/components/selects.tsx",
+    "/_layout/elements/selects": {
+      "filePath": "_layout/elements/selects.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/switchs": {
-      "filePath": "_layout/components/switchs.tsx",
+    "/_layout/elements/switchs": {
+      "filePath": "_layout/elements/switchs.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/textareas": {
-      "filePath": "_layout/components/textareas.tsx",
+    "/_layout/elements/textareas": {
+      "filePath": "_layout/elements/textareas.tsx",
       "parent": "/_layout"
     },
-    "/_layout/components/": {
-      "filePath": "_layout/components/index.tsx",
+    "/_layout/feedback/alerts": {
+      "filePath": "_layout/feedback/alerts.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/feedback/empty-states": {
+      "filePath": "_layout/feedback/empty-states.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/layout/dividers": {
+      "filePath": "_layout/layout/dividers.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/overlays/drawers": {
+      "filePath": "_layout/overlays/drawers.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/overlays/modal-dialogs": {
+      "filePath": "_layout/overlays/modal-dialogs.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/overlays/notifications": {
+      "filePath": "_layout/overlays/notifications.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/application-shells/": {
+      "filePath": "_layout/application-shells/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/data-display/": {
+      "filePath": "_layout/data-display/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/elements/": {
+      "filePath": "_layout/elements/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/feedback/": {
+      "filePath": "_layout/feedback/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/forms/": {
+      "filePath": "_layout/forms/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/headings/": {
+      "filePath": "_layout/headings/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/layout/": {
+      "filePath": "_layout/layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/lists/": {
+      "filePath": "_layout/lists/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/navigation/": {
+      "filePath": "_layout/navigation/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/overlays/": {
+      "filePath": "_layout/overlays/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/page-examples/": {
+      "filePath": "_layout/page-examples/index.tsx",
       "parent": "/_layout"
     }
   }

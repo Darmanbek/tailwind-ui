@@ -4,7 +4,12 @@ import { forwardRef, type DetailedHTMLProps, type HTMLAttributes } from "react"
 const titleVariants = cva("font-bold tracking-tight text-foreground", {
 	variants: {
 		level: {
-			"h1": "text-3xl", "h2": "text-2xl", "h3": "text-xl", "h4": "text-lg", "h5": "text-md", "h6": "text-sm"
+			h1: "text-3xl",
+			h2: "text-2xl",
+			h3: "text-xl",
+			h4: "text-lg",
+			h5: "text-md",
+			h6: "text-sm"
 		}
 	},
 	defaultVariants: {
@@ -12,8 +17,12 @@ const titleVariants = cva("font-bold tracking-tight text-foreground", {
 	}
 })
 
-export interface TitleProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>, VariantProps<typeof titleVariants> {
-}
+export interface TitleProps
+	extends DetailedHTMLProps<
+			HTMLAttributes<HTMLHeadingElement>,
+			HTMLHeadingElement
+		>,
+		VariantProps<typeof titleVariants> {}
 
 const Title = forwardRef<HTMLDivElement, TitleProps>(
 	({ level, className, ...props }, ref) => {

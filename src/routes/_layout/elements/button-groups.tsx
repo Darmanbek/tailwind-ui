@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Button, ButtonGroup, Card } from "src/shared/ui"
 import { Stack } from "src/widgets/stack"
 
-export const Route = createFileRoute("/_layout/components/button-groups")({
+export const Route = createFileRoute("/_layout/elements/button-groups")({
 	component: RouteComponent
 })
 

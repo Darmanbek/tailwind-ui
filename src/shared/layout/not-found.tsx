@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/16/solid"
 import {
+	Link,
 	type NotFoundRouteProps,
 	rootRouteId,
 	useMatch
@@ -28,32 +29,34 @@ const NotFound: FC<NotFoundRouteProps> = ({ data }) => {
 				<div className={"text-center"}>
 					<Text className={"text-base font-semibold text-primary"}>404</Text>
 					<Title
-						className={
-							"mt-4 text-balance text-5xl font-semibold sm:text-7xl"
-						}
+						className={"mt-4 text-balance text-5xl font-semibold sm:text-7xl"}
 					>
 						Page not found
 					</Title>
 					<Text
 						type={"secondary"}
-						className={
-							"mt-6 text-pretty text-lg font-medium sm:text-xl/8"
-						}
+						className={"mt-6 text-pretty text-lg font-medium sm:text-xl/8"}
 					>
 						Sorry, we couldn’t find the page you’re looking for.
 						{children && <pre>{JSON.stringify(children, null, 2)}</pre>}
 					</Text>
 					<div className={"mt-10 flex items-center justify-center gap-x-6"}>
-						<a
-							href={"#"}
+						<Link
+							to={"/"}
 							className={
 								"rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 							}
 						>
 							Go back home
-						</a>
-						<a href={"#"} className={"text-sm flex gap-1 items-center group font-semibold transition-transform text-foreground"}>
-							Contact support <ArrowRightIcon className={"size-4 group-hover:translate-x-1"} />
+						</Link>
+						<a
+							href={"#"}
+							className={
+								"text-sm flex gap-1 items-center group font-semibold transition-transform text-foreground"
+							}
+						>
+							Contact support{" "}
+							<ArrowRightIcon className={"size-4 group-hover:translate-x-1"} />
 						</a>
 					</div>
 				</div>

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router"
 import { Card, Input } from "src/shared/ui"
 import { Stack } from "src/widgets/stack"
 
-export const Route = createFileRoute("/_layout/components/inputs")({
+export const Route = createFileRoute("/_layout/elements/inputs")({
 	component: RouteComponent
 })
 
@@ -11,7 +11,7 @@ function RouteComponent() {
 		<>
 			<Card>
 				<Stack>
-					<Input placeholder={"input..."} />
+					<Input className={"max-w-80"} placeholder={"input..."} />
 				</Stack>
 			</Card>
 		</>
