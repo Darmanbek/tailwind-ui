@@ -287,7 +287,8 @@ export const menuData: MenuGroupItem[] = [
 			},
 			{
 				name: "List containers",
-				href: "/layout/list-containers"
+				href: "/layout/list-containers",
+				extra: "1"
 			},
 			{
 				name: "Media Objects",
