@@ -4,7 +4,7 @@ import {
 	type ButtonHTMLAttributes,
 	type DetailedHTMLProps,
 	forwardRef,
-	type ReactNode
+	type ReactNode,
 } from "react"
 import { twx } from "src/shared/lib"
 
@@ -16,42 +16,65 @@ const buttonVariants = cva(
 			variant: {
 				default: "bg-indigo-600 text-white hover:bg-indigo-500 ",
 				secondary: "bg-gray-50 text-gray-900 hover:bg-gray-100 border",
-				soft: "bg-indigo-50 text-indigo-600 hover:bg-gray-100"
+				soft: "bg-indigo-50 text-indigo-600 hover:bg-gray-100",
 			},
 			size: {
-				xs: "px-2 [&.square]:px-1 py-1 rounded text-xs [&_svg]:size-3",
-				sm: "px-2 [&.square]:px-1 py-1 rounded text-sm [&_svg]:size-4",
-				md: "px-3 [&.square]:px-1.5 py-1.5 rounded-md text-sm [&_svg]:size-4",
-				lg: "px-3 [&.square]:px-2 py-2 rounded-md text-sm [&_svg]:size-5",
-				xl: "px-3.5 [&.square]:px-2.5 py-2.5 rounded-md text-sm [&_svg]:size-5"
+				xs: "px-2 py-1 rounded text-xs",
+				sm: "px-2 py-1 rounded text-sm",
+				md: "px-3 py-1.5 rounded-md text-sm",
+				lg: "px-3 py-2 rounded-md text-sm",
+				xl: "px-3.5 py-2.5 rounded-md text-sm",
+			},
+			square: {
+				true: "",
+				false: "",
 			},
 			shape: {
 				default: "",
 				circle: "rounded-[100%]",
-				rounded: "rounded-full"
-			}
-			// color: {
-			// 	default:
-			// 		"bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:outline-primary",
-			// 	red: "bg-red-600 hover:bg-red-500 focus-visible:outline-red-600",
-			// 	yellow:
-			// 		"bg-yellow-600 hover:bg-yellow-500 focus-visible:outline-yellow-600",
-			// 	green:
-			// 		"bg-green-600 hover:bg-green-500 focus-visible:outline-green-600",
-			// 	blue: "bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600",
-			// 	indigo:
-			// 		"bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600",
-			// 	purple:
-			// 		"bg-purple-600 hover:bg-purple-500 focus-visible:outline-purple-600",
-			// 	pink: "bg-pink-600 hover:bg-pink-500 focus-visible:outline-pink-600"
-			// }
+				rounded: "rounded-full",
+			},
 		},
+		compoundVariants: [
+			{
+				size: ["xs", "sm"],
+				square: true,
+				className: "px-1",
+			},
+			{
+				size: "md",
+				square: true,
+				className: "px-1.5",
+			},
+			{
+				size: "lg",
+				square: true,
+				className: "px-2",
+			},
+			{
+				size: "xl",
+				square: true,
+				className: "px-2.5",
+			},
+			{
+				size: ["xs"],
+				className: "[&_svg]:size-3",
+			},
+			{
+				size: ["sm", "md"],
+				className: "[&_svg]:size-4",
+			},
+			{
+				size: ["lg", "xl"],
+				className: "[&_svg]:size-5",
+			},
+		],
 		defaultVariants: {
 			variant: "default",
 			size: "md",
 			// color: "default"
-			shape: "default"
-		}
+			shape: "default",
+		},
 	}
 )
 
@@ -83,6 +106,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			trailingIcon,
 			leadingIcon,
 			loading,
+			square,
 			...props
 		},
 		ref
@@ -96,11 +120,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						variant,
 						size,
 						shape,
-						className
-					}),
-					{
-						square: !children
-					}
+						className,
+						square: square || !children,
+					})
 				)}
 				{...props}
 			>

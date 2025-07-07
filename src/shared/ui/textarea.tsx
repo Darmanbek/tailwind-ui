@@ -1,7 +1,7 @@
 import {
 	type DetailedHTMLProps,
 	forwardRef,
-	type TextareaHTMLAttributes
+	type TextareaHTMLAttributes,
 } from "react"
 import { twx } from "src/shared/lib"
 

@@ -9,6 +9,9 @@
 @layer base {
 	* {
 		@apply border-border;
+
+		scrollbar-width: thin;
+		scrollbar-color: var(--border) var(--background);
 	}
 
 	body {

@@ -4,7 +4,7 @@ import {
 	Listbox,
 	ListboxButton,
 	ListboxOption,
-	ListboxOptions
+	ListboxOptions,
 } from "@headlessui/react"
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid"
 import { CheckIcon } from "@heroicons/react/20/solid"
@@ -48,7 +48,7 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 					className={twx(
 						"relative w-full",
 						{
-							"mt-2": label
+							"mt-2": label,
 						},
 						classNames?.wrapper
 					)}
@@ -89,7 +89,7 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 					<ListboxOptions
 						transition={true}
 						className={
-							"absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-hidden data-leave:transition data-leave:duration-100 data-leave:ease-in data-closed:data-leave:opacity-0 sm:text-sm"
+							"absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-hidden data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in data-[closed]:data-[leave]:opacity-0 sm:text-sm"
 						}
 					>
 						{items?.map((item) => (
@@ -97,7 +97,7 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 								key={item.value}
 								value={item}
 								className={
-									"group relative cursor-default py-2 pr-9 pl-3 text-gray-900 select-none data-focus:bg-indigo-600 data-focus:text-white data-focus:outline-hidden"
+									"group cursor-pointer relative py-2 pr-9 pl-3 text-gray-900 select-none data-[focus]:bg-indigo-600 data-[focus]:text-white data-[focus]:outline-hidden"
 								}
 							>
 								<div className={"flex items-center"}>
@@ -110,7 +110,7 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 									)}
 									<span
 										className={
-											"ml-3 block truncate font-normal group-data-selected:font-semibold"
+											"ml-3 block truncate font-normal group-data-[selected]:font-semibold"
 										}
 									>
 										{item.label}
@@ -119,7 +119,7 @@ const SelectMenu = forwardRef<HTMLElement, SelectMenuProps>(
 
 								<span
 									className={
-										"absolute inset-y-0 right-0 flex items-center pr-4 text-indigo-600 group-not-data-selected:hidden group-data-focus:text-white"
+										"absolute inset-y-0 right-0 hidden items-center pr-4 text-indigo-600 group-data-[selected]:flex group-data-[focus]:text-white"
 									}
 								>
 									<CheckIcon aria-hidden={"true"} className={"size-5"} />
