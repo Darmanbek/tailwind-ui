@@ -1,27 +1,20 @@
-@tailwind base;
+@theme {
+	--color-background: var(--color-white);
+	--color-foreground: var(--color-gray-900);
+	--color-border: var(--color-gray-300);
+	--color-border-hover: var(--color-gray-400);
 
-@layer base {
-	:root {
-		--font-inter: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--color-primary: var(--color-indigo-600);
+	--color-primary-hover: var(--color-indigo-500);
+	--color-primary-foreground: var(--color-white);
 
-		--background: theme("colors.white");
-		--foreground: theme("colors.gray.900");
-		--border: theme("colors.gray.300");
-		--border-hover: theme("colors.gray.400");
+	--color-secondary: var(--color-gray-50);
+	--color-secondary-hover: var(--color-gray-100);
+	--color-secondary-foreground: var(--color-gray-500);
 
-		--primary: theme("colors.indigo.600");
-		--primary-hover: theme("colors.indigo.500");
-		--primary-foreground: theme("colors.white");
+	--color-soft: var(--color-indigo-50);
+	--color-soft-hover: var(--color-indigo-100);
+	--color-soft-foreground: var(--color-indigo-600);
 
-		--secondary: theme("colors.gray.50");
-		--secondary-hover: theme("colors.gray.100");
-		--secondary-foreground: theme("colors.gray.500");
-
-		--soft: theme("colors.indigo.50");
-		--soft-hover: theme("colors.indigo.100");
-		--soft-foreground: theme("colors.indigo.600");
-
-		--placeholder: theme("colors.gray.400")
-	}
-
+	--color-placeholder: var(--color-gray-400);
 }

@@ -1,0 +1,24 @@
+@theme {
+	--font-sans: InterVariable, Inter, system-ui, sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+	--animate-enter: enter 0.2s ease-out;
+	--animate-leave: leave 0.15s ease-in forwards;
+
+	@keyframes enter {
+		from {
+			transform: translateX(150%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+	@keyframes leave {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(150%);
+		}
+	}
+}

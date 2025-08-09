@@ -1,20 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@import url("./light.css");
-@import url("./dark.css");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./variables.css";
+@import "./light.css";
+@import "./dark.css";
 
 @layer base {
 	* {
-		@apply border-border;
+		border-color: var(--color-border);
 
 		scrollbar-width: thin;
-		scrollbar-color: var(--border) var(--background);
+		scrollbar-color: var(--color-border) var(--color-background);
 	}
 
 	body {
-		@apply font-inter text-foreground bg-background min-h-screen;
+		font-family: var(--font-sans), sans-serif;
+		color: var(--color-foreground);
+		background-color: var(--color-background);
+		min-height: 100vh;
 	}
 }
