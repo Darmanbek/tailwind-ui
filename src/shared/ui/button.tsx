@@ -10,11 +10,13 @@ import { twx } from "src/shared/lib"
 
 // language=tailwindcss
 const buttonVariants = cva(
-	"inline-flex justify-center items-center gap-1.5 font-semibold shadow-sm focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
+	"inline-flex justify-center items-center gap-1.5 font-semibold focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
 	{
 		variants: {
 			variant: {
-				default: "bg-indigo-600 text-white hover:bg-indigo-500 ",
+				default: "bg-indigo-600 text-white hover:bg-indigo-500",
+				borderless:
+					"bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white",
 				secondary: "bg-gray-50 text-gray-900 hover:bg-gray-100 border",
 				soft: "bg-indigo-50 text-indigo-600 hover:bg-gray-100",
 			},
@@ -68,6 +70,10 @@ const buttonVariants = cva(
 				size: ["lg", "xl"],
 				className: "[&_svg]:size-5",
 			},
+			{
+				variant: ["default", "soft", "secondary"],
+				className: "shadow-sm",
+			},
 		],
 		defaultVariants: {
 			variant: "default",
@@ -91,6 +97,7 @@ export interface ButtonProps
 	trailingIcon?: ReactNode
 	loading?: boolean
 	color?: string
+	srOnly?: string
 }
 
 const loadingSpin = <ArrowPathIcon className={"animate-spin"} />
@@ -107,6 +114,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			leadingIcon,
 			loading,
 			square,
+			srOnly,
 			...props
 		},
 		ref
@@ -128,6 +136,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			>
 				{loading && trailingIcon ? loadingSpin : trailingIcon}
 				{children}
+				<span className={"sr-only"}>{srOnly}</span>
 				{loading && !trailingIcon ? loadingSpin : leadingIcon}
 			</button>
 		)

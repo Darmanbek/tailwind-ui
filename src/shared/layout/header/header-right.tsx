@@ -1,19 +1,19 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
-import { BellIcon } from "@heroicons/react/24/outline"
 import { Link } from "@tanstack/react-router"
 import { type FC } from "react"
+import { ThemeButton } from "src/widgets/actions"
 
 const user = {
 	name: "Tom Cook",
 	email: "tom@example.com",
 	imageUrl:
-		"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+		"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 }
 
 const userNavigation = [
 	{ name: "Your Profile", href: "/profile" },
 	{ name: "Settings", href: "#" },
-	{ name: "Sign out", href: "#" }
+	{ name: "Sign out", href: "#" },
 ]
 
 const HeaderRight: FC = () => {
@@ -21,16 +21,7 @@ const HeaderRight: FC = () => {
 		<>
 			<div className={"hidden md:block"}>
 				<div className={"ml-4 flex items-center md:ml-6"}>
-					<button
-						type={"button"}
-						className={
-							"relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white"
-						}
-					>
-						<span className={"absolute -inset-1.5"} />
-						<span className={"sr-only"}>View notifications</span>
-						<BellIcon aria-hidden={"true"} className={"size-6"} />
-					</button>
+					<ThemeButton />
 
 					{/* Profile dropdown */}
 					<Menu as={"div"} className={"relative ml-3"}>
