@@ -1,14 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { HomePage } from "src/pages/home"
+import { Logo } from "src/widgets/logo"
 
 export const Route = createFileRoute("/_layout/")({
-	component: RouteComponent
+	component: RouteComponent,
 })
 
 function RouteComponent() {
 	return (
 		<>
-			<HomePage />
+			<div className={"flex justify-center items-center flex-grow"}>
+				<Logo size={"lg"} />
+			</div>
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-# Tailwind UI Demo
+# Tailwind UI
 
 - - -
 
