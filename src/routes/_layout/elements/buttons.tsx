@@ -113,7 +113,10 @@ function RouteComponent() {
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} trailingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"xs"}
+						trailingIcon={<CheckCircleIcon className={"size-10"} />}
+					>
 						Button
 					</Button>
 					<Button size={"sm"} trailingIcon={<CheckCircleIcon />}>

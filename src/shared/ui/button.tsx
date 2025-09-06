@@ -1,16 +1,11 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline"
 import { cva, type VariantProps } from "class-variance-authority"
-import {
-	type ButtonHTMLAttributes,
-	type DetailedHTMLProps,
-	forwardRef,
-	type ReactNode,
-} from "react"
+import { type ComponentPropsWithRef, forwardRef, type ReactNode } from "react"
 import { twx } from "src/shared/lib"
 
 // language=tailwindcss
 const buttonVariants = cva(
-	"inline-flex justify-center items-center gap-1.5 font-semibold focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
+	"inline-flex justify-center items-center cursor-pointer gap-1.5 font-semibold focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
 	{
 		variants: {
 			variant: {
@@ -60,15 +55,15 @@ const buttonVariants = cva(
 			},
 			{
 				size: ["xs"],
-				className: "[&_svg]:size-3",
+				className: "*:data-[slot=icon]:size-3",
 			},
 			{
 				size: ["sm", "md"],
-				className: "[&_svg]:size-4",
+				className: "*:data-[slot=icon]:size-4",
 			},
 			{
 				size: ["lg", "xl"],
-				className: "[&_svg]:size-5",
+				className: "*:data-[slot=icon]:size-5",
 			},
 			{
 				variant: ["default", "soft", "secondary"],
@@ -85,13 +80,7 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-	extends Omit<
-			DetailedHTMLProps<
-				ButtonHTMLAttributes<HTMLButtonElement>,
-				HTMLButtonElement
-			>,
-			"color"
-		>,
+	extends Omit<ComponentPropsWithRef<"button">, "color">,
 		VariantProps<typeof buttonVariants> {
 	leadingIcon?: ReactNode
 	trailingIcon?: ReactNode

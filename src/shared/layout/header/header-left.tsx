@@ -10,7 +10,9 @@ const HeaderLeft: FC = () => {
 	return (
 		<>
 			<div className={"flex items-center md:items-stretch h-full"}>
-				<Logo />
+				<Link to={"/"} className={"flex items-center"}>
+					<Logo />
+				</Link>
 				<div className={"hidden md:block"}>
 					<div className={"ml-10 flex items-stretch h-full space-x-4"}>
 						{menuData.map((item) => (
