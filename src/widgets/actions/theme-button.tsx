@@ -1,15 +1,21 @@
-import { MoonIcon } from "@heroicons/react/24/outline"
+import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
 import { type FC } from "react"
+import { useToggleTheme } from "src/shared/hooks"
 import { Button } from "src/shared/ui"
 
 const ThemeButton: FC = () => {
+	const { isDark, toggleIsDark } = useToggleTheme()
+
+	const Icon = isDark ? SunIcon : MoonIcon
+
 	return (
 		<>
 			<Button
 				variant={"borderless"}
 				className={"rounded-full"}
 				size={"lg"}
-				leadingIcon={<MoonIcon aria-hidden={"true"} className={"size-6"} />}
+				onClick={toggleIsDark}
+				leadingIcon={<Icon aria-hidden={"true"} className={"size-6"} />}
 				srOnly={"Theme"}
 			/>
 		</>
