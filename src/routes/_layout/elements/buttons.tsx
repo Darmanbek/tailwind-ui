@@ -37,76 +37,142 @@ function RouteComponent() {
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} shape={"rounded"}>
+					<Button
+						size={"xs"}
+						shape={"rounded"}
+						srOnly={""}
+					>
 						Button XS
 					</Button>
-					<Button size={"sm"} shape={"rounded"}>
+					<Button
+						size={"sm"}
+						shape={"rounded"}
+					>
 						Button SM
 					</Button>
-					<Button size={"md"} shape={"rounded"}>
+					<Button
+						size={"md"}
+						shape={"rounded"}
+					>
 						Button MD
 					</Button>
-					<Button size={"lg"} shape={"rounded"}>
+					<Button
+						size={"lg"}
+						shape={"rounded"}
+					>
 						Button LG
 					</Button>
-					<Button size={"xl"} shape={"rounded"}>
+					<Button
+						size={"xl"}
+						shape={"rounded"}
+					>
 						Button XL
 					</Button>
 				</Stack>
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} variant={"secondary"} shape={"rounded"}>
+					<Button
+						size={"xs"}
+						variant={"secondary"}
+						shape={"rounded"}
+					>
 						Button XS
 					</Button>
-					<Button size={"sm"} variant={"secondary"} shape={"rounded"}>
+					<Button
+						size={"sm"}
+						variant={"secondary"}
+						shape={"rounded"}
+					>
 						Button SM
 					</Button>
-					<Button size={"md"} variant={"secondary"} shape={"rounded"}>
+					<Button
+						size={"md"}
+						variant={"secondary"}
+						shape={"rounded"}
+					>
 						Button MD
 					</Button>
-					<Button size={"lg"} variant={"secondary"} shape={"rounded"}>
+					<Button
+						size={"lg"}
+						variant={"secondary"}
+						shape={"rounded"}
+					>
 						Button LG
 					</Button>
-					<Button size={"xl"} variant={"secondary"} shape={"rounded"}>
+					<Button
+						size={"xl"}
+						variant={"secondary"}
+						shape={"rounded"}
+					>
 						Button XL
 					</Button>
 				</Stack>
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} variant={"secondary"}>
+					<Button
+						size={"xs"}
+						variant={"secondary"}
+					>
 						Button
 					</Button>
-					<Button size={"sm"} variant={"secondary"}>
+					<Button
+						size={"sm"}
+						variant={"secondary"}
+					>
 						Button
 					</Button>
-					<Button size={"md"} variant={"secondary"}>
+					<Button
+						size={"md"}
+						variant={"secondary"}
+					>
 						Button
 					</Button>
-					<Button size={"lg"} variant={"secondary"}>
+					<Button
+						size={"lg"}
+						variant={"secondary"}
+					>
 						Button
 					</Button>
-					<Button size={"xl"} variant={"secondary"}>
+					<Button
+						size={"xl"}
+						variant={"secondary"}
+					>
 						Button
 					</Button>
 				</Stack>
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} variant={"soft"}>
+					<Button
+						size={"xs"}
+						variant={"soft"}
+					>
 						Button
 					</Button>
-					<Button size={"sm"} variant={"soft"}>
+					<Button
+						size={"sm"}
+						variant={"soft"}
+					>
 						Button
 					</Button>
-					<Button size={"md"} variant={"soft"}>
+					<Button
+						size={"md"}
+						variant={"soft"}
+					>
 						Button
 					</Button>
-					<Button size={"lg"} variant={"soft"}>
+					<Button
+						size={"lg"}
+						variant={"soft"}
+					>
 						Button
 					</Button>
-					<Button size={"xl"} variant={"soft"}>
+					<Button
+						size={"xl"}
+						variant={"soft"}
+					>
 						Button
 					</Button>
 				</Stack>
@@ -119,65 +185,127 @@ function RouteComponent() {
 					>
 						Button
 					</Button>
-					<Button size={"sm"} trailingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"sm"}
+						trailingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"md"} trailingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"md"}
+						trailingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"lg"} trailingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"lg"}
+						trailingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"xl"} trailingIcon={<CheckCircleIcon />}>
-						Button
-					</Button>
-				</Stack>
-			</Card>
-			<Card>
-				<Stack>
-					<Button size={"xs"} leadingIcon={<CheckCircleIcon />}>
-						Button
-					</Button>
-					<Button size={"sm"} leadingIcon={<CheckCircleIcon />}>
-						Button
-					</Button>
-					<Button size={"md"} leadingIcon={<CheckCircleIcon />}>
-						Button
-					</Button>
-					<Button size={"lg"} leadingIcon={<CheckCircleIcon />}>
-						Button
-					</Button>
-					<Button size={"xl"} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"xl"}
+						trailingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
 				</Stack>
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"xs"}
+						leadingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"sm"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"sm"}
+						leadingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"md"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"md"}
+						leadingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"lg"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"lg"}
+						leadingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
-					<Button size={"xl"} loading={true} leadingIcon={<CheckCircleIcon />}>
+					<Button
+						size={"xl"}
+						leadingIcon={<CheckCircleIcon />}
+					>
 						Button
 					</Button>
 				</Stack>
 			</Card>
 			<Card>
 				<Stack>
-					<Button size={"xs"} leadingIcon={<CheckCircleIcon />} />
-					<Button size={"sm"} leadingIcon={<CheckCircleIcon />} />
-					<Button size={"md"} leadingIcon={<CheckCircleIcon />} />
-					<Button size={"lg"} leadingIcon={<CheckCircleIcon />} />
-					<Button size={"xl"} leadingIcon={<CheckCircleIcon />} />
+					<Button
+						size={"xs"}
+						loading={true}
+						leadingIcon={<CheckCircleIcon />}
+					>
+						Button
+					</Button>
+					<Button
+						size={"sm"}
+						loading={true}
+						leadingIcon={<CheckCircleIcon />}
+					>
+						Button
+					</Button>
+					<Button
+						size={"md"}
+						loading={true}
+						leadingIcon={<CheckCircleIcon />}
+					>
+						Button
+					</Button>
+					<Button
+						size={"lg"}
+						loading={true}
+						leadingIcon={<CheckCircleIcon />}
+					>
+						Button
+					</Button>
+					<Button
+						size={"xl"}
+						loading={true}
+						leadingIcon={<CheckCircleIcon />}
+					>
+						Button
+					</Button>
+				</Stack>
+			</Card>
+			<Card>
+				<Stack>
+					<Button
+						size={"xs"}
+						leadingIcon={<CheckCircleIcon />}
+					/>
+					<Button
+						size={"sm"}
+						leadingIcon={<CheckCircleIcon />}
+					/>
+					<Button
+						size={"md"}
+						leadingIcon={<CheckCircleIcon />}
+					/>
+					<Button
+						size={"lg"}
+						leadingIcon={<CheckCircleIcon />}
+					/>
+					<Button
+						size={"xl"}
+						leadingIcon={<CheckCircleIcon />}
+					/>
 				</Stack>
 			</Card>
 			<Card>
