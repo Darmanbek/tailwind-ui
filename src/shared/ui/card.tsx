@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef } from "react"
+import type { ComponentPropsWithRef, ElementType } from "react"
 import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
@@ -7,12 +7,14 @@ export interface CardProps extends ComponentPropsWithRef<"div"> {
 	edgeToEdge?: boolean
 	well?: boolean
 	flat?: boolean
+	as?: ElementType
 }
 
-const Card = forwardRef<HTMLDivElement, CardProps>(
-	({ children, className, edgeToEdge, well, flat, ...props }, ref) => {
+const Card = forwardRef<HTMLElement, CardProps>(
+	({ children, className, edgeToEdge, well, flat, as, ...props }, ref) => {
+		const Comp = as || "div"
 		return (
-			<div
+			<Comp
 				ref={ref}
 				className={twx(
 					"overflow-hidden bg-white dark:bg-gray-800",
@@ -29,7 +31,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
 				{...props}
 			>
 				{children}
-			</div>
+			</Comp>
 		)
 	}
 )

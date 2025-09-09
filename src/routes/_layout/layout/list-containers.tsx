@@ -87,12 +87,13 @@ function RouteComponent() {
 					role={"list"}
 				>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<li
+						<Card
 							key={index}
-							className={"overflow-hidden rounded-md bg-white px-6 py-4 shadow"}
+							as={"li"}
+							className={"px-6 py-4"}
 						>
 							<Placeholder className={"h-16"} />
-						</li>
+						</Card>
 					))}
 				</ul>
 			</ResizeContainer>
@@ -108,14 +109,14 @@ function RouteComponent() {
 					role={"list"}
 				>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<li
+						<Card
 							key={index}
-							className={
-								"overflow-hidden sm:rounded-md bg-white px-6 py-4 shadow"
-							}
+							as={"li"}
+							className={"px-6 py-4"}
+							edgeToEdge={true}
 						>
 							<Placeholder className={"h-16"} />
-						</li>
+						</Card>
 					))}
 				</ul>
 			</ResizeContainer>

@@ -280,6 +280,7 @@ export const menuData: MenuGroupItem[] = [
 			{
 				name: "Containers",
 				href: "/layout/containers",
+				extra: "5",
 			},
 			{
 				name: "Cards",
@@ -294,6 +295,7 @@ export const menuData: MenuGroupItem[] = [
 			{
 				name: "Media Objects",
 				href: "/layout/media-objects",
+				extra: "8",
 			},
 			{
 				name: "Dividers",

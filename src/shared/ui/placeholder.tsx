@@ -37,7 +37,7 @@ const Placeholder = forwardRef<HTMLDivElement, PlaceholderProps>(
 			<div
 				ref={ref}
 				className={twx(
-					"relative h-full w-full overflow-hidden rounded-sm border border-dashed opacity-75 border-gray-400 dark:border-white/20",
+					"relative h-full w-full overflow-hidden rounded-sm border border-dashed opacity-75 border-gray-400 dark:border-white/20 bg-white dark:bg-gray-800",
 					className
 				)}
 				{...props}

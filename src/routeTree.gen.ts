@@ -28,8 +28,10 @@ import { Route as LayoutApplicationShellsIndexRouteImport } from "./routes/_layo
 import { Route as LayoutOverlaysNotificationsRouteImport } from "./routes/_layout/overlays/notifications"
 import { Route as LayoutOverlaysModalDialogsRouteImport } from "./routes/_layout/overlays/modal-dialogs"
 import { Route as LayoutOverlaysDrawersRouteImport } from "./routes/_layout/overlays/drawers"
+import { Route as LayoutLayoutMediaObjectsRouteImport } from "./routes/_layout/layout/media-objects"
 import { Route as LayoutLayoutListContainersRouteImport } from "./routes/_layout/layout/list-containers"
 import { Route as LayoutLayoutDividersRouteImport } from "./routes/_layout/layout/dividers"
+import { Route as LayoutLayoutContainersRouteImport } from "./routes/_layout/layout/containers"
 import { Route as LayoutLayoutCardsRouteImport } from "./routes/_layout/layout/cards"
 import { Route as LayoutFeedbackEmptyStatesRouteImport } from "./routes/_layout/feedback/empty-states"
 import { Route as LayoutFeedbackAlertsRouteImport } from "./routes/_layout/feedback/alerts"
@@ -141,6 +143,12 @@ const LayoutOverlaysDrawersRoute = LayoutOverlaysDrawersRouteImport.update({
   path: "/overlays/drawers",
   getParentRoute: () => LayoutRoute,
 } as any)
+const LayoutLayoutMediaObjectsRoute =
+  LayoutLayoutMediaObjectsRouteImport.update({
+    id: "/layout/media-objects",
+    path: "/layout/media-objects",
+    getParentRoute: () => LayoutRoute,
+  } as any)
 const LayoutLayoutListContainersRoute =
   LayoutLayoutListContainersRouteImport.update({
     id: "/layout/list-containers",
@@ -150,6 +158,11 @@ const LayoutLayoutListContainersRoute =
 const LayoutLayoutDividersRoute = LayoutLayoutDividersRouteImport.update({
   id: "/layout/dividers",
   path: "/layout/dividers",
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutLayoutContainersRoute = LayoutLayoutContainersRouteImport.update({
+  id: "/layout/containers",
+  path: "/layout/containers",
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutLayoutCardsRoute = LayoutLayoutCardsRouteImport.update({
@@ -239,8 +252,10 @@ export interface FileRoutesByFullPath {
   "/feedback/alerts": typeof LayoutFeedbackAlertsRoute
   "/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
   "/layout/cards": typeof LayoutLayoutCardsRoute
+  "/layout/containers": typeof LayoutLayoutContainersRoute
   "/layout/dividers": typeof LayoutLayoutDividersRoute
   "/layout/list-containers": typeof LayoutLayoutListContainersRoute
+  "/layout/media-objects": typeof LayoutLayoutMediaObjectsRoute
   "/overlays/drawers": typeof LayoutOverlaysDrawersRoute
   "/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
   "/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
@@ -274,8 +289,10 @@ export interface FileRoutesByTo {
   "/feedback/alerts": typeof LayoutFeedbackAlertsRoute
   "/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
   "/layout/cards": typeof LayoutLayoutCardsRoute
+  "/layout/containers": typeof LayoutLayoutContainersRoute
   "/layout/dividers": typeof LayoutLayoutDividersRoute
   "/layout/list-containers": typeof LayoutLayoutListContainersRoute
+  "/layout/media-objects": typeof LayoutLayoutMediaObjectsRoute
   "/overlays/drawers": typeof LayoutOverlaysDrawersRoute
   "/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
   "/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
@@ -311,8 +328,10 @@ export interface FileRoutesById {
   "/_layout/feedback/alerts": typeof LayoutFeedbackAlertsRoute
   "/_layout/feedback/empty-states": typeof LayoutFeedbackEmptyStatesRoute
   "/_layout/layout/cards": typeof LayoutLayoutCardsRoute
+  "/_layout/layout/containers": typeof LayoutLayoutContainersRoute
   "/_layout/layout/dividers": typeof LayoutLayoutDividersRoute
   "/_layout/layout/list-containers": typeof LayoutLayoutListContainersRoute
+  "/_layout/layout/media-objects": typeof LayoutLayoutMediaObjectsRoute
   "/_layout/overlays/drawers": typeof LayoutOverlaysDrawersRoute
   "/_layout/overlays/modal-dialogs": typeof LayoutOverlaysModalDialogsRoute
   "/_layout/overlays/notifications": typeof LayoutOverlaysNotificationsRoute
@@ -348,8 +367,10 @@ export interface FileRouteTypes {
     | "/feedback/alerts"
     | "/feedback/empty-states"
     | "/layout/cards"
+    | "/layout/containers"
     | "/layout/dividers"
     | "/layout/list-containers"
+    | "/layout/media-objects"
     | "/overlays/drawers"
     | "/overlays/modal-dialogs"
     | "/overlays/notifications"
@@ -383,8 +404,10 @@ export interface FileRouteTypes {
     | "/feedback/alerts"
     | "/feedback/empty-states"
     | "/layout/cards"
+    | "/layout/containers"
     | "/layout/dividers"
     | "/layout/list-containers"
+    | "/layout/media-objects"
     | "/overlays/drawers"
     | "/overlays/modal-dialogs"
     | "/overlays/notifications"
@@ -419,8 +442,10 @@ export interface FileRouteTypes {
     | "/_layout/feedback/alerts"
     | "/_layout/feedback/empty-states"
     | "/_layout/layout/cards"
+    | "/_layout/layout/containers"
     | "/_layout/layout/dividers"
     | "/_layout/layout/list-containers"
+    | "/_layout/layout/media-objects"
     | "/_layout/overlays/drawers"
     | "/_layout/overlays/modal-dialogs"
     | "/_layout/overlays/notifications"
@@ -577,6 +602,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutOverlaysDrawersRouteImport
       parentRoute: typeof LayoutRoute
     }
+    "/_layout/layout/media-objects": {
+      id: "/_layout/layout/media-objects"
+      path: "/layout/media-objects"
+      fullPath: "/layout/media-objects"
+      preLoaderRoute: typeof LayoutLayoutMediaObjectsRouteImport
+      parentRoute: typeof LayoutRoute
+    }
     "/_layout/layout/list-containers": {
       id: "/_layout/layout/list-containers"
       path: "/layout/list-containers"
@@ -589,6 +621,13 @@ declare module "@tanstack/react-router" {
       path: "/layout/dividers"
       fullPath: "/layout/dividers"
       preLoaderRoute: typeof LayoutLayoutDividersRouteImport
+      parentRoute: typeof LayoutRoute
+    }
+    "/_layout/layout/containers": {
+      id: "/_layout/layout/containers"
+      path: "/layout/containers"
+      fullPath: "/layout/containers"
+      preLoaderRoute: typeof LayoutLayoutContainersRouteImport
       parentRoute: typeof LayoutRoute
     }
     "/_layout/layout/cards": {
@@ -702,8 +741,10 @@ interface LayoutRouteChildren {
   LayoutFeedbackAlertsRoute: typeof LayoutFeedbackAlertsRoute
   LayoutFeedbackEmptyStatesRoute: typeof LayoutFeedbackEmptyStatesRoute
   LayoutLayoutCardsRoute: typeof LayoutLayoutCardsRoute
+  LayoutLayoutContainersRoute: typeof LayoutLayoutContainersRoute
   LayoutLayoutDividersRoute: typeof LayoutLayoutDividersRoute
   LayoutLayoutListContainersRoute: typeof LayoutLayoutListContainersRoute
+  LayoutLayoutMediaObjectsRoute: typeof LayoutLayoutMediaObjectsRoute
   LayoutOverlaysDrawersRoute: typeof LayoutOverlaysDrawersRoute
   LayoutOverlaysModalDialogsRoute: typeof LayoutOverlaysModalDialogsRoute
   LayoutOverlaysNotificationsRoute: typeof LayoutOverlaysNotificationsRoute
@@ -737,8 +778,10 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutFeedbackAlertsRoute: LayoutFeedbackAlertsRoute,
   LayoutFeedbackEmptyStatesRoute: LayoutFeedbackEmptyStatesRoute,
   LayoutLayoutCardsRoute: LayoutLayoutCardsRoute,
+  LayoutLayoutContainersRoute: LayoutLayoutContainersRoute,
   LayoutLayoutDividersRoute: LayoutLayoutDividersRoute,
   LayoutLayoutListContainersRoute: LayoutLayoutListContainersRoute,
+  LayoutLayoutMediaObjectsRoute: LayoutLayoutMediaObjectsRoute,
   LayoutOverlaysDrawersRoute: LayoutOverlaysDrawersRoute,
   LayoutOverlaysModalDialogsRoute: LayoutOverlaysModalDialogsRoute,
   LayoutOverlaysNotificationsRoute: LayoutOverlaysNotificationsRoute,

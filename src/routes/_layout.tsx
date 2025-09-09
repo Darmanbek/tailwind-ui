@@ -3,7 +3,7 @@ import { Header, MainContent, MainLayout, Sidebar } from "src/shared/layout"
 import { Container } from "src/shared/ui"
 
 export const Route = createFileRoute("/_layout")({
-	component: RouteComponent
+	component: RouteComponent,
 })
 
 function RouteComponent() {

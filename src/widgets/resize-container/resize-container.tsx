@@ -21,13 +21,16 @@ const ResizeContainer: FC<ResizeContainerProps> = ({
 }) => {
 	return (
 		<>
-			<h1
-				className={
-					"truncate text-base/7 font-medium text-gray-950 dark:text-white"
-				}
-			>
-				{title}
-			</h1>
+			<div className={"flex items-center justify-between"}>
+				<div className={"flex min-w-0 items-center"}>
+					<h1
+						className={" text-base/7 font-medium text-gray-950 dark:text-white"}
+					>
+						{title}
+					</h1>
+				</div>
+				<div className={"ml-6 flex items-center"}></div>
+			</div>
 			<div
 				className={twx(
 					"w-full overflow-hidden rounded-lg ring-1 ring-gray-950/10 dark:ring-white/20 bg-gray-100 dark:bg-gray-900 mb-8",
