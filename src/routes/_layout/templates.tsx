@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { TemplatesPage } from "src/pages/templates"
+// import { TemplatesPage } from "src/pages/templates"
 
 export const Route = createFileRoute("/_layout/templates")({
-	component: RouteComponent
+	component: RouteComponent,
 })
 
 function RouteComponent() {
 	return (
 		<>
-			<TemplatesPage />
+			<h1>TemplatesPage</h1>
 		</>
 	)
 }

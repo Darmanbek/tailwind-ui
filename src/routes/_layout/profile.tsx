@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { ProfilePage } from "src/pages/profile"
+// import { ProfilePage } from "src/pages/profile"
 
 export const Route = createFileRoute("/_layout/profile")({
-	component: RouteComponent
+	component: RouteComponent,
 })
 
 function RouteComponent() {
 	return (
 		<>
-			<ProfilePage />
+			<h1>ProfilePage</h1>
 		</>
 	)
 }

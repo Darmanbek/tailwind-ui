@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid"
 import { createFileRoute } from "@tanstack/react-router"
-import { Button, Card, Title } from "src/shared/ui"
+import { Button, Card, CardBody, CardHeader, Title } from "src/shared/ui"
 import { Stack } from "src/widgets/stack"
 
 export const Route = createFileRoute("/_layout/elements/buttons")({
@@ -20,20 +20,21 @@ function RouteComponent() {
 			{/*	<Button color={"purple"}>Button</Button>*/}
 			{/*	<Button color={"pink"}>Button</Button>*/}
 			{/*</div>*/}
-			<Card
-				header={
+			<Card>
+				<CardHeader>
 					<div className={"flex gap-4 justify-between"}>
 						<Title level={"h5"}>Default Buttons</Title>
 					</div>
-				}
-			>
-				<Stack>
-					<Button size={"xs"}>Button XS</Button>
-					<Button size={"sm"}>Button SM</Button>
-					<Button size={"md"}>Button MD</Button>
-					<Button size={"lg"}>Button LG</Button>
-					<Button size={"xl"}>Button XL</Button>
-				</Stack>
+				</CardHeader>
+				<CardBody>
+					<Stack>
+						<Button size={"xs"}>Button XS</Button>
+						<Button size={"sm"}>Button SM</Button>
+						<Button size={"md"}>Button MD</Button>
+						<Button size={"lg"}>Button LG</Button>
+						<Button size={"xl"}>Button XL</Button>
+					</Stack>
+				</CardBody>
 			</Card>
 			<Card>
 				<Stack>
