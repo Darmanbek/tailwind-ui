@@ -17,7 +17,11 @@ const Sidebar: FC = () => {
 
 	return (
 		<>
-			<Aside>
+			<Aside
+				className={
+					"sticky left-0 top-[calc(4rem+1px)] h-[calc(100vh-4rem-1px)]"
+				}
+			>
 				<div className={"flex flex-col space-y-1 w-full"}>
 					{menuItems.map(({ Icon, ...item }) => (
 						<Link
@@ -28,7 +32,7 @@ const Sidebar: FC = () => {
 								"text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
 								{
 									"px-3": !Icon,
-									"text-indigo-600 bg-indigo-50": pathname === item.href
+									"text-indigo-600 bg-indigo-50": pathname === item.href,
 								}
 							)}
 						>

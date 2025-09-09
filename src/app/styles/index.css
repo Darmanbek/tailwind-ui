@@ -4,6 +4,8 @@
 @import "./light.css";
 @import "./dark.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
 	* {
 		border-color: var(--color-border);

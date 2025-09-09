@@ -1,17 +1,17 @@
 import { useNavigate } from "@tanstack/react-router"
-import { type FC, type FormEventHandler } from "react"
+import type { FC, FormEventHandler } from "react"
 import { Button, Form, FormItem, Input, Link, Text, Title } from "src/shared/ui"
 
 const Login: FC = () => {
 	const navigate = useNavigate()
-	
+
 	const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
 		e.preventDefault()
 		navigate({
-			to: "/"
+			to: "/",
 		})
 	}
-	
+
 	return (
 		<>
 			<div
@@ -27,18 +27,14 @@ const Login: FC = () => {
 					/>
 					<Title
 						level={"h2"}
-						className={
-							"mt-10 text-center text-2xl/9"
-						}
+						className={"mt-10 text-center text-2xl/9"}
 					>
 						Sign in to your account
 					</Title>
 				</div>
-				
+
 				<div className={"mt-10 sm:mx-auto sm:w-full sm:max-w-sm"}>
-					<Form
-						onSubmit={onSubmit}
-					>
+					<Form onSubmit={onSubmit}>
 						<FormItem
 							label={"Email address"}
 							name={"email"}
@@ -52,13 +48,7 @@ const Login: FC = () => {
 						<FormItem
 							name={"password"}
 							label={"Password"}
-							extra={(
-								<Link
-									href={"#"}
-								>
-									Forgot password?
-								</Link>
-							)}
+							extra={<Link href={"#"}>Forgot password?</Link>}
 						>
 							<Input
 								name={"password"}
@@ -67,19 +57,17 @@ const Login: FC = () => {
 							/>
 						</FormItem>
 						<div>
-							<Button type={"submit"} className={"w-full"}>
+							<Button
+								type={"submit"}
+								className={"w-full"}
+							>
 								Sign in
 							</Button>
 						</div>
 					</Form>
-					
+
 					<Text className={"mt-10 text-center text-sm/6"}>
-						Not a member?{" "}
-						<Link
-							href={"#"}
-						>
-							Start a 14 day free trial
-						</Link>
+						Not a member? <Link href={"#"}>Start a 14 day free trial</Link>
 					</Text>
 				</div>
 			</div>

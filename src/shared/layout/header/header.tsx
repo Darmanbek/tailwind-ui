@@ -8,8 +8,11 @@ import { HeaderRight } from "./header-right.tsx"
 const Header: FC = () => {
 	return (
 		<>
-			<header className={"bg-background border-b"}>
-				<Disclosure as={"nav"} className={"mx-auto"}>
+			<header className={"bg-background border-b sticky top-0 z-40"}>
+				<Disclosure
+					as={"nav"}
+					className={"mx-auto"}
+				>
 					<div className={"flex h-16 items-center justify-between px-4"}>
 						<HeaderLeft />
 						<HeaderRight />

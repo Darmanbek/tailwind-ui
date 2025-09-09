@@ -1,6 +1,7 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline"
 import { cva, type VariantProps } from "class-variance-authority"
-import { type ComponentPropsWithRef, forwardRef, type ReactNode } from "react"
+import type { ComponentPropsWithRef, ReactNode } from "react"
+import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
 // language=tailwindcss

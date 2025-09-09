@@ -1,73 +1,101 @@
-import {
-	type DetailedHTMLProps,
-	forwardRef,
-	type HTMLAttributes,
-	type ReactNode
-} from "react"
+import type { ComponentPropsWithRef } from "react"
+import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
-export interface CardProps
-	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	header?: ReactNode
-	footer?: ReactNode
-	classNames?: {
-		header?: string
-		footer?: string
-	}
-	bordered?: boolean
+export interface CardProps extends ComponentPropsWithRef<"div"> {
+	className?: string
+	edgeToEdge?: boolean
+	well?: boolean
+	flat?: boolean
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-	(
-		{
-			children,
-			className,
-			classNames,
-			header,
-			footer,
-			bordered = true,
-			...props
-		},
-		ref
-	) => {
+	({ children, className, edgeToEdge, well, flat, ...props }, ref) => {
 		return (
 			<div
 				ref={ref}
 				className={twx(
-					"overflow-hidden rounded-lg bg-white",
+					"overflow-hidden bg-white dark:bg-gray-800",
 					{
-						shadow: !bordered,
-						"border border-gray-200": bordered
+						"rounded-lg": !edgeToEdge,
+						"not-dark:shadow dark:outline-1 -outline-offset-1 outline-white/10":
+							!well && !flat,
+						"border-1 border-gray-300": flat,
+						"bg-gray-50": well,
+						"sm:rounded-lg": edgeToEdge,
 					},
 					className
 				)}
 				{...props}
 			>
-				{header && (
-					<div
-						className={twx(
-							"border-b border-gray-200 px-4 py-5 sm:px-6",
-							classNames?.header
-						)}
-					>
-						{header}
-					</div>
-				)}
-				<div className={"p-4 py-5 sm:p-6"}>{children}</div>
-				{footer && (
-					<div
-						className={twx(
-							"border-t border-gray-200 px-4 py-4 sm:px-6",
-							classNames?.footer
-						)}
-					>
-						{footer}
-					</div>
-				)}
+				{children}
 			</div>
 		)
 	}
 )
 Card.displayName = "Card"
 
-export { Card }
+export interface CardBodyProps extends ComponentPropsWithRef<"div"> {
+	className?: string
+}
+
+const CardBody = forwardRef<HTMLDivElement, CardBodyProps>(
+	({ children, className, ...props }, ref) => {
+		return (
+			<div
+				ref={ref}
+				className={twx("px-4 py-5 sm:p-6", className)}
+				{...props}
+			>
+				{children}
+			</div>
+		)
+	}
+)
+CardBody.displayName = "CardBody"
+
+export interface CardHeaderProps extends ComponentPropsWithRef<"div"> {
+	className?: string
+}
+
+const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
+	({ children, className, ...props }, ref) => {
+		return (
+			<div
+				ref={ref}
+				className={twx(
+					"border-b border-gray-200 dark:border-white/10 px-4 py-5 sm:p-6",
+					className
+				)}
+				{...props}
+			>
+				{children}
+			</div>
+		)
+	}
+)
+CardHeader.displayName = "CardHeader"
+
+export interface CardFooterProps extends ComponentPropsWithRef<"div"> {
+	className?: string
+}
+
+const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
+	({ children, className, ...props }, ref) => {
+		return (
+			<div
+				ref={ref}
+				className={twx(
+					"border-t border-gray-200 dark:border-white/10 px-4 py-4 sm:p-6",
+					className
+				)}
+				{...props}
+			>
+				{children}
+			</div>
+		)
+	}
+)
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardBody, CardFooter, CardHeader }
