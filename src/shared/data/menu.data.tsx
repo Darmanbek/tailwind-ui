@@ -300,7 +300,7 @@ export const menuData: MenuGroupItem[] = [
 			{
 				name: "Dividers",
 				href: "/layout/dividers",
-				extra: "7",
+				extra: "8",
 			},
 		],
 	},

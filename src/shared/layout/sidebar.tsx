@@ -29,10 +29,11 @@ const Sidebar: FC = () => {
 							to={item.href}
 							aria-current={pathname === item.href ? "page" : undefined}
 							className={twx(
-								"text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
+								"text-gray-700 dark:text-gray-400 hover:bg-indigo-50 dark:hover:text-white dark:hover:bg-white/5 hover:text-indigo-600 group flex items-center gap-x-3 rounded-md p-2 text-sm font-semibold",
 								{
 									"px-3": !Icon,
-									"text-indigo-600 bg-indigo-50": pathname === item.href,
+									"text-indigo-600 bg-indigo-50 dark:text-white dark:bg-white/5":
+										pathname === item.href,
 								}
 							)}
 						>
@@ -47,7 +48,7 @@ const Sidebar: FC = () => {
 							{item.extra && (
 								<span
 									className={
-										"ml-auto w-9 min-w-max rounded-full bg-white px-2.5 py-0.5 text-center text-xs leading-5 font-medium whitespace-nowrap text-gray-600 ring-1 ring-gray-200 ring-inset"
+										"ml-auto w-9 min-w-max rounded-full bg-white dark:bg-gray-900 px-2.5 py-0.5 text-center text-xs leading-5 font-medium whitespace-nowrap text-gray-600 dark:text-white ring-1 ring-gray-200 dark:ring-white/15 ring-inset"
 									}
 								>
 									{item.extra}

@@ -10,7 +10,10 @@ const HeaderLeft: FC = () => {
 	return (
 		<>
 			<div className={"flex items-center md:items-stretch h-full"}>
-				<Link to={"/"} className={"flex items-center"}>
+				<Link
+					to={"/"}
+					className={"flex items-center"}
+				>
 					<Logo />
 				</Link>
 				<div className={"hidden md:block"}>
@@ -24,8 +27,8 @@ const HeaderLeft: FC = () => {
 								}
 								className={twx(
 									pathname.startsWith(item.href)
-										? "text-gray-900 border-indigo-500"
-										: "text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700",
+										? "text-gray-900 dark:text-white border-indigo-500"
+										: "text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white border-transparent hover:border-gray-300 dark:hover:border-white/20",
 									"inline-flex items-center border-b-2 border-solid px-1 pt-1 text-sm font-medium"
 								)}
 							>

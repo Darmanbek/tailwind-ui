@@ -10,6 +10,7 @@ interface ResizeContainerProps {
 		body?: string
 	}
 	edgeToEdge?: boolean
+	color?: "white"
 }
 
 const ResizeContainer: FC<ResizeContainerProps> = ({
@@ -18,6 +19,7 @@ const ResizeContainer: FC<ResizeContainerProps> = ({
 	children,
 	classNames,
 	edgeToEdge,
+	color,
 }) => {
 	return (
 		<>
@@ -34,6 +36,9 @@ const ResizeContainer: FC<ResizeContainerProps> = ({
 			<div
 				className={twx(
 					"w-full overflow-hidden rounded-lg ring-1 ring-gray-950/10 dark:ring-white/20 bg-gray-100 dark:bg-gray-900 mb-8",
+					{
+						"bg-white dark:bg-gray-900": color === "white",
+					},
 					className
 				)}
 			>

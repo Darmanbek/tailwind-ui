@@ -6,13 +6,12 @@ import { twx } from "src/shared/lib"
 
 // language=tailwindcss
 const buttonVariants = cva(
-	"inline-flex justify-center items-center cursor-pointer gap-1.5 font-semibold focus-visible:outline focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
+	"inline-flex justify-center items-center cursor-pointer gap-1.5 font-semibold focus-visible:outline-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2",
 	{
 		variants: {
 			variant: {
 				default: "bg-indigo-600 text-white hover:bg-indigo-500",
-				borderless:
-					"bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white",
+				text: "bg-transparent text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 focus:ring-offset-white",
 				secondary: "bg-gray-50 text-gray-900 hover:bg-gray-100 border",
 				soft: "bg-indigo-50 text-indigo-600 hover:bg-gray-100",
 			},

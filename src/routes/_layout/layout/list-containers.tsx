@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Card, Placeholder } from "src/shared/ui"
+import { Card, List, ListItem, Placeholder } from "src/shared/ui"
 import { ResizeContainer } from "src/widgets/resize-container"
 
 export const Route = createFileRoute("/_layout/layout/list-containers")({
@@ -16,19 +16,13 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<ul
-					className={"divide-y divide-gray-200"}
-					role={"list"}
-				>
+				<List>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<li
-							key={index}
-							className={"py-4"}
-						>
+						<ListItem key={index}>
 							<Placeholder className={"h-16"} />
-						</li>
+						</ListItem>
 					))}
-				</ul>
+				</List>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Card with dividers"}
@@ -38,19 +32,16 @@ function RouteComponent() {
 				}}
 			>
 				<Card>
-					<ul
-						className={"w-full divide-y divide-gray-200 dark:divide-white/10"}
-						role={"list"}
-					>
+					<List>
 						{Array.from({ length: 3 }).map((_, index) => (
-							<li
+							<ListItem
 								key={index}
-								className={"px-6 py-4"}
+								card={true}
 							>
 								<Placeholder className={"h-16"} />
-							</li>
+							</ListItem>
 						))}
-					</ul>
+					</List>
 				</Card>
 			</ResizeContainer>
 			<ResizeContainer
@@ -61,19 +52,16 @@ function RouteComponent() {
 				edgeToEdge={true}
 			>
 				<Card edgeToEdge={true}>
-					<ul
-						className={"w-full divide-y divide-gray-200 dark:divide-white/10"}
-						role={"list"}
-					>
+					<List className={"w-full"}>
 						{Array.from({ length: 3 }).map((_, index) => (
-							<li
+							<ListItem
 								key={index}
 								className={"px-6 py-4"}
 							>
 								<Placeholder className={"h-16"} />
-							</li>
+							</ListItem>
 						))}
-					</ul>
+					</List>
 				</Card>
 			</ResizeContainer>
 			<ResizeContainer
@@ -82,20 +70,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<ul
-					className={"space-y-3"}
-					role={"list"}
-				>
+				<List separate={true}>
 					{Array.from({ length: 3 }).map((_, index) => (
 						<Card
 							key={index}
 							as={"li"}
+							role={"listitem"}
 							className={"px-6 py-4"}
 						>
 							<Placeholder className={"h-16"} />
 						</Card>
 					))}
-				</ul>
+				</List>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Separate cards, full-width on mobile"}
@@ -104,10 +90,7 @@ function RouteComponent() {
 				}}
 				edgeToEdge={true}
 			>
-				<ul
-					className={"space-y-3"}
-					role={"list"}
-				>
+				<List separate={true}>
 					{Array.from({ length: 3 }).map((_, index) => (
 						<Card
 							key={index}
@@ -118,7 +101,7 @@ function RouteComponent() {
 							<Placeholder className={"h-16"} />
 						</Card>
 					))}
-				</ul>
+				</List>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Flat card with dividers"}
@@ -128,42 +111,39 @@ function RouteComponent() {
 				}}
 			>
 				<Card flat={true}>
-					<ul
-						className={"w-full divide-y divide-gray-300 dark:divide-white/10"}
-						role={"list"}
-					>
+					<List className={"w-full"}>
 						{Array.from({ length: 3 }).map((_, index) => (
-							<li
+							<ListItem
 								key={index}
-								className={"px-6 py-4"}
+								card={true}
 							>
 								<Placeholder className={"h-16"} />
-							</li>
+							</ListItem>
 						))}
-					</ul>
+					</List>
 				</Card>
 			</ResizeContainer>
 			<ResizeContainer
-				title={"Simple with dividers"}
+				title={"Simple with dividers, full-width on mobile"}
 				className={"bg-white dark"}
 				classNames={{
 					body: "max-w-xl",
 				}}
 				edgeToEdge={true}
 			>
-				<ul
-					className={"divide-y divide-gray-200 dark:divide-white/10"}
+				<List
+					className={"w-full"}
 					role={"list"}
 				>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<li
+						<ListItem
 							key={index}
-							className={"px-4 py-4 sm:px-0"}
+							className={"px-4 sm:px-0"}
 						>
 							<Placeholder className={"h-16 dark"} />
-						</li>
+						</ListItem>
 					))}
-				</ul>
+				</List>
 			</ResizeContainer>
 		</>
 	)

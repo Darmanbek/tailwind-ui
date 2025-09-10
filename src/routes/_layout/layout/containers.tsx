@@ -16,7 +16,11 @@ function RouteComponent() {
 					body: "max-w-full",
 				}}
 			>
-				<div className={"mx-auto max-w-7xl bg-pink-100 sm:px-6 md:px-8"}>
+				<div
+					className={
+						"mx-auto max-w-7xl bg-pink-100 dark:bg-pink-600/15 sm:px-6 md:px-8"
+					}
+				>
 					<Placeholder className={"h-64 bg-white"} />
 				</div>
 			</ResizeContainer>
@@ -27,7 +31,11 @@ function RouteComponent() {
 					body: "max-w-full",
 				}}
 			>
-				<div className={"mx-auto max-w-7xl bg-pink-100 px-4 sm:px-6 md:px-8"}>
+				<div
+					className={
+						"mx-auto max-w-7xl bg-pink-100 dark:bg-pink-600/15 px-4 sm:px-6 md:px-8"
+					}
+				>
 					<Placeholder className={"h-64 bg-white"} />
 				</div>
 			</ResizeContainer>

@@ -22,7 +22,7 @@ const Card = forwardRef<HTMLElement, CardProps>(
 						"rounded-lg": !edgeToEdge,
 						"not-dark:shadow dark:outline-1 -outline-offset-1 outline-white/10":
 							!well && !flat,
-						"border-1 border-gray-300": flat,
+						"border-1 border-gray-300 dark:border-white/10": flat,
 						"bg-gray-50": well,
 						"sm:rounded-lg": edgeToEdge,
 					},

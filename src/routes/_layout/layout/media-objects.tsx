@@ -1,5 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Placeholder } from "src/shared/ui"
+import {
+	Media,
+	MediaAvatar,
+	MediaBody,
+	MediaDescription,
+	MediaTitle,
+	Placeholder,
+} from "src/shared/ui"
 import { ResizeContainer } from "src/widgets/resize-container"
 
 export const Route = createFileRoute("/_layout/layout/media-objects")({
@@ -16,18 +23,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<div className={"flex"}>
-					<div className={"mr-4 shrink-0"}>
+				<Media>
+					<MediaAvatar>
 						<Placeholder className={"size-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900"}>Lorem ipsum</h4>
-						<p className={"mt-1 text-gray-500"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Aligned to center"}
@@ -36,20 +43,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<div className={"flex"}>
-					<div className={"mr-4 shrink-0 self-center"}>
+				<Media>
+					<MediaAvatar align={"center"}>
 						<Placeholder className={"size-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Aligned to bottom"}
@@ -58,20 +63,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<div className={"flex"}>
-					<div className={"mr-4 shrink-0 self-end"}>
+				<Media>
+					<MediaAvatar align={"end"}>
 						<Placeholder className={"size-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Stretched to fit"}
@@ -80,20 +83,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<div className={"flex"}>
-					<div className={"mr-4 shrink-0 self-stretch"}>
+				<Media>
+					<MediaAvatar align={"stretch"}>
 						<Placeholder className={"w-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Media on right"}
@@ -102,20 +103,18 @@ function RouteComponent() {
 					body: "max-w-md",
 				}}
 			>
-				<div className={"flex"}>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+				<Media>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-					<div className={"mr-4 shrink-0"}>
+						</MediaDescription>
+					</MediaBody>
+					<MediaAvatar position={"right"}>
 						<Placeholder className={"size-16"} />
-					</div>
-				</div>
+					</MediaAvatar>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Basic responsive"}
@@ -124,20 +123,18 @@ function RouteComponent() {
 					body: "max-w-2xl",
 				}}
 			>
-				<div className={"sm:flex"}>
-					<div className={"mb-4 shrink-0 sm:mr-4 sm:mb-0"}>
+				<Media responsive={true}>
+					<MediaAvatar responsive={true}>
 						<Placeholder className={"size-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Wide responsive"}
@@ -146,20 +143,18 @@ function RouteComponent() {
 					body: "max-w-2xl",
 				}}
 			>
-				<div className={"sm:flex"}>
-					<div className={"mb-4 shrink-0 sm:mr-4 sm:mb-0  "}>
+				<Media responsive={true}>
+					<MediaAvatar responsive={true}>
 						<Placeholder className={"sm:w-32 h-32"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-					</div>
-				</div>
+						</MediaDescription>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 			<ResizeContainer
 				title={"Nested"}
@@ -168,54 +163,44 @@ function RouteComponent() {
 					body: "max-w-2xl",
 				}}
 			>
-				<div className={"flex"}>
-					<div className={"mr-4 shrink-0"}>
+				<Media>
+					<MediaAvatar>
 						<Placeholder className={"size-16"} />
-					</div>
-					<div>
-						<h4 className={"text-lg font-bold text-gray-900 dark:text-white"}>
-							Lorem ipsum
-						</h4>
-						<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+					</MediaAvatar>
+					<MediaBody>
+						<MediaTitle>Lorem ipsum</MediaTitle>
+						<MediaDescription>
 							Repudiandae sint consequuntur vel. Amet ut nobis explicabo numquam
 							expedita quia omnis voluptatem. Minus quidem ipsam quia iusto.
-						</p>
-						<div className={"flex mt-6"}>
-							<div className={"mr-4 shrink-0"}>
+						</MediaDescription>
+						<Media item={true}>
+							<MediaAvatar>
 								<Placeholder className={"size-12"} />
-							</div>
-							<div>
-								<h4
-									className={"text-lg font-bold text-gray-900 dark:text-white"}
-								>
-									Lorem ipsum
-								</h4>
-								<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+							</MediaAvatar>
+							<MediaBody>
+								<MediaTitle>Lorem ipsum</MediaTitle>
+								<MediaDescription>
 									Repudiandae sint consequuntur vel. Amet ut nobis explicabo
 									numquam expedita quia omnis voluptatem. Minus quidem ipsam
 									quia iusto.
-								</p>
-							</div>
-						</div>
-						<div className={"flex mt-6"}>
-							<div className={"mr-4 shrink-0"}>
+								</MediaDescription>
+							</MediaBody>
+						</Media>
+						<Media item={true}>
+							<MediaAvatar>
 								<Placeholder className={"size-12"} />
-							</div>
-							<div>
-								<h4
-									className={"text-lg font-bold text-gray-900 dark:text-white"}
-								>
-									Lorem ipsum
-								</h4>
-								<p className={"mt-1 text-gray-500 dark:text-gray-400"}>
+							</MediaAvatar>
+							<MediaBody>
+								<MediaTitle>Lorem ipsum</MediaTitle>
+								<MediaDescription>
 									Repudiandae sint consequuntur vel. Amet ut nobis explicabo
 									numquam expedita quia omnis voluptatem. Minus quidem ipsam
 									quia iusto.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
+								</MediaDescription>
+							</MediaBody>
+						</Media>
+					</MediaBody>
+				</Media>
 			</ResizeContainer>
 		</>
 	)

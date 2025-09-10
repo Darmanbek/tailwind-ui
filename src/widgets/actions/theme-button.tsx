@@ -11,11 +11,16 @@ const ThemeButton: FC = () => {
 	return (
 		<>
 			<Button
-				variant={"borderless"}
+				variant={"text"}
 				className={"rounded-full"}
 				size={"lg"}
 				onClick={toggleIsDark}
-				leadingIcon={<Icon aria-hidden={"true"} className={"size-6"} />}
+				leadingIcon={
+					<Icon
+						aria-hidden={"true"}
+						className={"size-6"}
+					/>
+				}
 				srOnly={"Theme"}
 			/>
 		</>

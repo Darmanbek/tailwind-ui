@@ -1,51 +1,45 @@
 import { cva, type VariantProps } from "class-variance-authority"
-import {
-	type DetailedHTMLProps,
-	forwardRef,
-	type ImgHTMLAttributes,
-	type ReactNode
-} from "react"
+import type { ComponentPropsWithRef, ReactNode } from "react"
+import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
-const avatarVariants = cva("inline-block [&_svg]:size-full text-gray-300", {
+const avatarVariants = cva("inline-block text-gray-300 dark:text-gray-600", {
 	variants: {
 		size: {
 			xs: "size-6",
 			sm: "size-8",
 			md: "size-10",
 			lg: "size-12",
-			xl: "size-14"
+			xl: "size-14",
 		},
-		rounded: {
-			circle: "rounded-[100%]",
-			square: "rounded-md"
-		}
-	}
+		square: {
+			true: "rounded-md",
+			false: "rounded-full",
+		},
+		group: {
+			true: "ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10",
+			false: "",
+		},
+	},
+	defaultVariants: {
+		size: "md",
+		square: false,
+		group: false,
+	},
 })
 
 export interface AvatarProps
-	extends DetailedHTMLProps<
-			ImgHTMLAttributes<HTMLImageElement>,
-			HTMLImageElement
-		>,
+	extends ComponentPropsWithRef<"img">,
 		VariantProps<typeof avatarVariants> {
 	icon?: ReactNode
 	title?: string
 	description?: string
+	initials?: string
 }
 
 const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 	(
-		{
-			icon,
-			title,
-			description,
-			size,
-			rounded = "circle",
-			className,
-			src,
-			...props
-		},
+		{ icon, title, description, size, square, className, src, group, ...props },
 		ref
 	) => {
 		const imageAvatar = (
@@ -53,12 +47,14 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 				ref={ref}
 				alt={""}
 				title={title || description}
+				aria-description={description}
 				src={src}
 				className={twx(
 					avatarVariants({
 						size,
-						rounded,
-						className
+						square,
+						group,
+						className,
 					})
 				)}
 				{...props}
@@ -70,8 +66,11 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 				className={twx(
 					avatarVariants({
 						size,
-						rounded,
-						className: twx("overflow-hidden bg-gray-100", className)
+						square,
+						className: twx(
+							"overflow-hidden bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10",
+							className
+						),
 					})
 				)}
 			>
@@ -84,4 +83,40 @@ const Avatar = forwardRef<HTMLImageElement, AvatarProps>(
 )
 Avatar.displayName = "Avatar"
 
-export { Avatar }
+const avatarGroupVariants = cva("flex items-center overflow-hidden", {
+	variants: {
+		size: {
+			default: "-space-x-1",
+			large: "-space-x-2",
+		},
+	},
+	defaultVariants: {
+		size: "default",
+	},
+})
+
+export interface AvatarGroupProps
+	extends ComponentPropsWithRef<"div">,
+		VariantProps<typeof avatarGroupVariants> {
+	className?: string
+}
+
+const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
+	({ className, size, ...props }, ref) => {
+		return (
+			<div
+				ref={ref}
+				className={twx(
+					avatarGroupVariants({
+						size,
+						className,
+					})
+				)}
+				{...props}
+			/>
+		)
+	}
+)
+AvatarGroup.displayName = "AvatarGroup"
+
+export { Avatar, AvatarGroup }

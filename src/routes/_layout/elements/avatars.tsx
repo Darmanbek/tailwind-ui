@@ -1,6 +1,7 @@
-import { UserIcon } from "@heroicons/react/24/solid"
+import { UserCircleIcon } from "@heroicons/react/24/solid"
 import { createFileRoute } from "@tanstack/react-router"
-import { Avatar, Card } from "src/shared/ui"
+import { Avatar, AvatarGroup } from "src/shared/ui"
+import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
 export const Route = createFileRoute("/_layout/elements/avatars")({
@@ -13,33 +14,207 @@ const url =
 function RouteComponent() {
 	return (
 		<>
-			<Card>
+			<ResizeContainer
+				title={"Avatar group stacked bottom to top"}
+				color={"white"}
+			>
 				<Stack>
-					<Avatar size={"xs"} src={url} />
-					<Avatar size={"sm"} src={url} />
-					<Avatar size={"md"} src={url} />
-					<Avatar size={"lg"} src={url} />
-					<Avatar size={"xl"} src={url} />
+					<AvatarGroup>
+						<Avatar
+							src={url}
+							size={"xs"}
+							group={true}
+						/>
+						<Avatar
+							src={url}
+							size={"xs"}
+							group={true}
+						/>
+						<Avatar
+							src={url}
+							size={"xs"}
+							group={true}
+						/>
+						<Avatar
+							src={url}
+							size={"xs"}
+							group={true}
+						/>
+						<Avatar
+							src={url}
+							size={"xs"}
+							group={true}
+						/>
+					</AvatarGroup>
+					<AvatarGroup size={"large"}>
+						<Avatar
+							size={"sm"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"sm"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"sm"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"sm"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"sm"}
+							src={url}
+							group={true}
+						/>
+					</AvatarGroup>
+					<AvatarGroup size={"large"}>
+						<Avatar
+							size={"md"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"md"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"md"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"md"}
+							src={url}
+							group={true}
+						/>
+						<Avatar
+							size={"md"}
+							src={url}
+							group={true}
+						/>
+					</AvatarGroup>
 				</Stack>
-			</Card>
-			<Card>
+			</ResizeContainer>
+			<ResizeContainer
+				title={"Circular avatars"}
+				color={"white"}
+			>
 				<Stack>
-					<Avatar size={"xs"} rounded={"square"} src={url} />
-					<Avatar size={"sm"} rounded={"square"} src={url} />
-					<Avatar size={"md"} rounded={"square"} src={url} />
-					<Avatar size={"lg"} rounded={"square"} src={url} />
-					<Avatar size={"xl"} rounded={"square"} src={url} />
+					<Avatar
+						size={"xs"}
+						src={url}
+					/>
+					<Avatar
+						size={"sm"}
+						src={url}
+					/>
+					<Avatar
+						size={"md"}
+						src={url}
+					/>
+					<Avatar
+						size={"lg"}
+						src={url}
+					/>
+					<Avatar
+						size={"xl"}
+						src={url}
+					/>
 				</Stack>
-			</Card>
-			<Card>
+			</ResizeContainer>
+			<ResizeContainer
+				title={"Rounded avatars"}
+				color={"white"}
+			>
 				<Stack>
-					<Avatar size={"xs"} icon={<UserIcon />} />
-					<Avatar size={"sm"} icon={<UserIcon />} />
-					<Avatar size={"md"} icon={<UserIcon />} />
-					<Avatar size={"lg"} icon={<UserIcon />} />
-					<Avatar size={"xl"} icon={<UserIcon />} />
+					<Avatar
+						size={"xs"}
+						square={true}
+						src={url}
+					/>
+					<Avatar
+						size={"sm"}
+						square={true}
+						src={url}
+					/>
+					<Avatar
+						size={"md"}
+						square={true}
+						src={url}
+					/>
+					<Avatar
+						size={"lg"}
+						square={true}
+						src={url}
+					/>
+					<Avatar
+						size={"xl"}
+						square={true}
+						src={url}
+					/>
 				</Stack>
-			</Card>
+			</ResizeContainer>
+			<ResizeContainer
+				title={"Circular avatars with placeholder icon"}
+				color={"white"}
+			>
+				<Stack>
+					<Avatar
+						size={"xs"}
+						icon={<UserCircleIcon />}
+					/>
+					<Avatar
+						size={"sm"}
+						icon={<UserCircleIcon />}
+					/>
+					<Avatar
+						size={"md"}
+						icon={<UserCircleIcon />}
+					/>
+					<Avatar
+						size={"lg"}
+						icon={<UserCircleIcon />}
+					/>
+					<Avatar
+						size={"xl"}
+						icon={<UserCircleIcon />}
+					/>
+				</Stack>
+			</ResizeContainer>
+			<ResizeContainer
+				title={"Circular avatars with placeholder initials"}
+				color={"white"}
+			>
+				<Stack>
+					<Avatar
+						size={"xs"}
+						initials={"tw"}
+					/>
+					<Avatar
+						size={"sm"}
+						initials={"tw"}
+					/>
+					<Avatar
+						size={"md"}
+						initials={"tw"}
+					/>
+					<Avatar
+						size={"lg"}
+						initials={"tw"}
+					/>
+					<Avatar
+						size={"xl"}
+						initials={"tw"}
+					/>
+				</Stack>
+			</ResizeContainer>
 		</>
 	)
 }
