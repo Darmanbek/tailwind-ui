@@ -1,37 +1,62 @@
-import type { ComponentPropsWithRef, ElementType } from "react"
+import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
+import type { ComponentPropsWithRef } from "react"
 import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
-export interface CardProps extends ComponentPropsWithRef<"div"> {
+const cardVariants = cva("overflow-hidden bg-white dark:bg-gray-800", {
+	variants: {
+		edgeToEdge: {
+			true: "sm:rounded-lg",
+			false: "rounded-lg",
+		},
+		well: {
+			true: "bg-gray-50",
+			false: "",
+		},
+		flat: {
+			true: "border-1 border-gray-300 dark:border-white/10",
+			false: "",
+		},
+	},
+	compoundVariants: [
+		{
+			well: false,
+			flat: false,
+			className:
+				"not-dark:shadow dark:outline-1 dark:-outline-offset-1 outline-white/10",
+		},
+	],
+	defaultVariants: {
+		edgeToEdge: false,
+		well: false,
+		flat: false,
+	},
+})
+
+export interface CardProps
+	extends ComponentPropsWithRef<"div">,
+		VariantProps<typeof cardVariants> {
 	className?: string
-	edgeToEdge?: boolean
-	well?: boolean
-	flat?: boolean
-	as?: ElementType
 }
 
-const Card = forwardRef<HTMLElement, CardProps>(
-	({ children, className, edgeToEdge, well, flat, as, ...props }, ref) => {
-		const Comp = as || "div"
+const Card = forwardRef<HTMLDivElement, CardProps>(
+	({ children, className, edgeToEdge, well, flat, ...props }, ref) => {
 		return (
-			<Comp
+			<div
 				ref={ref}
 				className={twx(
-					"overflow-hidden bg-white dark:bg-gray-800",
-					{
-						"rounded-lg": !edgeToEdge,
-						"not-dark:shadow dark:outline-1 -outline-offset-1 outline-white/10":
-							!well && !flat,
-						"border-1 border-gray-300 dark:border-white/10": flat,
-						"bg-gray-50": well,
-						"sm:rounded-lg": edgeToEdge,
-					},
-					className
+					cardVariants({
+						edgeToEdge,
+						well,
+						flat,
+						className,
+					})
 				)}
 				{...props}
 			>
 				{children}
-			</Comp>
+			</div>
 		)
 	}
 )

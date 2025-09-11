@@ -72,14 +72,13 @@ function RouteComponent() {
 			>
 				<List separate={true}>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<Card
+						<ListItem
 							key={index}
-							as={"li"}
+							variant={"card"}
 							role={"listitem"}
-							className={"px-6 py-4"}
 						>
 							<Placeholder className={"h-16"} />
-						</Card>
+						</ListItem>
 					))}
 				</List>
 			</ResizeContainer>
@@ -92,14 +91,13 @@ function RouteComponent() {
 			>
 				<List separate={true}>
 					{Array.from({ length: 3 }).map((_, index) => (
-						<Card
+						<ListItem
 							key={index}
-							as={"li"}
-							className={"px-6 py-4"}
+							variant={"card"}
 							edgeToEdge={true}
 						>
 							<Placeholder className={"h-16"} />
-						</Card>
+						</ListItem>
 					))}
 				</List>
 			</ResizeContainer>
