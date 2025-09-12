@@ -1,6 +1,12 @@
-import { UserIcon } from "@heroicons/react/24/solid"
 import { createFileRoute } from "@tanstack/react-router"
-import { AvatarGroup } from "src/shared/ui"
+import {
+	Avatar,
+	AvatarGroup,
+	AvatarLink,
+	AvatarMeta,
+	Notification,
+} from "src/shared/ui"
+import { UserIcon } from "src/shared/ui/icons"
 import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
@@ -22,37 +28,31 @@ function RouteComponent() {
 				<Stack>
 					<AvatarGroup>
 						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+							<Avatar
 								src={url}
-								alt={""}
 								key={index}
-								className={
-									"inline-block size-6 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								size={"xs"}
+								group={true}
 							/>
 						))}
 					</AvatarGroup>
 					<AvatarGroup size={"large"}>
 						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+							<Avatar
 								src={url}
-								alt={""}
 								key={index}
-								className={
-									"inline-block size-8 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								size={"sm"}
+								group={true}
 							/>
 						))}
 					</AvatarGroup>
 					<AvatarGroup size={"large"}>
 						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+							<Avatar
 								src={url}
-								alt={""}
 								key={index}
-								className={
-									"inline-block size-10 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								size={"md"}
+								group={true}
 							/>
 						))}
 					</AvatarGroup>
@@ -64,41 +64,14 @@ function RouteComponent() {
 				className={"dark"}
 			>
 				<Stack>
-					<img
-						className={
-							"inline-block size-6 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-8 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-10 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-12 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-14 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
+					{(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
+						<Avatar
+							key={size}
+							size={size}
+							src={url}
+							alt={""}
+						/>
+					))}
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -106,41 +79,15 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<img
-						className={
-							"inline-block size-6 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-8 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-10 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-12 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
-					<img
-						className={
-							"inline-block size-14 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-						src={url}
-						alt={""}
-					/>
+					{(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
+						<Avatar
+							key={size}
+							size={size}
+							src={url}
+							alt={""}
+							square={true}
+						/>
+					))}
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -149,95 +96,68 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-6 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification size={"xs"}>
+						<Avatar
+							size={"xs"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-1.5 rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-8 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"sm"}
+						color={"red"}
+					>
+						<Avatar
+							size={"sm"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-2 rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-10 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"md"}
+						color={"green"}
+					>
+						<Avatar
+							size={"md"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-2.5 rounded-full bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-12 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"lg"}
+						color={"default"}
+					>
+						<Avatar
+							size={"lg"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-3 rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-14 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xl"}
+						color={"red"}
+					>
+						<Avatar
+							size={"xl"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-3.5 rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-16 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xxl"}
+						color={"green"}
+					>
+						<Avatar
+							size={"xxl"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-4 rounded-full  bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -245,95 +165,82 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-6 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xs"}
+						square={true}
+					>
+						<Avatar
+							size={"xs"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-1.5 translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-8 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"sm"}
+						square={true}
+						color={"red"}
+					>
+						<Avatar
+							size={"sm"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-2 translate-x-1/2 -translate-y-1/2 transform rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-10 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"md"}
+						square={true}
+						color={"green"}
+					>
+						<Avatar
+							size={"md"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-2.5 translate-x-1/2 -translate-y-1/2 transform rounded-full bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-12 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"lg"}
+						square={true}
+						color={"default"}
+					>
+						<Avatar
+							size={"lg"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-3 translate-x-1/2 -translate-y-1/2 transform rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-14 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xl"}
+						square={true}
+						color={"red"}
+					>
+						<Avatar
+							size={"xl"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-3.5 translate-x-1/2 -translate-y-1/2 transform rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-16 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xxl"}
+						square={true}
+						color={"green"}
+					>
+						<Avatar
+							size={"xxl"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute top-0 right-0 block size-4 translate-x-1/2 -translate-y-1/2 transform rounded-full  bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -342,95 +249,76 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-6 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xs"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xs"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-1.5 rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-8 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"sm"}
+						color={"red"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"sm"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-2 rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-10 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"md"}
+						color={"green"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"md"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-2.5 rounded-full bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-12 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"lg"}
+						color={"default"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"lg"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-3 rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-14 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xl"}
+						color={"red"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xl"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-3.5 rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-16 rounded-full outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xxl"}
+						color={"green"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xxl"}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-4 rounded-full  bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -438,95 +326,88 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-6 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xs"}
+						square={true}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xs"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-1.5 translate-x-1/2 translate-y-1/2 transform rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-8 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"sm"}
+						square={true}
+						color={"red"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"sm"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-2 translate-x-1/2 translate-y-1/2 transform rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-10 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"md"}
+						square={true}
+						color={"green"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"md"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-2.5 translate-x-1/2 translate-y-1/2 transform rounded-full bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-12 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"lg"}
+						square={true}
+						color={"default"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"lg"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-3 translate-x-1/2 translate-y-1/2 transform rounded-full bg-gray-300 dark:bg-gray-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-14 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xl"}
+						square={true}
+						color={"red"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xl"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-3.5 translate-x-1/2 translate-y-1/2 transform rounded-full bg-red-400 dark:bg-red-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 					{/* - - - */}
-					<span className={"relative inline-block"}>
-						<img
-							className={
-								"size-16 rounded-md outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-							}
+					<Notification
+						size={"xxl"}
+						square={true}
+						color={"green"}
+						position={"bottom"}
+					>
+						<Avatar
+							size={"xxl"}
+							square={true}
 							src={url}
 							alt={""}
 						/>
-						<span
-							className={
-								"absolute bottom-0 right-0 block size-4 translate-x-1/2 translate-y-1/2 transform rounded-full  bg-green-400 dark:bg-green-500 ring-2 ring-white dark:ring-gray-900"
-							}
-						></span>
-					</span>
+					</Notification>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -535,51 +416,13 @@ function RouteComponent() {
 				className={"dark"}
 			>
 				<Stack>
-					<span
-						className={
-							"inline-block size-6 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<UserIcon
-							className={"size-full text-gray-300 dark:text-gray-600"}
+					{(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
+						<Avatar
+							key={size}
+							size={size}
+							icon={<UserIcon className={"size-full"} />}
 						/>
-					</span>
-					<span
-						className={
-							"inline-block size-8 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<UserIcon
-							className={"size-full text-gray-300 dark:text-gray-600"}
-						/>
-					</span>
-					<span
-						className={
-							"inline-block size-10 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<UserIcon
-							className={"size-full text-gray-300 dark:text-gray-600"}
-						/>
-					</span>
-					<span
-						className={
-							"inline-block size-12 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<UserIcon
-							className={"size-full text-gray-300 dark:text-gray-600"}
-						/>
-					</span>
-					<span
-						className={
-							"inline-block size-14 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<UserIcon
-							className={"size-full text-gray-300 dark:text-gray-600"}
-						/>
-					</span>
+					))}
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -587,41 +430,13 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<span
-						className={
-							"inline-flex size-6 items-center justify-center rounded-full bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<span className={"text-xs font-medium text-white"}>TW</span>
-					</span>
-					<span
-						className={
-							"inline-flex size-8 items-center justify-center rounded-full bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<span className={"text-sm font-medium text-white"}>TW</span>
-					</span>
-					<span
-						className={
-							"inline-flex size-10 items-center justify-center rounded-full bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<span className={"text-base font-medium text-white"}>TW</span>
-					</span>
-					<span
-						className={
-							"inline-flex size-12 items-center justify-center rounded-full bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<span className={"text-lg font-medium text-white"}>TW</span>
-					</span>
-					<span
-						className={
-							"inline-flex size-14 items-center justify-center rounded-full bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10"
-						}
-					>
-						<span className={"text-xl font-medium text-white"}>TW</span>
-					</span>
+					{(["xs", "sm", "md", "lg", "xl"] as const).map((size) => (
+						<Avatar
+							key={size}
+							size={size}
+							initials={"TW"}
+						/>
+					))}
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -629,39 +444,42 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<AvatarGroup className={"isolate flex -space-x-1 overflow-hidden"}>
-						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+					<AvatarGroup isolate={true}>
+						{([1, 2, 3, 4] as const).map((index) => (
+							<Avatar
 								src={url}
 								alt={""}
 								key={index}
-								className={
-									"relative z-30 inline-block size-6 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								group={true}
+								isolate={true}
+								level={index}
+								size={"xs"}
 							/>
 						))}
 					</AvatarGroup>
-					<AvatarGroup className={"isolate flex -space-x-1 overflow-hidden"}>
-						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+					<AvatarGroup isolate={true}>
+						{([1, 2, 3, 4] as const).map((index) => (
+							<Avatar
 								src={url}
 								alt={""}
 								key={index}
-								className={
-									"relative z-30 inline-block size-8 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								group={true}
+								isolate={true}
+								level={index}
+								size={"sm"}
 							/>
 						))}
 					</AvatarGroup>
-					<AvatarGroup className={"isolate flex -space-x-1 overflow-hidden"}>
-						{Array.from({ length: 4 }, (_v, index) => (
-							<img
+					<AvatarGroup isolate={true}>
+						{([1, 2, 3, 4] as const).map((index) => (
+							<Avatar
 								src={url}
 								alt={""}
 								key={index}
-								className={
-									"relative z-30 inline-block size-10 rounded-full ring-2 ring-white dark:ring-gray-900 outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-								}
+								group={true}
+								isolate={true}
+								level={index}
+								size={"md"}
 							/>
 						))}
 					</AvatarGroup>
@@ -672,38 +490,18 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack>
-					<a
-						href={"#"}
-						className={"group block shrink-0"}
-					>
-						<div className={"flex items-center"}>
-							<div>
-								<img
+					<AvatarLink href={"#"}>
+						<AvatarMeta
+							avatar={
+								<Avatar
 									src={url}
 									alt={""}
-									className={
-										"inline-block size-9 rounded-full outline -outline-offset-1 outline-black/5 dark:outline-white/10"
-									}
 								/>
-							</div>
-							<div className={"ml-3"}>
-								<p
-									className={
-										"text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white"
-									}
-								>
-									Tom Cook
-								</p>
-								<p
-									className={
-										"text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white"
-									}
-								>
-									View profile
-								</p>
-							</div>
-						</div>
-					</a>
+							}
+							title={"Tom Cook"}
+							description={"View profile"}
+						/>
+					</AvatarLink>
 				</Stack>
 			</ResizeContainer>
 		</>

@@ -1,63 +1,25 @@
-import { PhotoIcon } from "@heroicons/react/24/solid"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { ComponentPropsWithRef, FC, ReactNode } from "react"
 import { forwardRef, useState } from "react"
 import { twx } from "src/shared/lib"
+import { UserIcon } from "./icons"
 
-export interface AvatarProps extends VariantProps<typeof avatarImageVariants> {
-	icon?: ReactNode
-	title?: string
-	description?: string
-	initials?: string
-	src?: string
-	alt?: string
-	className?: string
-}
-
-const Avatar: FC<AvatarProps> = ({
-	icon,
-	title,
-	description,
-	size,
-	square,
-	className,
-	src,
-	alt,
-	group,
-	initials,
-}) => {
-	const [error, setError] = useState(false)
-
-	if (src && !error)
-		return (
-			<AvatarImage
-				src={src}
-				onError={() => setError(true)}
-				square={square}
-				size={size}
-				alt={alt}
-				group={group}
-				className={className}
-			/>
-		)
-	if (icon)
-		return (
-			<AvatarIcon className={className}>{icon || <PhotoIcon />}</AvatarIcon>
-		)
-
-	return <AvatarInitial className={className}>{initials}</AvatarInitial>
-}
-
-const avatarImageVariants = cva(
-	"inline-block rounded-full outline -outline-offset-1 outline-black/5 dark:outline-white/10",
+const avatarVariants = cva(
+	"outline -outline-offset-1 outline-black/5 dark:outline-white/10",
 	{
 		variants: {
+			variant: {
+				image: "",
+				icon: "overflow-hidden",
+				initial: "bg-gray-500 dark:bg-gray-800",
+			},
 			size: {
-				xs: "size-6",
-				sm: "size-8",
-				md: "size-10",
-				lg: "size-12",
-				xl: "size-14",
+				xs: "size-6 text-xs",
+				sm: "size-8 text-sm",
+				md: "size-10 text-base",
+				lg: "size-12 text-lg",
+				xl: "size-14 text-xl",
+				xxl: "size-16 text-2xl",
 			},
 			square: {
 				true: "rounded-md",
@@ -68,10 +30,38 @@ const avatarImageVariants = cva(
 				false: "",
 			},
 			isolate: {
-				true: "relative z-30",
+				true: "relative",
 				false: "",
 			},
+			level: {
+				1: "z-90",
+				2: "z-80",
+				3: "z-70",
+				4: "z-60",
+				5: "z-50",
+				6: "z-40",
+				7: "z-30",
+				8: "z-20",
+				9: "z-10",
+				10: "z-0",
+			},
 		},
+		compoundVariants: [
+			{
+				variant: ["image", "icon", "initial"],
+				className: "inline-flex items-center justify-center",
+			},
+			{
+				variant: ["image", "icon"],
+				className:
+					"bg-gray-100 dark:bg-gray-800 text-gray-300 dark:text-gray-600",
+			},
+			{
+				variant: "initial",
+				size: ["xs", "sm", "md", "lg", "xl", "xxl"],
+				className: "font-medium text-white",
+			},
+		],
 		defaultVariants: {
 			size: "md",
 			square: false,
@@ -79,141 +69,92 @@ const avatarImageVariants = cva(
 	}
 )
 
-export interface AvatarImageProps
-	extends ComponentPropsWithRef<"img">,
-		VariantProps<typeof avatarImageVariants> {
+export interface AvatarProps
+	extends Omit<VariantProps<typeof avatarVariants>, "variant"> {
+	icon?: ReactNode
+	initials?: string
+	src?: string
+	alt?: string
 	className?: string
 }
 
-const AvatarImage = forwardRef<HTMLImageElement, AvatarImageProps>(
-	({ className, src, size, square, isolate, ...props }, ref) => {
+const Avatar: FC<AvatarProps> = ({
+	icon,
+	size,
+	square,
+	className,
+	src,
+	alt,
+	group,
+	initials,
+	isolate,
+	level,
+}) => {
+	const [error, setError] = useState(false)
+
+	if (src && !error)
 		return (
 			<img
-				ref={ref}
-				alt={""}
 				src={src}
+				onError={() => setError(true)}
+				onLoad={() => setError(false)}
+				alt={alt}
 				className={twx(
-					avatarImageVariants({
+					avatarVariants({
+						variant: "image",
 						size,
 						square,
+						group,
 						isolate,
+						level,
 						className,
 					})
 				)}
-				{...props}
+				data-slot={"avatar"}
 			/>
 		)
-	}
-)
-AvatarImage.displayName = "AvatarImage"
 
-const avatarIconVariants = cva(
-	"inline-block size-6 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10 text-gray-300 dark:text-gray-600 *:data-[slot=icon]:size-full",
-	{
-		variants: {
-			size: {
-				xs: "size-6",
-				sm: "size-8",
-				md: "size-10",
-				lg: "size-12",
-				xl: "size-14",
-			},
-			square: {
-				true: "rounded-md",
-				false: "rounded-full",
-			},
-			group: {
-				true: "ring-2 ring-white dark:ring-gray-900",
-				false: "",
-			},
-		},
-		defaultVariants: {
-			size: "md",
-			square: false,
-		},
-	}
-)
-
-export interface AvatarIconProps
-	extends ComponentPropsWithRef<"span">,
-		VariantProps<typeof avatarIconVariants> {
-	className?: string
-}
-
-const AvatarIcon = forwardRef<HTMLSpanElement, AvatarIconProps>(
-	({ className, size, square, children, ...props }, ref) => {
+	if (initials)
 		return (
 			<span
-				ref={ref}
 				className={twx(
-					avatarIconVariants({
+					avatarVariants({
+						variant: "initial",
 						size,
 						square,
+						group,
+						isolate,
+						level,
 						className,
 					})
 				)}
-				{...props}
+				data-slot={"avatar"}
 			>
-				{children}
+				{initials}
 			</span>
 		)
-	}
-)
-AvatarIcon.displayName = "AvatarIcon"
 
-const avatarInitialVariants = cva(
-	"inline-flex items-center justify-center bg-gray-500 dark:bg-gray-800 outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10",
-	{
-		variants: {
-			size: {
-				xs: "size-6",
-				sm: "size-8",
-				md: "size-10",
-				lg: "size-12",
-				xl: "size-14",
-			},
-			square: {
-				true: "rounded-md",
-				false: "rounded-full",
-			},
-			group: {
-				true: "ring-2 ring-white dark:ring-gray-900",
-				false: "",
-			},
-		},
-		defaultVariants: {
-			size: "md",
-			square: false,
-		},
-	}
-)
-
-export interface AvatarInitialProps
-	extends ComponentPropsWithRef<"span">,
-		VariantProps<typeof avatarIconVariants> {
-	className?: string
+	return (
+		<span
+			className={twx(
+				avatarVariants({
+					variant: "icon",
+					size,
+					square,
+					group,
+					isolate,
+					level,
+					className,
+				})
+			)}
+			data-slot={"avatar"}
+		>
+			{icon || (
+				<UserIcon className={"size-full text-gray-300 dark:text-gray-600"} />
+			)}
+		</span>
+	)
 }
-
-const AvatarInitial = forwardRef<HTMLSpanElement, AvatarInitialProps>(
-	({ className, size, square, children, ...props }, ref) => {
-		return (
-			<span
-				ref={ref}
-				className={twx(
-					avatarInitialVariants({
-						size,
-						square,
-						className,
-					})
-				)}
-				{...props}
-			>
-				<span className={"text-xs font-medium text-white"}>{children}</span>
-			</span>
-		)
-	}
-)
-AvatarInitial.displayName = "AvatarInitial"
 
 const avatarGroupVariants = cva("flex items-center overflow-hidden", {
 	variants: {
@@ -256,4 +197,127 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 )
 AvatarGroup.displayName = "AvatarGroup"
 
-export { Avatar, AvatarGroup }
+export interface AvatarButtonProps
+	extends ComponentPropsWithRef<"button">,
+		AvatarProps {
+	className?: string
+	title?: string
+	description?: string
+	href?: string
+}
+
+const AvatarButton = forwardRef<HTMLButtonElement, AvatarButtonProps>(
+	({ className, ...props }, ref) => {
+		return (
+			<button
+				type={"button"}
+				ref={ref}
+				role={"button"}
+				data-slot={"avatar-button"}
+				className={twx("group block shrink-0", className)}
+				{...props}
+			/>
+		)
+	}
+)
+AvatarButton.displayName = "AvatarButton"
+
+export interface AvatarLinkProps
+	extends ComponentPropsWithRef<"a">,
+		AvatarProps {
+	className?: string
+	title?: string
+	description?: string
+	href?: string
+}
+
+const AvatarLink = forwardRef<HTMLAnchorElement, AvatarLinkProps>(
+	({ className, ...props }, ref) => {
+		return (
+			<a
+				type={"button"}
+				ref={ref}
+				role={"link"}
+				data-slot={"avatar-link"}
+				className={twx("group block shrink-0", className)}
+				{...props}
+			/>
+		)
+	}
+)
+AvatarLink.displayName = "AvatarLink"
+
+interface AvatarMetaProps
+	extends ComponentPropsWithRef<"div">,
+		Pick<AvatarProps, "size"> {
+	className?: string
+	avatar?: ReactNode
+	title?: string
+	description?: string
+	classNames?: {
+		avatar?: string
+		body?: string
+		title?: string
+		description?: string
+	}
+}
+
+const AvatarMeta = forwardRef<HTMLDivElement, AvatarMetaProps>(
+	(
+		{
+			className,
+			avatar,
+			title,
+			description,
+			classNames,
+			size = "md",
+			...props
+		},
+		ref
+	) => {
+		return (
+			<div
+				ref={ref}
+				data-slot={"avatar-meta"}
+				className={twx("flex items-center", className)}
+				{...props}
+			>
+				<div className={twx(classNames?.avatar)}>{avatar}</div>
+				<div className={twx("ml-3", classNames?.body)}>
+					<h4
+						className={twx(
+							"text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white",
+							{
+								"text-xs": size === "sm",
+								"text-sm": size === "md",
+								"text-base": size === "lg",
+								"text-lg": size === "xl",
+								"text-xl": size === "xxl",
+							},
+							classNames?.title
+						)}
+					>
+						{title}
+					</h4>
+					<p
+						className={twx(
+							"text-xs mt-1 font-medium text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300",
+							{
+								"text-xs": size === "md",
+								"text-sm": size === "lg",
+								"text-base": size === "xl",
+								"text-lg": size === "xxl",
+							},
+							classNames?.description
+						)}
+					>
+						{description}
+					</p>
+				</div>
+			</div>
+		)
+	}
+)
+AvatarMeta.displayName = "AvatarMeta"
+
+export { Avatar, AvatarButton, AvatarGroup, AvatarLink, AvatarMeta }
