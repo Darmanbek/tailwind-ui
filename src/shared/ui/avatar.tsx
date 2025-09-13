@@ -70,12 +70,18 @@ const avatarVariants = cva(
 )
 
 export interface AvatarProps
-	extends Omit<VariantProps<typeof avatarVariants>, "variant"> {
+	extends ComponentPropsWithRef<"span">,
+		Omit<VariantProps<typeof avatarVariants>, "variant"> {
 	icon?: ReactNode
 	initials?: string
 	src?: string
 	alt?: string
 	className?: string
+	classNames?: {
+		image?: string
+		icon?: string
+		initials?: string
+	}
 }
 
 const Avatar: FC<AvatarProps> = ({
@@ -89,29 +95,32 @@ const Avatar: FC<AvatarProps> = ({
 	initials,
 	isolate,
 	level,
+	classNames,
 }) => {
 	const [error, setError] = useState(false)
 
 	if (src && !error)
 		return (
-			<img
-				src={src}
-				onError={() => setError(true)}
-				onLoad={() => setError(false)}
-				alt={alt}
-				className={twx(
-					avatarVariants({
-						variant: "image",
-						size,
-						square,
-						group,
-						isolate,
-						level,
-						className,
-					})
-				)}
-				data-slot={"avatar"}
-			/>
+			<span className={twx("inline-block shrink-0", className)}>
+				<img
+					src={src}
+					onError={() => setError(true)}
+					onLoad={() => setError(false)}
+					alt={alt}
+					className={twx(
+						avatarVariants({
+							variant: "image",
+							size,
+							square,
+							group,
+							isolate,
+							level,
+							className: classNames?.image,
+						})
+					)}
+					data-slot={"avatar"}
+				/>
+			</span>
 		)
 
 	if (initials)
@@ -130,7 +139,9 @@ const Avatar: FC<AvatarProps> = ({
 				)}
 				data-slot={"avatar"}
 			>
-				{initials}
+				<span className={twx("font-medium text-white", classNames?.initials)}>
+					{initials}
+				</span>
 			</span>
 		)
 
@@ -150,7 +161,12 @@ const Avatar: FC<AvatarProps> = ({
 			data-slot={"avatar"}
 		>
 			{icon || (
-				<UserIcon className={"size-full text-gray-300 dark:text-gray-600"} />
+				<UserIcon
+					className={twx(
+						"size-full text-gray-300 dark:text-gray-600",
+						classNames?.icon
+					)}
+				/>
 			)}
 		</span>
 	)
@@ -197,13 +213,8 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 )
 AvatarGroup.displayName = "AvatarGroup"
 
-export interface AvatarButtonProps
-	extends ComponentPropsWithRef<"button">,
-		AvatarProps {
+export interface AvatarButtonProps extends ComponentPropsWithRef<"button"> {
 	className?: string
-	title?: string
-	description?: string
-	href?: string
 }
 
 const AvatarButton = forwardRef<HTMLButtonElement, AvatarButtonProps>(
@@ -222,13 +233,8 @@ const AvatarButton = forwardRef<HTMLButtonElement, AvatarButtonProps>(
 )
 AvatarButton.displayName = "AvatarButton"
 
-export interface AvatarLinkProps
-	extends ComponentPropsWithRef<"a">,
-		AvatarProps {
+export interface AvatarLinkProps extends ComponentPropsWithRef<"a"> {
 	className?: string
-	title?: string
-	description?: string
-	href?: string
 }
 
 const AvatarLink = forwardRef<HTMLAnchorElement, AvatarLinkProps>(

@@ -3,14 +3,25 @@ import { twx } from "src/shared/lib"
 
 interface StackProps {
 	className?: string
+	size?: "xs" | "sm" | "md" | "lg"
 }
 
-const Stack: FC<PropsWithChildren<StackProps>> = ({ children, className }) => {
+const Stack: FC<PropsWithChildren<StackProps>> = ({
+	children,
+	className,
+	size = "lg",
+}) => {
 	return (
 		<>
 			<div
 				className={twx(
-					"flex flex-wrap gap-10 justify-center items-center",
+					"flex flex-wrap justify-center items-center",
+					{
+						"gap-4": size === "xs",
+						"gap-6": size === "sm",
+						"gap-8": size === "md",
+						"gap-10": size === "lg",
+					},
 					className
 				)}
 			>

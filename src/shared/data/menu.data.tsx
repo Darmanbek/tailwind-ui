@@ -214,7 +214,7 @@ export const menuData: MenuGroupItem[] = [
 				name: "Avatars",
 				Icon: Squares2X2Icon,
 				href: "/elements/avatars",
-				extra: "3",
+				extra: "11",
 			},
 			{
 				name: "Badges",
