@@ -1,39 +1,247 @@
-import { forwardRef, type HTMLAttributes } from "react"
+import type { VariantProps } from "class-variance-authority"
+import { cva } from "class-variance-authority"
+import type { ComponentPropsWithRef, SVGProps } from "react"
+import { forwardRef } from "react"
 import { twx } from "src/shared/lib/twx.ts"
-import { type ColorPreset } from "src/shared/types"
+import { DotIcon, XIcon } from "./icons"
 
-export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-	color?: ColorPreset
+const badgeVariants = cva(
+	"inline-flex items-center px-2 py-1 text-xs font-medium inset-ring",
+	{
+		variants: {
+			color: {
+				default: "",
+				red: "",
+				yellow: "",
+				green: "",
+				blue: "",
+				indigo: "",
+				purple: "",
+				pink: "",
+			},
+			dot: {
+				true: "gap-x-1.5 text-gray-900 dark:text-white inset-ring-gray-200 dark:inset-ring-white/10",
+				false: "",
+			},
+			pill: {
+				true: "rounded-full",
+				false: "rounded-md",
+			},
+			button: {
+				true: "gap-x-0.5",
+				false: "",
+			},
+		},
+		compoundVariants: [
+			{
+				color: "default",
+				dot: false,
+				className:
+					"bg-gray-50 dark:bg-gray-400/10 text-gray-600 dark:text-gray-400 inset-ring-gray-500/10 dark:inset-ring-gray-400/20",
+			},
+			{
+				color: "red",
+				dot: false,
+				className:
+					"bg-red-50 dark:bg-red-400/10 text-red-700 dark:text-red-400 inset-ring-red-600/10 dark:inset-ring-red-400/20",
+			},
+			{
+				color: "yellow",
+				dot: false,
+				className:
+					"bg-yellow-50 dark:bg-yellow-400/10 text-yellow-800 dark:text-yellow-400 inset-ring-yellow-600/20 dark:inset-ring-yellow-400/20",
+			},
+			{
+				color: "green",
+				dot: false,
+				className:
+					"bg-green-50 dark:bg-green-400/10 text-green-700 dark:text-green-400 inset-ring-green-600/20 dark:inset-ring-green-400/20",
+			},
+			{
+				color: "blue",
+				dot: false,
+				className:
+					"bg-blue-50 dark:bg-blue-400/10 text-blue-700 dark:text-blue-400 inset-ring-blue-700/10 dark:inset-ring-blue-400/20",
+			},
+			{
+				color: "indigo",
+				dot: false,
+				className:
+					"bg-indigo-50 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-400 inset-ring-indigo-700/10 dark:inset-ring-indigo-400/20",
+			},
+			{
+				color: "purple",
+				dot: false,
+				className:
+					"bg-purple-50 dark:bg-purple-400/10 text-purple-700 dark:text-purple-400 inset-ring-purple-700/10 dark:inset-ring-purple-400/20",
+			},
+			{
+				color: "pink",
+				dot: false,
+				className:
+					"bg-pink-50 dark:bg-pink-400/10 text-pink-700 dark:text-pink-400 inset-ring-pink-700/10 dark:inset-ring-pink-400/20",
+			},
+		],
+		defaultVariants: {
+			color: "default",
+			pill: false,
+			dot: false,
+		},
+	}
+)
+
+export interface BadgeProps
+	extends Omit<ComponentPropsWithRef<"span">, "color">,
+		VariantProps<typeof badgeVariants> {
+	className?: string
+	classNames?: {
+		dot?: string
+		button?: string
+		icon?: string
+	}
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-	({ className, color, ...props }, ref) => {
+	(
+		{ className, classNames, color, pill, dot, children, button, ...props },
+		ref
+	) => {
 		return (
 			<span
 				ref={ref}
 				className={twx(
-					"inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10",
-					{
-						"bg-gray-50 text-gray-600 ring-gray-500/10": color === "default",
-						"bg-red-50 text-red-700 ring-red-600/10": color === "red",
-						"bg-yellow-50 text-yellow-800 ring-yellow-600/20":
-							color === "yellow",
-						"bg-green-50 text-green-700 ring-green-600/20": color === "green",
-						"bg-blue-50 text-blue-700 ring-blue-700/10": color === "blue",
-						"bg-indigo-50 text-indigo-700 ring-indigo-700/10":
-							color === "indigo",
-						"bg-purple-50 text-purple-700 ring-purple-700/10":
-							color === "purple",
-						"bg-pink-50 text-pink-700 ring-gray-pink-700/10":
-							color === "default"
-					},
-					className
+					badgeVariants({
+						color,
+						pill,
+						dot,
+						button,
+						className,
+					})
 				)}
+				{...props}
+			>
+				{dot && (
+					<BadgeDot
+						color={color}
+						className={classNames?.dot}
+					/>
+				)}
+				{children}
+				{button && (
+					<BadgeButton
+						color={color}
+						className={classNames?.button}
+						classNames={{ icon: classNames?.icon }}
+					/>
+				)}
+			</span>
+		)
+	}
+)
+Badge.displayName = "Badge"
+
+const badgeDotVariants = cva("size-1.5", {
+	variants: {
+		color: {
+			default: "fill-gray-500",
+			red: "fill-red-500",
+			yellow: "fill-yellow-500",
+			green: "fill-green-500",
+			blue: "fill-blue-500",
+			indigo: "fill-indigo-500",
+			purple: "fill-purple-500",
+			pink: "fill-pink-500",
+		},
+	},
+	defaultVariants: {
+		color: "default",
+	},
+})
+export interface BadgeDotProps
+	extends Omit<SVGProps<SVGSVGElement>, "color">,
+		VariantProps<typeof badgeDotVariants> {
+	className?: string
+}
+
+const BadgeDot = forwardRef<SVGSVGElement, BadgeDotProps>(
+	({ className, color, ...props }, ref) => {
+		return (
+			<DotIcon
+				className={twx(badgeDotVariants({ color, className }))}
+				ref={ref}
 				{...props}
 			/>
 		)
 	}
 )
-Badge.displayName = "Badge"
+BadgeDot.displayName = "BadgeDot"
+
+const badgeButtonVariants = cva("group relative -mr-1 size-3.5 rounded-xs", {
+	variants: {
+		color: {
+			default: "hover:bg-gray-500/20",
+			red: "hover:bg-red-500/20",
+			yellow: "hover:bg-yellow-500/20",
+			green: "hover:bg-green-500/20",
+			blue: "hover:bg-blue-500/20",
+			indigo: "hover:bg-indigo-500/20",
+			purple: "hover:bg-purple-500/20",
+			pink: "hover:bg-pink-500/20",
+		},
+	},
+	defaultVariants: {
+		color: "default",
+	},
+})
+
+const badgeButtonIconVariants = cva("size-3.5", {
+	variants: {
+		color: {
+			default: "stroke-gray-600/50 group-hover:stroke-gray-600/75",
+			red: "stroke-red-600/50 group-hover:stroke-red-600/75",
+			yellow: "stroke-yellow-600/50 group-hover:stroke-yellow-600/75",
+			green: "stroke-green-600/50 group-hover:stroke-green-600/75",
+			blue: "stroke-blue-600/50 group-hover:stroke-blue-600/75",
+			indigo: "stroke-indigo-600/50 group-hover:stroke-indigo-600/75",
+			purple: "stroke-purple-600/50 group-hover:stroke-purple-600/75",
+			pink: "stroke-pink-600/50 group-hover:stroke-pink-600/75",
+		},
+	},
+	defaultVariants: {
+		color: "default",
+	},
+})
+
+export interface BadgeButtonProps
+	extends Omit<ComponentPropsWithRef<"button">, "color">,
+		VariantProps<typeof badgeButtonVariants> {
+	className?: string
+	classNames?: {
+		icon?: string
+	}
+}
+
+const BadgeButton = forwardRef<HTMLButtonElement, BadgeButtonProps>(
+	({ className, classNames, color, ...props }, ref) => {
+		return (
+			<button
+				type={"button"}
+				className={twx(badgeButtonVariants({ color, className }))}
+				ref={ref}
+				{...props}
+			>
+				<span className={"sr-only"}>Remove</span>
+				<XIcon
+					className={badgeButtonIconVariants({
+						color,
+						className: classNames?.icon,
+					})}
+				/>
+				<span className={"absolute -inset-1"}></span>
+			</button>
+		)
+	}
+)
+BadgeButton.displayName = "BadgeButton"
 
 export { Badge }

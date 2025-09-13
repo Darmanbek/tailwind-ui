@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { DotIcon, XIcon } from "src/shared/ui/icons"
+import { Badge } from "src/shared/ui"
+import { XIcon } from "src/shared/ui/icons"
 import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
@@ -15,62 +16,14 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack size={"sm"}>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 inset-ring inset-ring-gray-500/10 dark:inset-ring-gray-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-red-50 dark:bg-red-400/10 px-2 py-1 text-xs font-medium text-red-700 dark:text-red-400 inset-ring inset-ring-red-600/10 dark:inset-ring-red-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-400 inset-ring inset-ring-yellow-600/20 dark:inset-ring-yellow-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-green-50 dark:bg-green-400/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400 inset-ring inset-ring-green-600/20 dark:inset-ring-green-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-400 inset-ring inset-ring-blue-700/10 dark:inset-ring-blue-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-400/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 inset-ring inset-ring-indigo-700/10 dark:inset-ring-indigo-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-400 inset-ring inset-ring-purple-700/10 dark:inset-ring-purple-400/20"
-						}
-					>
-						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-md bg-pink-50 dark:bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-700 dark:text-pink-400 inset-ring inset-ring-pink-700/10 dark:inset-ring-pink-400/20"
-						}
-					>
-						Badge
-					</span>
+					<Badge>Badge</Badge>
+					<Badge color={"red"}>Badge</Badge>
+					<Badge color={"yellow"}>Badge</Badge>
+					<Badge color={"green"}>Badge</Badge>
+					<Badge color={"blue"}>Badge</Badge>
+					<Badge color={"indigo"}>Badge</Badge>
+					<Badge color={"purple"}>Badge</Badge>
+					<Badge color={"pink"}>Badge</Badge>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -78,70 +31,54 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack size={"xs"}>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					<Badge
+						dot={true}
+						color={"default"}
 					>
-						<DotIcon className={"size-1.5 fill-gray-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"red"}
 					>
-						<DotIcon className={"size-1.5 fill-red-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"yellow"}
 					>
-						<DotIcon className={"size-1.5 fill-yellow-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"green"}
 					>
-						<DotIcon className={"size-1.5 fill-green-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"blue"}
 					>
-						<DotIcon className={"size-1.5 fill-blue-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"indigo"}
 					>
-						<DotIcon className={"size-1.5 fill-indigo-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"purple"}
 					>
-						<DotIcon className={"size-1.5 fill-purple-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						color={"pink"}
 					>
-						<DotIcon className={"size-1.5 fill-pink-500"} />
 						Badge
-					</span>
+					</Badge>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -149,62 +86,54 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack size={"sm"}>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-gray-50 dark:bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-600 dark:text-gray-400 inset-ring inset-ring-gray-500/10 dark:inset-ring-gray-400/20"
-						}
+					<Badge
+						pill={true}
+						color={"default"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-red-50 dark:bg-red-400/10 px-2 py-1 text-xs font-medium text-red-700 dark:text-red-400 inset-ring inset-ring-red-600/10 dark:inset-ring-red-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"red"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-yellow-50 dark:bg-yellow-400/10 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-400 inset-ring inset-ring-yellow-600/20 dark:inset-ring-yellow-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"yellow"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-green-50 dark:bg-green-400/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400 inset-ring inset-ring-green-600/20 dark:inset-ring-green-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"green"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-400 inset-ring inset-ring-blue-700/10 dark:inset-ring-blue-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"blue"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-indigo-50 dark:bg-indigo-400/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 inset-ring inset-ring-indigo-700/10 dark:inset-ring-indigo-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"indigo"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-purple-50 dark:bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-400 inset-ring inset-ring-purple-700/10 dark:inset-ring-purple-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"purple"}
 					>
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center rounded-full bg-pink-50 dark:bg-pink-400/10 px-2 py-1 text-xs font-medium text-pink-700 dark:text-pink-400 inset-ring inset-ring-pink-700/10 dark:inset-ring-pink-400/20"
-						}
+					</Badge>
+					<Badge
+						pill={true}
+						color={"pink"}
 					>
 						Badge
-					</span>
+					</Badge>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
@@ -212,70 +141,62 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack size={"xs"}>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					<Badge
+						dot={true}
+						pill={true}
+						color={"default"}
 					>
-						<DotIcon className={"size-1.5 fill-gray-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"red"}
 					>
-						<DotIcon className={"size-1.5 fill-red-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"yellow"}
 					>
-						<DotIcon className={"size-1.5 fill-yellow-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"green"}
 					>
-						<DotIcon className={"size-1.5 fill-green-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"blue"}
 					>
-						<DotIcon className={"size-1.5 fill-blue-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"indigo"}
 					>
-						<DotIcon className={"size-1.5 fill-indigo-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"purple"}
 					>
-						<DotIcon className={"size-1.5 fill-purple-500"} />
 						Badge
-					</span>
-					<span
-						className={
-							"inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-gray-900 dark:text-white inset-ring inset-ring-gray-200 dark:inset-ring-white/10           "
-						}
+					</Badge>
+					<Badge
+						dot={true}
+						pill={true}
+						color={"pink"}
 					>
-						<DotIcon className={"size-1.5 fill-pink-500"} />
 						Badge
-					</span>
+					</Badge>
 				</Stack>
 			</ResizeContainer>
 			<ResizeContainer
