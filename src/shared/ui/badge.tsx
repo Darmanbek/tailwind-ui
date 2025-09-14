@@ -10,17 +10,26 @@ const badgeVariants = cva(
 	{
 		variants: {
 			color: {
-				default: "",
-				red: "",
-				yellow: "",
-				green: "",
-				blue: "",
-				indigo: "",
-				purple: "",
-				pink: "",
+				default:
+					"bg-gray-50 dark:bg-gray-400/10 text-gray-600 dark:text-gray-400",
+				red: "bg-red-50 dark:bg-red-400/10 text-red-700 dark:text-red-400",
+				yellow:
+					"bg-yellow-50 dark:bg-yellow-400/10 text-yellow-800 dark:text-yellow-400",
+				green:
+					"bg-green-50 dark:bg-green-400/10 text-green-700 dark:text-green-400",
+				blue: "bg-blue-50 dark:bg-blue-400/10 text-blue-700 dark:text-blue-400",
+				indigo:
+					"bg-indigo-50 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-400",
+				purple:
+					"bg-purple-50 dark:bg-purple-400/10 text-purple-700 dark:text-purple-400",
+				pink: "bg-pink-50 dark:bg-pink-400/10 text-pink-700 dark:text-pink-400",
+			},
+			size: {
+				default: "px-2 py-1",
+				sm: "px-1.5 py-0.5",
 			},
 			dot: {
-				true: "gap-x-1.5 text-gray-900 dark:text-white inset-ring-gray-200 dark:inset-ring-white/10",
+				true: "gap-x-1.5",
 				false: "",
 			},
 			pill: {
@@ -37,149 +46,6 @@ const badgeVariants = cva(
 			},
 		},
 		compoundVariants: [
-			// default
-			{
-				color: "default",
-				flat: false,
-				dot: false,
-				className: "bg-gray-50",
-			},
-			{
-				color: "red",
-				flat: false,
-				dot: false,
-				className: "bg-red-50",
-			},
-			{
-				color: "yellow",
-				flat: false,
-				dot: false,
-				className: "bg-yellow-50",
-			},
-			{
-				color: "green",
-				flat: false,
-				dot: false,
-				className: "bg-green-50",
-			},
-			{
-				color: "blue",
-				flat: false,
-				dot: false,
-				className: "bg-blue-50",
-			},
-			{
-				color: "indigo",
-				flat: false,
-				dot: false,
-				className: "bg-indigo-50",
-			},
-			{
-				color: "purple",
-				flat: false,
-				dot: false,
-				className: "bg-purple-50",
-			},
-			{
-				color: "pink",
-				flat: false,
-				dot: false,
-				className: "bg-pink-50",
-			},
-
-			// flat
-			{
-				color: "default",
-				flat: true,
-				dot: false,
-				className: "bg-gray-100",
-			},
-			{
-				color: "red",
-				flat: true,
-				dot: false,
-				className: "bg-red-100",
-			},
-			{
-				color: "yellow",
-				flat: true,
-				dot: false,
-				className: "bg-yellow-100",
-			},
-			{
-				color: "green",
-				flat: true,
-				dot: false,
-				className: "bg-green-100",
-			},
-			{
-				color: "blue",
-				flat: true,
-				dot: false,
-				className: "bg-blue-100",
-			},
-			{
-				color: "indigo",
-				flat: true,
-				dot: false,
-				className: "bg-indigo-100",
-			},
-			{
-				color: "purple",
-				flat: true,
-				dot: false,
-				className: "bg-purple-100",
-			},
-			{
-				color: "pink",
-				flat: true,
-				dot: false,
-				className: "bg-pink-100",
-			},
-
-			// default
-			{
-				color: "default",
-				dot: false,
-				className: "dark:bg-gray-400/10 text-gray-600 dark:text-gray-400",
-			},
-			{
-				color: "red",
-				dot: false,
-				className: "dark:bg-red-400/10 text-red-700 dark:text-red-400",
-			},
-			{
-				color: "yellow",
-				dot: false,
-				className: "dark:bg-yellow-400/10 text-yellow-800 dark:text-yellow-400",
-			},
-			{
-				color: "green",
-				dot: false,
-				className: "dark:bg-green-400/10 text-green-700 dark:text-green-400",
-			},
-			{
-				color: "blue",
-				dot: false,
-				className: "dark:bg-blue-400/10 text-blue-700 dark:text-blue-400",
-			},
-			{
-				color: "indigo",
-				dot: false,
-				className: "dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-400",
-			},
-			{
-				color: "purple",
-				dot: false,
-				className: "dark:bg-purple-400/10 text-purple-700 dark:text-purple-400",
-			},
-			{
-				color: "pink",
-				dot: false,
-				className: "dark:bg-pink-400/10 text-pink-700 dark:text-pink-400",
-			},
-
-			// default
 			{
 				color: "default",
 				flat: false,
@@ -220,9 +86,64 @@ const badgeVariants = cva(
 				flat: false,
 				className: "inset-ring-pink-700/10 dark:inset-ring-pink-400/20",
 			},
+
+			{
+				flat: false,
+				dot: true,
+				className:
+					"bg-transparent dark:bg-transparent text-gray-900 dark:text-white",
+			},
+
+			{
+				flat: false,
+				dot: true,
+				className: "inset-ring-gray-200 dark:inset-ring-white/10",
+			},
+
+			{
+				color: "default",
+				flat: true,
+				className: "bg-gray-100",
+			},
+			{
+				color: "red",
+				flat: true,
+				className: "bg-red-100",
+			},
+			{
+				color: "yellow",
+				flat: true,
+				className: "bg-yellow-100",
+			},
+			{
+				color: "green",
+				flat: true,
+				className: "bg-green-100",
+			},
+			{
+				color: "blue",
+				flat: true,
+				className: "bg-blue-100",
+			},
+			{
+				color: "indigo",
+				flat: true,
+				className: "bg-indigo-100",
+			},
+			{
+				color: "purple",
+				flat: true,
+				className: "bg-purple-100",
+			},
+			{
+				color: "pink",
+				flat: true,
+				className: "bg-pink-100",
+			},
 		],
 		defaultVariants: {
 			color: "default",
+			size: "default",
 			pill: false,
 			dot: false,
 			flat: false,
@@ -253,6 +174,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 			children,
 			button,
 			flat,
+			size,
 			onClose,
 			...props
 		},
@@ -264,6 +186,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 				className={twx(
 					badgeVariants({
 						color,
+						size,
 						pill,
 						dot,
 						button,
