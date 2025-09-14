@@ -6,7 +6,7 @@ import { twx } from "src/shared/lib/twx.ts"
 import { DotIcon, XIcon } from "./icons"
 
 const badgeVariants = cva(
-	"inline-flex items-center px-2 py-1 text-xs font-medium inset-ring",
+	"inline-flex items-center px-2 py-1 text-xs font-medium",
 	{
 		variants: {
 			color: {
@@ -31,61 +31,201 @@ const badgeVariants = cva(
 				true: "gap-x-0.5",
 				false: "",
 			},
+			flat: {
+				true: "",
+				false: "inset-ring",
+			},
 		},
 		compoundVariants: [
+			// default
+			{
+				color: "default",
+				flat: false,
+				dot: false,
+				className: "bg-gray-50",
+			},
+			{
+				color: "red",
+				flat: false,
+				dot: false,
+				className: "bg-red-50",
+			},
+			{
+				color: "yellow",
+				flat: false,
+				dot: false,
+				className: "bg-yellow-50",
+			},
+			{
+				color: "green",
+				flat: false,
+				dot: false,
+				className: "bg-green-50",
+			},
+			{
+				color: "blue",
+				flat: false,
+				dot: false,
+				className: "bg-blue-50",
+			},
+			{
+				color: "indigo",
+				flat: false,
+				dot: false,
+				className: "bg-indigo-50",
+			},
+			{
+				color: "purple",
+				flat: false,
+				dot: false,
+				className: "bg-purple-50",
+			},
+			{
+				color: "pink",
+				flat: false,
+				dot: false,
+				className: "bg-pink-50",
+			},
+
+			// flat
+			{
+				color: "default",
+				flat: true,
+				dot: false,
+				className: "bg-gray-100",
+			},
+			{
+				color: "red",
+				flat: true,
+				dot: false,
+				className: "bg-red-100",
+			},
+			{
+				color: "yellow",
+				flat: true,
+				dot: false,
+				className: "bg-yellow-100",
+			},
+			{
+				color: "green",
+				flat: true,
+				dot: false,
+				className: "bg-green-100",
+			},
+			{
+				color: "blue",
+				flat: true,
+				dot: false,
+				className: "bg-blue-100",
+			},
+			{
+				color: "indigo",
+				flat: true,
+				dot: false,
+				className: "bg-indigo-100",
+			},
+			{
+				color: "purple",
+				flat: true,
+				dot: false,
+				className: "bg-purple-100",
+			},
+			{
+				color: "pink",
+				flat: true,
+				dot: false,
+				className: "bg-pink-100",
+			},
+
+			// default
 			{
 				color: "default",
 				dot: false,
-				className:
-					"bg-gray-50 dark:bg-gray-400/10 text-gray-600 dark:text-gray-400 inset-ring-gray-500/10 dark:inset-ring-gray-400/20",
+				className: "dark:bg-gray-400/10 text-gray-600 dark:text-gray-400",
 			},
 			{
 				color: "red",
 				dot: false,
-				className:
-					"bg-red-50 dark:bg-red-400/10 text-red-700 dark:text-red-400 inset-ring-red-600/10 dark:inset-ring-red-400/20",
+				className: "dark:bg-red-400/10 text-red-700 dark:text-red-400",
 			},
 			{
 				color: "yellow",
 				dot: false,
-				className:
-					"bg-yellow-50 dark:bg-yellow-400/10 text-yellow-800 dark:text-yellow-400 inset-ring-yellow-600/20 dark:inset-ring-yellow-400/20",
+				className: "dark:bg-yellow-400/10 text-yellow-800 dark:text-yellow-400",
 			},
 			{
 				color: "green",
 				dot: false,
-				className:
-					"bg-green-50 dark:bg-green-400/10 text-green-700 dark:text-green-400 inset-ring-green-600/20 dark:inset-ring-green-400/20",
+				className: "dark:bg-green-400/10 text-green-700 dark:text-green-400",
 			},
 			{
 				color: "blue",
 				dot: false,
-				className:
-					"bg-blue-50 dark:bg-blue-400/10 text-blue-700 dark:text-blue-400 inset-ring-blue-700/10 dark:inset-ring-blue-400/20",
+				className: "dark:bg-blue-400/10 text-blue-700 dark:text-blue-400",
 			},
 			{
 				color: "indigo",
 				dot: false,
-				className:
-					"bg-indigo-50 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-400 inset-ring-indigo-700/10 dark:inset-ring-indigo-400/20",
+				className: "dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-400",
 			},
 			{
 				color: "purple",
 				dot: false,
-				className:
-					"bg-purple-50 dark:bg-purple-400/10 text-purple-700 dark:text-purple-400 inset-ring-purple-700/10 dark:inset-ring-purple-400/20",
+				className: "dark:bg-purple-400/10 text-purple-700 dark:text-purple-400",
 			},
 			{
 				color: "pink",
 				dot: false,
-				className:
-					"bg-pink-50 dark:bg-pink-400/10 text-pink-700 dark:text-pink-400 inset-ring-pink-700/10 dark:inset-ring-pink-400/20",
+				className: "dark:bg-pink-400/10 text-pink-700 dark:text-pink-400",
+			},
+
+			// default
+			{
+				color: "default",
+				flat: false,
+				className: "inset-ring-gray-500/10 dark:inset-ring-gray-400/20",
+			},
+			{
+				color: "red",
+				flat: false,
+				className: "inset-ring-red-600/10 dark:inset-ring-red-400/20",
+			},
+			{
+				color: "yellow",
+				flat: false,
+				className: "inset-ring-yellow-600/20 dark:inset-ring-yellow-400/20",
+			},
+			{
+				color: "green",
+				flat: false,
+				className: "inset-ring-green-600/20 dark:inset-ring-green-400/20",
+			},
+			{
+				color: "blue",
+				flat: false,
+				className: "inset-ring-blue-700/10 dark:inset-ring-blue-400/20",
+			},
+			{
+				color: "indigo",
+				flat: false,
+				className: "inset-ring-indigo-700/10 dark:inset-ring-indigo-400/20",
+			},
+			{
+				color: "purple",
+				flat: false,
+				className: "inset-ring-purple-700/10 dark:inset-ring-purple-400/20",
+			},
+			{
+				color: "pink",
+				flat: false,
+				className: "inset-ring-pink-700/10 dark:inset-ring-pink-400/20",
 			},
 		],
 		defaultVariants: {
 			color: "default",
 			pill: false,
 			dot: false,
+			flat: false,
 		},
 	}
 )
@@ -99,11 +239,23 @@ export interface BadgeProps
 		button?: string
 		icon?: string
 	}
+	onClose?: ComponentPropsWithRef<"button">["onClick"]
 }
 
 const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 	(
-		{ className, classNames, color, pill, dot, children, button, ...props },
+		{
+			className,
+			classNames,
+			color,
+			pill,
+			dot,
+			children,
+			button,
+			flat,
+			onClose,
+			...props
+		},
 		ref
 	) => {
 		return (
@@ -115,6 +267,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 						pill,
 						dot,
 						button,
+						flat,
 						className,
 					})
 				)}
@@ -132,6 +285,7 @@ const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
 						color={color}
 						className={classNames?.button}
 						classNames={{ icon: classNames?.icon }}
+						onClick={onClose}
 					/>
 				)}
 			</span>
@@ -176,23 +330,26 @@ const BadgeDot = forwardRef<SVGSVGElement, BadgeDotProps>(
 )
 BadgeDot.displayName = "BadgeDot"
 
-const badgeButtonVariants = cva("group relative -mr-1 size-3.5 rounded-xs", {
-	variants: {
-		color: {
-			default: "hover:bg-gray-500/20",
-			red: "hover:bg-red-500/20",
-			yellow: "hover:bg-yellow-500/20",
-			green: "hover:bg-green-500/20",
-			blue: "hover:bg-blue-500/20",
-			indigo: "hover:bg-indigo-500/20",
-			purple: "hover:bg-purple-500/20",
-			pink: "hover:bg-pink-500/20",
+const badgeButtonVariants = cva(
+	"group relative -mr-1 size-3.5 rounded-xs cursor-pointer",
+	{
+		variants: {
+			color: {
+				default: "hover:bg-gray-500/20",
+				red: "hover:bg-red-500/20",
+				yellow: "hover:bg-yellow-500/20",
+				green: "hover:bg-green-500/20",
+				blue: "hover:bg-blue-500/20",
+				indigo: "hover:bg-indigo-500/20",
+				purple: "hover:bg-purple-500/20",
+				pink: "hover:bg-pink-500/20",
+			},
 		},
-	},
-	defaultVariants: {
-		color: "default",
-	},
-})
+		defaultVariants: {
+			color: "default",
+		},
+	}
+)
 
 const badgeButtonIconVariants = cva("size-3.5", {
 	variants: {
