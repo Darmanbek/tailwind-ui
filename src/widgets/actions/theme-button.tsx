@@ -1,7 +1,7 @@
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline"
 import { type FC } from "react"
 import { useToggleTheme } from "src/shared/hooks"
-import { Button } from "src/shared/ui"
+import { Button, ButtonIcon } from "src/shared/ui"
 
 const ThemeButton: FC = () => {
 	const { isDark, toggleIsDark } = useToggleTheme()
@@ -12,17 +12,17 @@ const ThemeButton: FC = () => {
 		<>
 			<Button
 				variant={"text"}
-				className={"rounded-full"}
+				circular={true}
+				rounded={true}
 				size={"sm"}
 				onClick={toggleIsDark}
-				leadingIcon={
-					<Icon
-						aria-hidden={"true"}
-						className={"size-6"}
-					/>
-				}
 				srOnly={"Theme"}
-			/>
+			>
+				<ButtonIcon
+					icon={Icon}
+					size={"xxl"}
+				/>
+			</Button>
 		</>
 	)
 }

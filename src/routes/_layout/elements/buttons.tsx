@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@heroicons/react/20/solid"
 import { createFileRoute } from "@tanstack/react-router"
-import { Button } from "src/shared/ui"
+import { Button, ButtonIcon } from "src/shared/ui"
 import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
@@ -102,34 +102,45 @@ function RouteComponent() {
 				color={"white"}
 			>
 				<Stack size={"sm"}>
-					<Button
-						size={"xs"}
-						leadingIcon={<CheckCircleIcon />}
-					>
+					<Button size={"xs"}>
+						<ButtonIcon
+							icon={CheckCircleIcon}
+							variant={"leading"}
+							size={"xs"}
+						/>
 						Button XS
 					</Button>
-					<Button
-						size={"sm"}
-						leadingIcon={<CheckCircleIcon />}
-					>
+					<Button size={"sm"}>
+						<ButtonIcon
+							icon={CheckCircleIcon}
+							variant={"leading"}
+							size={"sm"}
+						/>
 						Button SM
 					</Button>
-					<Button
-						size={"md"}
-						leadingIcon={<CheckCircleIcon />}
-					>
+					<Button size={"md"}>
+						<ButtonIcon
+							icon={CheckCircleIcon}
+							variant={"leading"}
+							size={"md"}
+						/>
 						Button MD
 					</Button>
-					<Button
-						size={"lg"}
-						leadingIcon={<CheckCircleIcon />}
-					>
+					<Button size={"lg"}>
+						<ButtonIcon
+							icon={CheckCircleIcon}
+							variant={"leading"}
+							size={"lg"}
+						/>
 						Button LG
 					</Button>
-					<Button
-						size={"xl"}
-						leadingIcon={<CheckCircleIcon />}
-					>
+					<Button size={"xl"}>
+						<ButtonIcon
+							loading={true}
+							icon={CheckCircleIcon}
+							variant={"leading"}
+							size={"xl"}
+						/>
 						Button XL
 					</Button>
 				</Stack>
