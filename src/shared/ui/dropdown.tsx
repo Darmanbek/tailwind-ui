@@ -12,7 +12,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import { forwardRef, type ReactNode } from "react"
 import { twx } from "src/shared/lib"
 
-export interface DropdownProps extends MenuProps {
+export interface DropdownProps extends MenuProps<"div"> {
 	className?: string
 }
 
@@ -22,7 +22,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
 			<Menu
 				ref={ref}
 				as={"div"}
-				className={twx("relative inline-block text-left", className)}
+				className={twx("relative inline-block", className)}
 				{...props}
 			/>
 		)
@@ -30,14 +30,18 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
 )
 Dropdown.displayName = "Dropdown"
 
-interface DropdownButtonProps extends Omit<MenuButtonProps, "children"> {
+interface DropdownButtonProps
+	extends Omit<MenuButtonProps<"button">, "children"> {
 	className?: string
-	iconClassName?: string
+	classNames?: {
+		icon?: string
+	}
 	children?: ReactNode
+	srOnly?: string
 }
 
 const DropdownButton = forwardRef<HTMLButtonElement, DropdownButtonProps>(
-	({ className, iconClassName, children, ...props }, ref) => (
+	({ className, classNames, children, srOnly, ...props }, ref) => (
 		<MenuButton
 			ref={ref}
 			className={twx(
@@ -48,6 +52,7 @@ const DropdownButton = forwardRef<HTMLButtonElement, DropdownButtonProps>(
 		>
 			{({ open }) => (
 				<>
+					{srOnly && <span className={"sr-only"}>{srOnly}</span>}
 					{children}
 					<ChevronDownIcon
 						aria-hidden={"true"}
@@ -56,7 +61,7 @@ const DropdownButton = forwardRef<HTMLButtonElement, DropdownButtonProps>(
 							{
 								"rotate-180": open,
 							},
-							iconClassName
+							classNames?.icon
 						)}
 					/>
 				</>
@@ -65,6 +70,32 @@ const DropdownButton = forwardRef<HTMLButtonElement, DropdownButtonProps>(
 	)
 )
 DropdownButton.displayName = "DropdownButton"
+
+interface DropdownIconButtonProps
+	extends Omit<MenuButtonProps<"button">, "children"> {
+	className?: string
+	children?: ReactNode
+	srOnly?: string
+}
+
+const DropdownIconButton = forwardRef<
+	HTMLButtonElement,
+	DropdownIconButtonProps
+>(({ className, children, srOnly, ...props }, ref) => (
+	<MenuButton
+		ref={ref}
+		as={"button"}
+		className={twx(
+			"flex items-center rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300",
+			className
+		)}
+		{...props}
+	>
+		{srOnly && <span className={"sr-only"}>{srOnly}</span>}
+		{children}
+	</MenuButton>
+))
+DropdownIconButton.displayName = "DropdownIconButton"
 
 interface DropdownMenuItemsProps extends MenuItemsProps {
 	className?: string
@@ -76,7 +107,7 @@ const DropdownMenuItems = forwardRef<HTMLElement, DropdownMenuItemsProps>(
 			ref={ref}
 			transition={true}
 			className={twx(
-				"absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition focus:outline-hidden data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[enter]:ease-out data-[leave]:duration-75 data-[leave]:ease-in",
+				"absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-gray-800 not-dark:shadow-lg outline-1 dark:-outline-offset-1 outline-black/5 dark:outline-white/10 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in",
 				className
 			)}
 			{...props}
@@ -93,11 +124,14 @@ interface DropdownMenuItemProps extends MenuItemProps {
 
 const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
 	({ className, href, children, ...props }, ref) => (
-		<MenuItem ref={ref} {...props}>
+		<MenuItem
+			ref={ref}
+			{...props}
+		>
 			<a
 				href={href}
 				className={twx(
-					"block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900 data-focus:outline-hidden",
+					"block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 data-focus:bg-gray-100 dark:data-focus:bg-white/5 data-focus:text-gray-900 dark:data-focus:text-white data-focus:outline-hidden",
 					className
 				)}
 			>
@@ -108,4 +142,10 @@ const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
 )
 DropdownMenuItem.displayName = "DropdownMenuItem"
 
-export { Dropdown, DropdownButton, DropdownMenuItems, DropdownMenuItem }
+export {
+	Dropdown,
+	DropdownButton,
+	DropdownIconButton,
+	DropdownMenuItem,
+	DropdownMenuItems,
+}

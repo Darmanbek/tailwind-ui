@@ -220,7 +220,7 @@ export const menuData: MenuGroupItem[] = [
 				name: "Badges",
 				Icon: Squares2X2Icon,
 				href: "/elements/badges",
-				extra: "1",
+				extra: "15",
 			},
 			{
 				name: "Dropdowns",

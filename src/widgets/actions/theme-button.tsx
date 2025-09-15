@@ -13,7 +13,7 @@ const ThemeButton: FC = () => {
 			<Button
 				variant={"text"}
 				className={"rounded-full"}
-				size={"lg"}
+				size={"sm"}
 				onClick={toggleIsDark}
 				leadingIcon={
 					<Icon
