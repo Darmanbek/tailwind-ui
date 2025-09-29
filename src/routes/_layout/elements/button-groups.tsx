@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Button, ButtonGroup, Card } from "src/shared/ui"
+import { Button, ButtonGroup } from "src/shared/ui"
+import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
 export const Route = createFileRoute("/_layout/elements/button-groups")({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/_layout/elements/button-groups")({
 function RouteComponent() {
 	return (
 		<>
-			<Card>
+			<ResizeContainer color={"white"}>
 				<Stack>
 					<ButtonGroup>
 						<Button>First</Button>
@@ -17,8 +18,8 @@ function RouteComponent() {
 						<Button>Third</Button>
 					</ButtonGroup>
 				</Stack>
-			</Card>
-			<Card>
+			</ResizeContainer>
+			<ResizeContainer color={"white"}>
 				<Stack>
 					<ButtonGroup>
 						<Button variant={"secondary"}>First</Button>
@@ -26,7 +27,7 @@ function RouteComponent() {
 						<Button variant={"secondary"}>Third</Button>
 					</ButtonGroup>
 				</Stack>
-			</Card>
+			</ResizeContainer>
 		</>
 	)
 }

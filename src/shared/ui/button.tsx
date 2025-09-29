@@ -1,6 +1,6 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline"
 import { cva, type VariantProps } from "class-variance-authority"
-import type { ComponentPropsWithRef, SVGProps } from "react"
+import type { ComponentPropsWithRef, ReactNode } from "react"
 import { forwardRef } from "react"
 import { twx } from "src/shared/lib"
 
@@ -69,9 +69,15 @@ const buttonVariants = cva(
 
 export interface ButtonProps
 	extends Omit<ComponentPropsWithRef<"button">, "color">,
-		VariantProps<typeof buttonVariants> {
+		VariantProps<typeof buttonVariants>,
+		Omit<VariantProps<typeof buttonIconVariants>, "position"> {
 	color?: string
 	srOnly?: string
+	icon?: ReactNode
+	classNames?: {
+		icon?: string
+	}
+	iconPosition?: VariantProps<typeof buttonIconVariants>["position"]
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -85,10 +91,19 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			circular,
 			rounded,
 			loading,
+			icon,
+			iconPosition,
+			classNames,
 			...props
 		},
 		ref
 	) => {
+		const customIcon = loading ? (
+			<ArrowPathIcon className={"size-full"} />
+		) : (
+			icon
+		)
+
 		return (
 			<button
 				ref={ref}
@@ -99,7 +114,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 						variant,
 						size,
 						rounded,
-						circular,
+						circular: circular || !!(icon && !children),
 						className,
 						loading,
 					})
@@ -108,7 +123,27 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 			>
 				<span className={"absolute -inset-1.5"}></span>
 				{srOnly && <span className={"sr-only"}>{srOnly}</span>}
+				{icon && iconPosition !== "trailing" && (
+					<ButtonIcon
+						loading={loading}
+						position={children ? "leading" : iconPosition}
+						size={size}
+						className={classNames?.icon}
+					>
+						{customIcon}
+					</ButtonIcon>
+				)}
 				{children}
+				{icon && iconPosition === "trailing" && (
+					<ButtonIcon
+						loading={loading}
+						position={"leading"}
+						size={size}
+						className={classNames?.icon}
+					>
+						{customIcon}
+					</ButtonIcon>
+				)}
 			</button>
 		)
 	}
@@ -117,7 +152,7 @@ Button.displayName = "Button"
 
 const buttonIconVariants = cva("shrink-0", {
 	variants: {
-		variant: {
+		position: {
 			leading: "",
 			trailing: "",
 		},
@@ -127,7 +162,6 @@ const buttonIconVariants = cva("shrink-0", {
 			md: "size-4",
 			lg: "size-5",
 			xl: "size-5",
-			xxl: "size-6",
 		},
 		loading: {
 			true: "animate-spin",
@@ -136,33 +170,33 @@ const buttonIconVariants = cva("shrink-0", {
 	},
 	compoundVariants: [
 		{
-			variant: "leading",
+			position: "leading",
 			size: ["xs", "sm"],
 			className: "-ml-0.5",
 		},
 		{
-			variant: "leading",
+			position: "leading",
 			size: ["md", "lg"],
 			className: "-ml-0.75",
 		},
 		{
-			variant: "leading",
-			size: ["xl", "xxl"],
+			position: "leading",
+			size: ["xl"],
 			className: "-ml-1",
 		},
 		{
-			variant: "trailing",
+			position: "trailing",
 			size: ["xs", "sm"],
 			className: "-mr-0.5",
 		},
 		{
-			variant: "trailing",
+			position: "trailing",
 			size: ["md", "lg"],
 			className: "-mr-0.75",
 		},
 		{
-			variant: "trailing",
-			size: ["xl", "xxl"],
+			position: "trailing",
+			size: ["xl"],
 			className: "-mr-1",
 		},
 	],
@@ -172,29 +206,24 @@ const buttonIconVariants = cva("shrink-0", {
 })
 
 export interface ButtonIconProps
-	extends Omit<SVGProps<SVGSVGElement>, "children">,
+	extends ComponentPropsWithRef<"span">,
 		VariantProps<typeof buttonIconVariants> {
-	icon: typeof ArrowPathIcon
+	className?: string
 }
 
-const ButtonIcon = forwardRef<SVGSVGElement, ButtonIconProps>(
-	({ className, variant, size, icon: Icon, loading, ...props }, ref) => {
-		const Comp = loading ? ArrowPathIcon : Icon
-
+const ButtonIcon = forwardRef<HTMLSpanElement, ButtonIconProps>(
+	({ className, position, size, loading, ...props }, ref) => {
 		return (
-			<Comp
+			<span
 				ref={ref}
-				type={"button"}
-				aria-hidden={true}
 				className={twx(
 					buttonIconVariants({
 						size,
-						variant,
+						position,
 						loading,
 						className,
 					})
 				)}
-				data-slot={"icon"}
 				{...props}
 			/>
 		)
@@ -202,4 +231,4 @@ const ButtonIcon = forwardRef<SVGSVGElement, ButtonIconProps>(
 )
 Button.displayName = "Button"
 
-export { Button, ButtonIcon }
+export { Button }

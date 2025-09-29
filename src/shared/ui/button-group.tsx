@@ -12,9 +12,10 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 			<div
 				ref={ref}
 				className={twx(
-					"group isolate inline-flex rounded-md shadow-sm [&>button]:rounded-none [&_button:first-child]:rounded-l-md [&_button:last-child]:rounded-r-md",
+					"isolate inline-flex rounded-md shadow-xs *:not-first:not-last:rounded-none *:first:rounded-r-none *:last:rounded-l-none",
 					className
 				)}
+				data-slot={"button-group"}
 				{...props}
 			/>
 		)

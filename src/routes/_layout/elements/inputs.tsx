@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { Card, Input } from "src/shared/ui"
+import { Input } from "src/shared/ui"
+import { ResizeContainer } from "src/widgets/resize-container"
 import { Stack } from "src/widgets/stack"
 
 export const Route = createFileRoute("/_layout/elements/inputs")({
@@ -9,11 +10,11 @@ export const Route = createFileRoute("/_layout/elements/inputs")({
 function RouteComponent() {
 	return (
 		<>
-			<Card>
+			<ResizeContainer color={"white"}>
 				<Stack>
 					<Input className={"max-w-80"} placeholder={"input..."} />
 				</Stack>
-			</Card>
+			</ResizeContainer>
 		</>
 	)
 }
